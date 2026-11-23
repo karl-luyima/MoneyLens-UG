@@ -6,7 +6,7 @@ from app.models.transaction import Transaction
 from app.models.unparsed_message import UnparsedMessage
 from app.models.upload import Upload
 from app.models.user import User
-
+from app.models.category_correction import CategoryCorrection
 __all__ = [
     "User",
     "Transaction",

@@ -1,3 +1,4 @@
+
 """Shared pytest fixtures for MoneyLens UG."""
 
 import os
@@ -16,6 +17,7 @@ from app.core.dependencies import get_db
 from app.core.security import create_access_token, hash_password
 from app.main import app as fastapi_app
 from app.models.user import User
+from app.services.category_service import initialize_user_categories
 
 # Load environment variables from the project's .env file.
 load_dotenv()
@@ -103,8 +105,14 @@ def test_user(db_session):
 
 
 @pytest.fixture
-def auth_headers(test_user):
-    """Generate authentication headers for the test user."""
+def auth_headers(db_session, test_user):
+    """Generate authentication headers for a user with initialized categories."""
+
+    # Initialize system categories and this user's default rules.
+    initialize_user_categories(
+        db=db_session,
+        user_id=test_user.id,
+    )
 
     access_token = create_access_token(str(test_user.id))
 

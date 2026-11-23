@@ -25,6 +25,7 @@ from app.schemas.auth import (
     UserRegister,
     UserResponse,
 )
+from app.services.category_service import initialize_user_categories
 
 router = APIRouter(
     prefix="/auth",
@@ -61,8 +62,19 @@ def register_user(
     db.add(new_user)
 
     try:
+        # Save the user temporarily to generate their database ID.
+        db.flush()
+
+        # Initialize shared system categories and personal default rules.
+        initialize_user_categories(
+            db=db,
+            user_id=new_user.id,
+        )
+
+        # Commit the user and category initialization together.
         db.commit()
         db.refresh(new_user)
+
     except IntegrityError:
         db.rollback()
 
@@ -70,6 +82,10 @@ def register_user(
             status_code=status.HTTP_409_CONFLICT,
             detail="An account with this email already exists.",
         ) from None
+
+    except Exception:
+        db.rollback()
+        raise
 
     return UserResponse.model_validate(new_user)
 
@@ -185,7 +201,7 @@ def refresh_access_token(
 
     if user is None or not user.is_active:
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
+            status_code=status.HTTP_403_FORBIDDEN,
             detail="User not found or account is inactive.",
         )
 

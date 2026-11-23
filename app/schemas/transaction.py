@@ -1,9 +1,10 @@
+
 """Pydantic schemas for mobile money transactions."""
 
 from datetime import datetime
 from decimal import Decimal
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class TransactionResponse(BaseModel):
@@ -35,3 +36,9 @@ class TransactionListResponse(BaseModel):
     page: int
     page_size: int
     pages: int
+
+
+class TransactionCategoryUpdate(BaseModel):
+    """Request body for correcting a transaction category."""
+
+    category_id: int = Field(gt=0)

@@ -1,4 +1,8 @@
+
 """Tests for MoneyLens UG upload endpoints."""
+
+from app.models.category import Category
+from app.models.transaction import Transaction
 
 
 def test_upload_valid_messages(client, auth_headers):
@@ -25,6 +29,46 @@ def test_upload_valid_messages(client, auth_headers):
     assert data["duplicate_count"] == 0
     assert data["unparsed_count"] == 0
     assert data["status"] == "completed"
+
+
+def test_upload_faras_transaction_is_categorized_as_transport(
+    client,
+    auth_headers,
+    db_session,
+):
+    """Uploaded FARAS transactions should be saved under Transport."""
+
+    response = client.post(
+        "/api/v1/uploads/messages",
+        headers=auth_headers,
+        json={
+            "messages": [
+                "You have sent UGX 35,000 to 0772000111 (FARAS). "
+                "Transaction ID: TESTFARAS001. Fee: UGX 700. "
+                "New balance: UGX 90,000. Date: 23/11/2026 14:00."
+            ]
+        },
+    )
+
+    assert response.status_code == 201
+
+    data = response.json()
+
+    assert data["parsed_count"] == 1
+    assert data["duplicate_count"] == 0
+    assert data["unparsed_count"] == 0
+
+    # Retrieve the saved transaction from the test database.
+    transaction = db_session.query(Transaction).filter_by(
+        transaction_id="TESTFARAS001",
+    ).one()
+
+    # Retrieve its assigned category.
+    category = db_session.query(Category).filter_by(
+        id=transaction.category_id,
+    ).one()
+
+    assert category.name == "Transport"
 
 
 def test_upload_duplicate_across_uploads(client, auth_headers):
@@ -113,7 +157,9 @@ def test_upload_empty_messages(client, auth_headers):
     )
 
     assert response.status_code == 400
-    assert response.json()["detail"] == ("At least one non-empty message is required.")
+    assert response.json()["detail"] == (
+        "At least one non-empty message is required."
+    )
 
 
 def test_upload_without_authentication(client):

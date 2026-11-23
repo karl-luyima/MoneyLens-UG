@@ -1,3 +1,4 @@
+
 # Understanding the processing logic
 # 1. Create an upload record
 #   Each import gets its own database record, including the user and source.
@@ -13,7 +14,11 @@
 #   Parsed transactions go into transactions.
 #   Unsuccessful messages go into unparsed_messages.
 
-# 5. Update statistics
+# 5. Categorize transactions
+#   Successfully parsed transactions are automatically assigned categories
+#   using transaction types and the user's keyword rules.
+
+# 6. Update statistics
 #   The upload records the parsed, duplicate and unparsed counts.
 
 """Service for processing uploaded mobile money messages."""
@@ -26,6 +31,7 @@ from app.models.unparsed_message import UnparsedMessage
 from app.models.upload import Upload
 from app.parsers.models import ParsedTransaction
 from app.parsers.registry import ParserRegistry
+from app.services.categorization_service import categorize_transaction
 
 # Create one reusable parser registry.
 parser_registry = ParserRegistry()
@@ -120,6 +126,12 @@ def process_messages(
                 counterparty=result.counterparty,
                 timestamp=result.timestamp,
                 raw_message=message,
+            )
+
+            # Automatically assign a category to the transaction.
+            transaction.category_id = categorize_transaction(
+                db=db,
+                transaction=transaction,
             )
 
             db.add(transaction)
