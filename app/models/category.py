@@ -1,15 +1,21 @@
-#transaction categories such as utilities, transport and food.
-#Classifications assigned to transactions and rules
 
+# transaction categories such as utilities, transport and food.
+# Classifications assigned to transactions and rules
 
 """Transaction category database model."""
 
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from sqlalchemy import Boolean, DateTime, ForeignKey, String, UniqueConstraint, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
+
+if TYPE_CHECKING:
+    from app.models.category_rule import CategoryRule
+    from app.models.transaction import Transaction
+    from app.models.user import User
 
 
 class Category(Base):

@@ -1,12 +1,11 @@
-
-#Successfully parsed records
-#It stores the structured financial transactions extracted by our Phase 1 parser.
+# Successfully parsed records
+# It stores the structured financial transactions extracted by our Phase 1 parser.
 
 """Parsed mobile money transaction database model."""
 
-from typing import TYPE_CHECKING
 from datetime import datetime
 from decimal import Decimal
+from typing import TYPE_CHECKING
 
 from sqlalchemy import (
     DateTime,
@@ -21,7 +20,6 @@ from sqlalchemy import (
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
-
 
 if TYPE_CHECKING:
     from app.models.category import Category

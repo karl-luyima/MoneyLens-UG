@@ -1,4 +1,3 @@
-
 """Import all database models for SQLAlchemy metadata discovery."""
 
 from app.models.category import Category

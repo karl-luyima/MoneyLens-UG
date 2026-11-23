@@ -1,4 +1,4 @@
-#User-defined matching rules
+# User-defined matching rules
 
 """User-defined transaction categorization rules."""
 

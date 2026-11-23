@@ -1,4 +1,3 @@
-
 """Pydantic schemas for user authentication."""
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
@@ -18,7 +17,7 @@ class UserLogin(BaseModel):
     password: str
 
 
-class UserResponse(BaseModel):  #returns safe user information
+class UserResponse(BaseModel):  # returns safe user information
     """Public user information returned by the API."""
 
     id: int
@@ -28,7 +27,7 @@ class UserResponse(BaseModel):  #returns safe user information
     model_config = ConfigDict(from_attributes=True)
 
 
-class TokenResponse(BaseModel): #returns access and refresh tokens
+class TokenResponse(BaseModel):  # returns access and refresh tokens
     """JWT tokens returned after successful authentication."""
 
     access_token: str
@@ -36,7 +35,7 @@ class TokenResponse(BaseModel): #returns access and refresh tokens
     token_type: str = "bearer"
 
 
-class RefreshTokenRequest(BaseModel): #accepts a refresh token 
+class RefreshTokenRequest(BaseModel):  # accepts a refresh token
     """Refresh token submitted to obtain a new access token."""
 
     refresh_token: str

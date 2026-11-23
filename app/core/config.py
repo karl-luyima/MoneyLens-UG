@@ -1,17 +1,19 @@
+
 #
-#What this file does:
-#- Reads application settings from your .env file.
-#- Loads your PostgreSQL connection URL and secret key.
-#- Provides defaults for token expiration and optional AI functionality.
-#- Makes the settings available throughout the application through settings.
+# What this file does:
+# - Reads application settings from your .env file.
+# - Loads your PostgreSQL connection URL and secret key.
+# - Provides defaults for token expiration and optional AI functionality.
+# - Makes the settings available throughout the application through settings.
 
 
 """Application configuration loaded from environment variables."""
 
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-class Settings(BaseSettings): 
+class Settings(BaseSettings):
     app_name: str = "MoneyLens UG"
     app_env: str = "development"
     debug: bool = True
@@ -32,4 +34,4 @@ class Settings(BaseSettings):
     )
 
 
-settings = Settings()
+settings = Settings()  # type: ignore[call-arg]

@@ -1,15 +1,24 @@
-#user account and auth details(someone registered on the app)
-#Owns the account and personal financial data such as transactions and uploaded statements
 
+# user account and auth details(someone registered on the app)
+# Owns the account and personal financial data such as transactions
+# and uploaded statements
 
 """User database model."""
 
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from sqlalchemy import Boolean, DateTime, String, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
+
+if TYPE_CHECKING:
+    from app.models.category import Category
+    from app.models.category_rule import CategoryRule
+    from app.models.transaction import Transaction
+    from app.models.unparsed_message import UnparsedMessage
+    from app.models.upload import Upload
 
 
 class User(Base):

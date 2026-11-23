@@ -95,14 +95,14 @@ class SendMoneyParser(RegexTransactionParser):
     """Parser for outgoing person-to-person transfers."""
 
     transaction_type: TransactionType = "send_money"
-    pattern = r"\bYou have sent UGX\b"
+    pattern = r"\bYou (?:have )?sent UGX\b"
 
 
 class ReceiveMoneyParser(RegexTransactionParser):
     """Parser for incoming person-to-person transfers."""
 
     transaction_type: TransactionType = "receive_money"
-    pattern = r"\bYou have received UGX\b"
+    pattern = r"\bYou (?:have )?received UGX\b"
 
 
 class CashWithdrawalParser(RegexTransactionParser):
@@ -123,7 +123,7 @@ class AirtimeParser(RegexTransactionParser):
     """Parser for airtime purchases."""
 
     transaction_type: TransactionType = "airtime"
-    pattern = r"\bAirtime purchase of UGX\b"
+    pattern = r"\bAirtime purchase of UGX"
 
 
 class UmemeBillParser(RegexTransactionParser):

@@ -1,6 +1,7 @@
 
 """Authentication dependencies for protected API endpoints."""
 
+from collections.abc import Generator
 from typing import Annotated
 
 from fastapi import Depends, HTTPException, status
@@ -13,13 +14,12 @@ from app.core.database import SessionLocal
 from app.core.security import decode_token
 from app.models.user import User
 
-
 # Tells FastAPI where users obtain their access token.
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/token")
 
 
 # Provide a database session for each request.
-def get_db():
+def get_db() -> Generator[Session, None, None]:
     """Create and close a database session."""
     db = SessionLocal()
 
@@ -61,9 +61,7 @@ def get_current_user(
     except (JWTError, ValueError, TypeError):
         raise credentials_exception from None
 
-    user = db.scalar(
-        select(User).where(User.id == user_id)
-    )
+    user = db.scalar(select(User).where(User.id == user_id))
 
     if user is None or not user.is_active:
         raise credentials_exception

@@ -1,7 +1,10 @@
 
 """Authentication API endpoints for MoneyLens UG."""
 
+from typing import Any
+
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -23,7 +26,6 @@ from app.schemas.auth import (
     UserResponse,
 )
 
-
 router = APIRouter(
     prefix="/auth",
     tags=["Authentication"],
@@ -38,13 +40,11 @@ router = APIRouter(
 def register_user(
     user_data: UserRegister,
     db: Session = Depends(get_db),
-):
+) -> UserResponse:
     """Register a new MoneyLens UG user."""
 
     # Check whether the email is already registered.
-    existing_user = db.scalar(
-        select(User).where(User.email == user_data.email)
-    )
+    existing_user = db.scalar(select(User).where(User.email == user_data.email))
 
     if existing_user:
         raise HTTPException(
@@ -71,7 +71,7 @@ def register_user(
             detail="An account with this email already exists.",
         ) from None
 
-    return new_user
+    return UserResponse.model_validate(new_user)
 
 
 @router.post(
@@ -81,16 +81,51 @@ def register_user(
 def login_user(
     credentials: UserLogin,
     db: Session = Depends(get_db),
-):
-    """Authenticate a user and return JWT tokens."""
+) -> TokenResponse:
+    """Authenticate a user using JSON credentials."""
 
-    user = db.scalar(
-        select(User).where(User.email == str(credentials.email))
-    )
+    user = db.scalar(select(User).where(User.email == str(credentials.email)))
 
     # Reject incorrect credentials.
     if user is None or not verify_password(
         credentials.password,
+        user.hashed_password,
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid email or password.",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    if not user.is_active:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="This account is inactive.",
+        )
+
+    # Generate access and refresh tokens.
+    return TokenResponse(
+        access_token=create_access_token(str(user.id)),
+        refresh_token=create_refresh_token(str(user.id)),
+    )
+
+
+@router.post(
+    "/token",
+    response_model=TokenResponse,
+)
+def oauth2_login_user(
+    form_data: OAuth2PasswordRequestForm = Depends(),
+    db: Session = Depends(get_db),
+) -> TokenResponse:
+    """Authenticate a user using the OAuth2 password form."""
+
+    # Swagger sends the email address in the username field.
+    user = db.scalar(select(User).where(User.email == form_data.username))
+
+    # Reject incorrect credentials.
+    if user is None or not verify_password(
+        form_data.password,
         user.hashed_password,
     ):
         raise HTTPException(
@@ -119,7 +154,7 @@ def login_user(
 def refresh_access_token(
     token_data: RefreshTokenRequest,
     db: Session = Depends(get_db),
-):
+) -> TokenResponse:
     """Generate new JWT tokens using a valid refresh token."""
 
     payload = decode_token(token_data.refresh_token)
@@ -130,19 +165,23 @@ def refresh_access_token(
             detail="Invalid or expired refresh token.",
         )
 
-    user_id = payload.get("sub")
+    user_id: Any = payload.get("sub")
+
+    if not isinstance(user_id, str):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid refresh token.",
+        )
 
     try:
         user_id = int(user_id)
-    except (ValueError, TypeError):
+    except ValueError:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid refresh token.",
         ) from None
 
-    user = db.scalar(
-        select(User).where(User.id == user_id)
-    )
+    user = db.scalar(select(User).where(User.id == user_id))
 
     if user is None or not user.is_active:
         raise HTTPException(

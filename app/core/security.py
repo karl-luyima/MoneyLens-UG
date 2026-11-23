@@ -1,19 +1,19 @@
-#This file will handle three important authentication operations:
-#1. Hashing passwords before storing them in PostgreSQL.
-#2. Verifying passwords during login.
-#3. Generating JWT access and refresh tokens.
+
+# This file will handle three important authentication operations:
+# 1. Hashing passwords before storing them in PostgreSQL.
+# 2. Verifying passwords during login.
+# 3. Generating JWT access and refresh tokens.
 
 
 """Security utilities for password hashing and JWT authentication."""
 
-from datetime import datetime, timedelta, timezone
-from typing import Any
+from datetime import UTC, datetime, timedelta
+from typing import Any, cast
 
 from jose import JWTError, jwt
 from pwdlib import PasswordHash
 
 from app.core.config import settings
-
 
 # Configure Argon2 password hashing.
 password_hash = PasswordHash.recommended()
@@ -41,7 +41,7 @@ def create_token(
     token_type: str,
 ) -> str:
     """Create a signed JWT token."""
-    expire = datetime.now(timezone.utc) + expires_delta
+    expire = datetime.now(UTC) + expires_delta
 
     payload: dict[str, Any] = {
         "sub": subject,
@@ -49,10 +49,13 @@ def create_token(
         "type": token_type,
     }
 
-    return jwt.encode(
-        payload,
-        settings.secret_key,
-        algorithm="HS256",
+    return cast(
+        str,
+        jwt.encode(
+            payload,
+            settings.secret_key,
+            algorithm="HS256",
+        ),
     )
 
 
@@ -60,9 +63,7 @@ def create_access_token(subject: str) -> str:
     """Create a short-lived access token."""
     return create_token(
         subject=subject,
-        expires_delta=timedelta(
-            minutes=settings.access_token_expire_minutes
-        ),
+        expires_delta=timedelta(minutes=settings.access_token_expire_minutes),
         token_type="access",
     )
 
@@ -71,9 +72,7 @@ def create_refresh_token(subject: str) -> str:
     """Create a longer-lived refresh token."""
     return create_token(
         subject=subject,
-        expires_delta=timedelta(
-            days=settings.refresh_token_expire_days
-        ),
+        expires_delta=timedelta(days=settings.refresh_token_expire_days),
         token_type="refresh",
     )
 
@@ -81,11 +80,11 @@ def create_refresh_token(subject: str) -> str:
 def decode_token(token: str) -> dict[str, Any] | None:
     """Decode and verify a JWT token."""
     try:
-        return jwt.decode(
+        decoded = jwt.decode(
             token,
             settings.secret_key,
             algorithms=["HS256"],
         )
+        return cast(dict[str, Any], decoded)
     except JWTError:
         return None
-    

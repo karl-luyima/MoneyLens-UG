@@ -1,17 +1,15 @@
-
-#uploaded statements and processing status.
-#Imported messages or files
+# uploaded statements and processing status.
+# Imported messages or files
 
 """Uploaded mobile money data database model."""
 
-from typing import TYPE_CHECKING
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from sqlalchemy import DateTime, ForeignKey, Index, Integer, String, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
-
 
 if TYPE_CHECKING:
     from app.models.transaction import Transaction
@@ -24,9 +22,7 @@ class Upload(Base):
 
     __tablename__ = "uploads"
 
-    __table_args__ = (
-        Index("ix_uploads_user_created_at", "user_id", "created_at"),
-    )
+    __table_args__ = (Index("ix_uploads_user_created_at", "user_id", "created_at"),)
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     user_id: Mapped[int] = mapped_column(
