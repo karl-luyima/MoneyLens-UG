@@ -1,5 +1,8 @@
 
-"""Tests for MoneyLens UG category initialization."""
+"""Tests for MoneyLens UG category initialization and retraining."""
+
+from datetime import UTC, datetime
+from decimal import Decimal
 
 from sqlalchemy import select
 
@@ -8,7 +11,9 @@ from app.data.system_categories import (
     SYSTEM_CATEGORIES,
 )
 from app.models.category import Category
+from app.models.category_correction import CategoryCorrection
 from app.models.category_rule import CategoryRule
+from app.models.transaction import Transaction
 from app.models.user import User
 from app.services.category_service import (
     initialize_user_categories,
@@ -214,3 +219,108 @@ def test_initialization_preserves_customized_rules(
     assert updated_rule.category_id == custom_category.id
     assert updated_rule.is_active is False
     assert updated_rule.category_id != transport_category.id
+
+
+def create_retraining_correction(db_session, user_id: int) -> None:
+    """Create a synthetic transaction correction for endpoint testing."""
+
+    category = db_session.scalar(
+        select(Category).where(
+            Category.name == "Transport",
+            Category.is_system.is_(True),
+            Category.user_id.is_(None),
+        )
+    )
+
+    assert category is not None
+
+    transaction = Transaction(
+        user_id=user_id,
+        transaction_id=f"API-RETRAIN-{user_id}",
+        provider="MTN",
+        transaction_type="send_money",
+        amount=Decimal("15000.00"),
+        timestamp=datetime.now(UTC),
+        raw_message="Synthetic FARAS transport payment.",
+    )
+
+    db_session.add(transaction)
+    db_session.flush()
+
+    correction = CategoryCorrection(
+        user_id=user_id,
+        transaction_id=transaction.id,
+        category_id=category.id,
+    )
+
+    db_session.add(correction)
+    db_session.flush()
+
+
+def test_retrain_endpoint_requires_authentication(client):
+    """Unauthenticated users must not access model retraining."""
+
+    response = client.post("/api/v1/categories/retrain")
+
+    assert response.status_code == 401
+
+
+def test_retrain_endpoint_rejects_users_without_corrections(
+    client,
+    auth_headers,
+):
+    """The endpoint should return 400 when no corrections exist."""
+
+    response = client.post(
+        "/api/v1/categories/retrain",
+        headers=auth_headers,
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"] == (
+        "No category corrections found for this user."
+    )
+
+
+def test_retrain_endpoint_trains_personalized_model(
+    client,
+    db_session,
+    test_user,
+    auth_headers,
+    tmp_path,
+    monkeypatch,
+):
+    """Authenticated users should be able to retrain their own model."""
+
+    from app.ml import retraining
+
+    monkeypatch.setattr(
+        retraining,
+        "PERSONALIZED_MODEL_DIR",
+        tmp_path,
+    )
+
+    create_retraining_correction(
+        db_session,
+        test_user.id,
+    )
+
+    response = client.post(
+        "/api/v1/categories/retrain",
+        headers=auth_headers,
+    )
+
+    assert response.status_code == 200
+
+    response_data = response.json()
+
+    assert response_data["message"] == (
+        "Personalized categorization model trained successfully."
+    )
+    assert response_data["model_version"] == 1
+    assert response_data["corrections_used"] == 1
+    assert response_data["training_examples"] == 1301
+
+    model_path = tmp_path / f"user_{test_user.id}_v1.joblib"
+
+    assert model_path.exists()

@@ -1,212 +1,5202 @@
-
 [
-  {"text": "Sent money to John Doe", "category": "Transfers"},
-  {"text": "Received money from Mary Jones", "category": "Transfers"},
-  {"text": "Bank transfer to savings account", "category": "Transfers"},
-  {"text": "Transferred funds to another account", "category": "Transfers"},
-  {"text": "Money received from Peter Brown", "category": "Transfers"},
-  {"text": "Sent UGX to a mobile money number", "category": "Transfers"},
-  {"text": "Received payment from a customer", "category": "Transfers"},
-  {"text": "Funds transferred to bank account", "category": "Transfers"},
-  {"text": "Sent money to a family member", "category": "Transfers"},
-  {"text": "Received funds from a friend", "category": "Transfers"},
-  {"text": "Mobile money transfer to another person", "category": "Transfers"},
-  {"text": "Bank deposit transfer", "category": "Transfers"},
-  {"text": "Money sent to a business account", "category": "Transfers"},
-  {"text": "Received a mobile money payment", "category": "Transfers"},
-  {"text": "Transfer to personal account", "category": "Transfers"},
-  {"text": "Sent funds to a relative", "category": "Transfers"},
-  {"text": "Incoming bank transfer", "category": "Transfers"},
-  {"text": "Outgoing bank transfer", "category": "Transfers"},
-  {"text": "Money received through mobile money", "category": "Transfers"},
-  {"text": "Sent UGX to another wallet", "category": "Transfers"},
-
-  {"text": "Cash withdrawn from mobile money agent", "category": "Cash"},
-  {"text": "Withdrew money at an ATM", "category": "Cash"},
-  {"text": "Cash deposit at an agent", "category": "Cash"},
-  {"text": "Deposited money into mobile wallet", "category": "Cash"},
-  {"text": "Cash withdrawal transaction", "category": "Cash"},
-  {"text": "Agent cash-out service", "category": "Cash"},
-  {"text": "Cash-in transaction at mobile money agent", "category": "Cash"},
-  {"text": "Withdrew UGX from agent", "category": "Cash"},
-  {"text": "Deposited UGX cash", "category": "Cash"},
-  {"text": "ATM cash withdrawal fee", "category": "Cash"},
-  {"text": "Mobile money cash withdrawal", "category": "Cash"},
-  {"text": "Cash deposit transaction", "category": "Cash"},
-  {"text": "Agent withdrawal payment", "category": "Cash"},
-  {"text": "Cash received at deposit counter", "category": "Cash"},
-  {"text": "Withdraw funds from wallet", "category": "Cash"},
-  {"text": "Cash deposited by agent", "category": "Cash"},
-  {"text": "ATM withdrawal", "category": "Cash"},
-  {"text": "Mobile wallet cash deposit", "category": "Cash"},
-  {"text": "Cash-out from mobile wallet", "category": "Cash"},
-  {"text": "Cash-in to mobile wallet", "category": "Cash"},
-
-  {"text": "Airtime purchase on MTN", "category": "Airtime & Data"},
-  {"text": "Bought Airtel airtime", "category": "Airtime & Data"},
-  {"text": "Purchased mobile data bundle", "category": "Airtime & Data"},
-  {"text": "Internet data bundle subscription", "category": "Airtime & Data"},
-  {"text": "MTN data bundle purchase", "category": "Airtime & Data"},
-  {"text": "Airtel internet bundle", "category": "Airtime & Data"},
-  {"text": "Mobile phone credit purchase", "category": "Airtime & Data"},
-  {"text": "Bought phone credit", "category": "Airtime & Data"},
-  {"text": "Data subscription payment", "category": "Airtime & Data"},
-  {"text": "Top up mobile airtime", "category": "Airtime & Data"},
-  {"text": "Purchased internet bundles", "category": "Airtime & Data"},
-  {"text": "Airtime top-up successful", "category": "Airtime & Data"},
-  {"text": "Mobile data recharge", "category": "Airtime & Data"},
-  {"text": "Bought UGX airtime", "category": "Airtime & Data"},
-  {"text": "Internet bundle renewal", "category": "Airtime & Data"},
-  {"text": "Phone credit top-up", "category": "Airtime & Data"},
-  {"text": "MTN airtime recharge", "category": "Airtime & Data"},
-  {"text": "Airtel data purchase", "category": "Airtime & Data"},
-  {"text": "Mobile internet subscription", "category": "Airtime & Data"},
-  {"text": "Prepaid airtime payment", "category": "Airtime & Data"},
-
-  {"text": "UMEME electricity bill payment", "category": "Utilities"},
-  {"text": "NWSC water bill payment", "category": "Utilities"},
-  {"text": "Paid electricity units", "category": "Utilities"},
-  {"text": "Purchased Yaka tokens", "category": "Utilities"},
-  {"text": "Water utility bill settlement", "category": "Utilities"},
-  {"text": "Electricity token purchase", "category": "Utilities"},
-  {"text": "Paid water supply bill", "category": "Utilities"},
-  {"text": "UMEME Yaka payment", "category": "Utilities"},
-  {"text": "NWSC bill settlement", "category": "Utilities"},
-  {"text": "Electricity prepaid token", "category": "Utilities"},
-  {"text": "Water service payment", "category": "Utilities"},
-  {"text": "Monthly electricity bill", "category": "Utilities"},
-  {"text": "Monthly water bill", "category": "Utilities"},
-  {"text": "Utility payment for electricity", "category": "Utilities"},
-  {"text": "Utility payment for water", "category": "Utilities"},
-  {"text": "Bought electricity units from UMEME", "category": "Utilities"},
-  {"text": "Paid NWSC water charges", "category": "Utilities"},
-  {"text": "Electricity recharge payment", "category": "Utilities"},
-  {"text": "Water connection bill", "category": "Utilities"},
-  {"text": "Utility service charges", "category": "Utilities"},
-
-  {"text": "Paid DSTV subscription", "category": "Entertainment"},
-  {"text": "Renewed television subscription", "category": "Entertainment"},
-  {"text": "Paid GOtv monthly package", "category": "Entertainment"},
-  {"text": "Purchased streaming subscription", "category": "Entertainment"},
-  {"text": "Paid for TV entertainment package", "category": "Entertainment"},
-  {"text": "DSTV decoder subscription renewal", "category": "Entertainment"},
-  {"text": "GOtv subscription payment", "category": "Entertainment"},
-  {"text": "Streaming service monthly fee", "category": "Entertainment"},
-  {"text": "Television package payment", "category": "Entertainment"},
-  {"text": "Paid movie streaming service", "category": "Entertainment"},
-  {"text": "Entertainment subscription renewal", "category": "Entertainment"},
-  {"text": "DSTV premium package", "category": "Entertainment"},
-  {"text": "Paid for television channels", "category": "Entertainment"},
-  {"text": "Monthly decoder subscription", "category": "Entertainment"},
-  {"text": "Online streaming membership", "category": "Entertainment"},
-  {"text": "TV service recharge", "category": "Entertainment"},
-  {"text": "Paid entertainment package", "category": "Entertainment"},
-  {"text": "Television service renewal", "category": "Entertainment"},
-  {"text": "Cable TV subscription", "category": "Entertainment"},
-  {"text": "Video streaming payment", "category": "Entertainment"},
-
-  {"text": "Paid URA tax", "category": "Government"},
-  {"text": "Government tax payment", "category": "Government"},
-  {"text": "Paid customs duty to URA", "category": "Government"},
-  {"text": "Tax clearance payment", "category": "Government"},
-  {"text": "Government revenue payment", "category": "Government"},
-  {"text": "Paid statutory fees", "category": "Government"},
-  {"text": "URA assessment payment", "category": "Government"},
-  {"text": "Income tax settlement", "category": "Government"},
-  {"text": "Paid withholding tax", "category": "Government"},
-  {"text": "Government service fee", "category": "Government"},
-  {"text": "Tax obligation settlement", "category": "Government"},
-  {"text": "URA payment reference", "category": "Government"},
-  {"text": "Paid local government fee", "category": "Government"},
-  {"text": "Business tax payment", "category": "Government"},
-  {"text": "Government licence fee", "category": "Government"},
-  {"text": "Customs tax settlement", "category": "Government"},
-  {"text": "Tax payment transaction", "category": "Government"},
-  {"text": "Paid government charges", "category": "Government"},
-  {"text": "Revenue authority payment", "category": "Government"},
-  {"text": "Statutory tax transaction", "category": "Government"},
-
-  {"text": "Bought groceries at Carrefour", "category": "Food & Groceries"},
-  {"text": "Paid for food at a restaurant", "category": "Food & Groceries"},
-  {"text": "Supermarket shopping at Capital Shoppers", "category": "Food & Groceries"},
-  {"text": "Bought vegetables at the market", "category": "Food & Groceries"},
-  {"text": "Paid for groceries at Quality Supermarket", "category": "Food & Groceries"},
-  {"text": "Purchased bread and milk", "category": "Food & Groceries"},
-  {"text": "Restaurant meal payment", "category": "Food & Groceries"},
-  {"text": "Bought fruits and vegetables", "category": "Food & Groceries"},
-  {"text": "Food delivery payment", "category": "Food & Groceries"},
-  {"text": "Supermarket food purchase", "category": "Food & Groceries"},
-  {"text": "Paid for lunch", "category": "Food & Groceries"},
-  {"text": "Grocery store payment", "category": "Food & Groceries"},
-  {"text": "Bought household groceries", "category": "Food & Groceries"},
-  {"text": "Dinner at a restaurant", "category": "Food & Groceries"},
-  {"text": "Fresh food purchase", "category": "Food & Groceries"},
-  {"text": "Paid for supermarket items", "category": "Food & Groceries"},
-  {"text": "Market food shopping", "category": "Food & Groceries"},
-  {"text": "Carrefour supermarket payment", "category": "Food & Groceries"},
-  {"text": "Purchased cooking ingredients", "category": "Food & Groceries"},
-  {"text": "Food and grocery shopping", "category": "Food & Groceries"},
-
-  {"text": "Paid FARAS ride fare", "category": "Transport"},
-  {"text": "BOLT trip payment", "category": "Transport"},
-  {"text": "SAFEBODA motorcycle ride", "category": "Transport"},
-  {"text": "Fuel purchase at Shell", "category": "Transport"},
-  {"text": "Fuel payment at TotalEnergies", "category": "Transport"},
-  {"text": "Taxi fare payment", "category": "Transport"},
-  {"text": "Public transport fare", "category": "Transport"},
-  {"text": "Motorcycle transport payment", "category": "Transport"},
-  {"text": "Bus ticket purchase", "category": "Transport"},
-  {"text": "Ride-hailing service payment", "category": "Transport"},
-  {"text": "Petrol station payment", "category": "Transport"},
-  {"text": "Paid for a boda boda ride", "category": "Transport"},
-  {"text": "Vehicle fuel expense", "category": "Transport"},
-  {"text": "Travel fare payment", "category": "Transport"},
-  {"text": "Transport service charge", "category": "Transport"},
-  {"text": "FARAS transport service", "category": "Transport"},
-  {"text": "BOLT ride fare", "category": "Transport"},
-  {"text": "Bought diesel at Shell", "category": "Transport"},
-  {"text": "Taxi trip charge", "category": "Transport"},
-  {"text": "Fuel station purchase", "category": "Transport"},
-
-  {"text": "Online shopping at Jumia", "category": "Shopping"},
-  {"text": "Bought clothes from a retail shop", "category": "Shopping"},
-  {"text": "Purchased shoes online", "category": "Shopping"},
-  {"text": "Paid for electronics", "category": "Shopping"},
-  {"text": "Jumia order payment", "category": "Shopping"},
-  {"text": "Retail store purchase", "category": "Shopping"},
-  {"text": "Bought a mobile phone", "category": "Shopping"},
-  {"text": "Purchased household appliances", "category": "Shopping"},
-  {"text": "Online retail purchase", "category": "Shopping"},
-  {"text": "Paid for clothing items", "category": "Shopping"},
-  {"text": "Bought accessories from a shop", "category": "Shopping"},
-  {"text": "Shopping mall purchase", "category": "Shopping"},
-  {"text": "Purchased a laptop", "category": "Shopping"},
-  {"text": "Jumia shopping transaction", "category": "Shopping"},
-  {"text": "Bought furniture", "category": "Shopping"},
-  {"text": "Retail goods payment", "category": "Shopping"},
-  {"text": "Purchased kitchen appliances", "category": "Shopping"},
-  {"text": "Paid for personal items", "category": "Shopping"},
-  {"text": "Online store transaction", "category": "Shopping"},
-  {"text": "General merchandise purchase", "category": "Shopping"},
-
-  {"text": "Unidentified transaction payment", "category": "Other"},
-  {"text": "Miscellaneous mobile money charge", "category": "Other"},
-  {"text": "Unknown service payment", "category": "Other"},
-  {"text": "Unclassified transaction", "category": "Other"},
-  {"text": "General account charge", "category": "Other"},
-  {"text": "Miscellaneous payment", "category": "Other"},
-  {"text": "Unidentified merchant charge", "category": "Other"},
-  {"text": "Other financial transaction", "category": "Other"},
-  {"text": "Unknown transaction description", "category": "Other"},
-  {"text": "General service charge", "category": "Other"},
-  {"text": "Unrecognised purchase", "category": "Other"},
-  {"text": "Unspecified mobile payment", "category": "Other"},
-  {"text": "Miscellaneous wallet transaction", "category": "Other"},
-  {"text": "Unknown payment reference", "category": "Other"},
-  {"text": "Unclassified mobile transaction", "category": "Other"},
-  {"text": "Other account transaction", "category": "Other"},
-  {"text": "Unidentified service charge", "category": "Other"},
-  {"text": "General mobile money transaction", "category": "Other"},
-  {"text": "Unknown merchant payment", "category": "Other"},
-  {"text": "Uncategorised expense", "category": "Other"}
+    {
+        "text": "Sent money to John Doe",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received money from Mary Jones",
+        "category": "Transfers"
+    },
+    {
+        "text": "Bank transfer to savings account",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred funds to another account",
+        "category": "Transfers"
+    },
+    {
+        "text": "Money received from Peter Brown",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX to a mobile money number",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received payment from a customer",
+        "category": "Transfers"
+    },
+    {
+        "text": "Funds transferred to bank account",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent money to a family member",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received funds from a friend",
+        "category": "Transfers"
+    },
+    {
+        "text": "Mobile money transfer to another person",
+        "category": "Transfers"
+    },
+    {
+        "text": "Bank deposit transfer",
+        "category": "Transfers"
+    },
+    {
+        "text": "Money sent to a business account",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a mobile money payment",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transfer to personal account",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent funds to a relative",
+        "category": "Transfers"
+    },
+    {
+        "text": "Incoming bank transfer",
+        "category": "Transfers"
+    },
+    {
+        "text": "Outgoing bank transfer",
+        "category": "Transfers"
+    },
+    {
+        "text": "Money received through mobile money",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX to another wallet",
+        "category": "Transfers"
+    },
+    {
+        "text": "Cash withdrawn from mobile money agent",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew money at an ATM",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash deposit at an agent",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited money into mobile wallet",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal transaction",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent cash-out service",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash-in transaction at mobile money agent",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew UGX from agent",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX cash",
+        "category": "Cash"
+    },
+    {
+        "text": "ATM cash withdrawal fee",
+        "category": "Cash"
+    },
+    {
+        "text": "Mobile money cash withdrawal",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash deposit transaction",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent withdrawal payment",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash received at deposit counter",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdraw funds from wallet",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash deposited by agent",
+        "category": "Cash"
+    },
+    {
+        "text": "ATM withdrawal",
+        "category": "Cash"
+    },
+    {
+        "text": "Mobile wallet cash deposit",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash-out from mobile wallet",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash-in to mobile wallet",
+        "category": "Cash"
+    },
+    {
+        "text": "Airtime purchase on MTN",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought Airtel airtime",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased mobile data bundle",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Internet data bundle subscription",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "MTN data bundle purchase",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtel internet bundle",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Mobile phone credit purchase",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought phone credit",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Top up mobile airtime",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased internet bundles",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime top-up successful",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Mobile data recharge",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought UGX airtime",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Internet bundle renewal",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Phone credit top-up",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "MTN airtime recharge",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtel data purchase",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Mobile internet subscription",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Prepaid airtime payment",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "UMEME electricity bill payment",
+        "category": "Utilities"
+    },
+    {
+        "text": "NWSC water bill payment",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid electricity units",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased Yaka tokens",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water utility bill settlement",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchase",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid water supply bill",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME Yaka payment",
+        "category": "Utilities"
+    },
+    {
+        "text": "NWSC bill settlement",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity prepaid token",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water service payment",
+        "category": "Utilities"
+    },
+    {
+        "text": "Monthly electricity bill",
+        "category": "Utilities"
+    },
+    {
+        "text": "Monthly water bill",
+        "category": "Utilities"
+    },
+    {
+        "text": "Utility payment for electricity",
+        "category": "Utilities"
+    },
+    {
+        "text": "Utility payment for water",
+        "category": "Utilities"
+    },
+    {
+        "text": "Bought electricity units from UMEME",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid NWSC water charges",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity recharge payment",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water connection bill",
+        "category": "Utilities"
+    },
+    {
+        "text": "Utility service charges",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid DSTV subscription",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed television subscription",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid GOtv monthly package",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased streaming subscription",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for TV entertainment package",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV decoder subscription renewal",
+        "category": "Entertainment"
+    },
+    {
+        "text": "GOtv subscription payment",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Streaming service monthly fee",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Television package payment",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid movie streaming service",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription renewal",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV premium package",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Monthly decoder subscription",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Online streaming membership",
+        "category": "Entertainment"
+    },
+    {
+        "text": "TV service recharge",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid entertainment package",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Television service renewal",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Cable TV subscription",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Video streaming payment",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid URA tax",
+        "category": "Government"
+    },
+    {
+        "text": "Government tax payment",
+        "category": "Government"
+    },
+    {
+        "text": "Paid customs duty to URA",
+        "category": "Government"
+    },
+    {
+        "text": "Tax clearance payment",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment",
+        "category": "Government"
+    },
+    {
+        "text": "Paid statutory fees",
+        "category": "Government"
+    },
+    {
+        "text": "URA assessment payment",
+        "category": "Government"
+    },
+    {
+        "text": "Income tax settlement",
+        "category": "Government"
+    },
+    {
+        "text": "Paid withholding tax",
+        "category": "Government"
+    },
+    {
+        "text": "Government service fee",
+        "category": "Government"
+    },
+    {
+        "text": "Tax obligation settlement",
+        "category": "Government"
+    },
+    {
+        "text": "URA payment reference",
+        "category": "Government"
+    },
+    {
+        "text": "Paid local government fee",
+        "category": "Government"
+    },
+    {
+        "text": "Business tax payment",
+        "category": "Government"
+    },
+    {
+        "text": "Government licence fee",
+        "category": "Government"
+    },
+    {
+        "text": "Customs tax settlement",
+        "category": "Government"
+    },
+    {
+        "text": "Tax payment transaction",
+        "category": "Government"
+    },
+    {
+        "text": "Paid government charges",
+        "category": "Government"
+    },
+    {
+        "text": "Revenue authority payment",
+        "category": "Government"
+    },
+    {
+        "text": "Statutory tax transaction",
+        "category": "Government"
+    },
+    {
+        "text": "Bought groceries at Carrefour",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for food at a restaurant",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Supermarket shopping at Capital Shoppers",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought vegetables at the market",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for groceries at Quality Supermarket",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased bread and milk",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant meal payment",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought fruits and vegetables",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food delivery payment",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Supermarket food purchase",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for lunch",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Grocery store payment",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Dinner at a restaurant",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Fresh food purchase",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket items",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Market food shopping",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket payment",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased cooking ingredients",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food and grocery shopping",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid FARAS ride fare",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment",
+        "category": "Transport"
+    },
+    {
+        "text": "SAFEBODA motorcycle ride",
+        "category": "Transport"
+    },
+    {
+        "text": "Fuel purchase at Shell",
+        "category": "Transport"
+    },
+    {
+        "text": "Fuel payment at TotalEnergies",
+        "category": "Transport"
+    },
+    {
+        "text": "Taxi fare payment",
+        "category": "Transport"
+    },
+    {
+        "text": "Public transport fare",
+        "category": "Transport"
+    },
+    {
+        "text": "Motorcycle transport payment",
+        "category": "Transport"
+    },
+    {
+        "text": "Bus ticket purchase",
+        "category": "Transport"
+    },
+    {
+        "text": "Ride-hailing service payment",
+        "category": "Transport"
+    },
+    {
+        "text": "Petrol station payment",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid for a boda boda ride",
+        "category": "Transport"
+    },
+    {
+        "text": "Vehicle fuel expense",
+        "category": "Transport"
+    },
+    {
+        "text": "Travel fare payment",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport service charge",
+        "category": "Transport"
+    },
+    {
+        "text": "FARAS transport service",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT ride fare",
+        "category": "Transport"
+    },
+    {
+        "text": "Bought diesel at Shell",
+        "category": "Transport"
+    },
+    {
+        "text": "Taxi trip charge",
+        "category": "Transport"
+    },
+    {
+        "text": "Fuel station purchase",
+        "category": "Transport"
+    },
+    {
+        "text": "Online shopping at Jumia",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothes from a retail shop",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased shoes online",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for electronics",
+        "category": "Shopping"
+    },
+    {
+        "text": "Jumia order payment",
+        "category": "Shopping"
+    },
+    {
+        "text": "Retail store purchase",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought a mobile phone",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased household appliances",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online retail purchase",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for clothing items",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought accessories from a shop",
+        "category": "Shopping"
+    },
+    {
+        "text": "Shopping mall purchase",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a laptop",
+        "category": "Shopping"
+    },
+    {
+        "text": "Jumia shopping transaction",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought furniture",
+        "category": "Shopping"
+    },
+    {
+        "text": "Retail goods payment",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased kitchen appliances",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for personal items",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online store transaction",
+        "category": "Shopping"
+    },
+    {
+        "text": "General merchandise purchase",
+        "category": "Shopping"
+    },
+    {
+        "text": "Unidentified transaction payment",
+        "category": "Other"
+    },
+    {
+        "text": "Miscellaneous mobile money charge",
+        "category": "Other"
+    },
+    {
+        "text": "Unknown service payment",
+        "category": "Other"
+    },
+    {
+        "text": "Unclassified transaction",
+        "category": "Other"
+    },
+    {
+        "text": "General account charge",
+        "category": "Other"
+    },
+    {
+        "text": "Miscellaneous payment",
+        "category": "Other"
+    },
+    {
+        "text": "Unidentified merchant charge",
+        "category": "Other"
+    },
+    {
+        "text": "Other financial transaction",
+        "category": "Other"
+    },
+    {
+        "text": "Unknown transaction description",
+        "category": "Other"
+    },
+    {
+        "text": "General service charge",
+        "category": "Other"
+    },
+    {
+        "text": "Unrecognised purchase",
+        "category": "Other"
+    },
+    {
+        "text": "Unspecified mobile payment",
+        "category": "Other"
+    },
+    {
+        "text": "Miscellaneous wallet transaction",
+        "category": "Other"
+    },
+    {
+        "text": "Unknown payment reference",
+        "category": "Other"
+    },
+    {
+        "text": "Unclassified mobile transaction",
+        "category": "Other"
+    },
+    {
+        "text": "Other account transaction",
+        "category": "Other"
+    },
+    {
+        "text": "Unidentified service charge",
+        "category": "Other"
+    },
+    {
+        "text": "General mobile money transaction",
+        "category": "Other"
+    },
+    {
+        "text": "Unknown merchant payment",
+        "category": "Other"
+    },
+    {
+        "text": "Uncategorised expense",
+        "category": "Other"
+    },
+    {
+        "text": "Sent UGX 2,000 to a mobile money contact.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 3,500 to a mobile money contact.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 5,000 to a mobile money contact.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 7,500 to a mobile money contact.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 10,000 to a mobile money contact.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 12,500 to a mobile money contact.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 15,000 to a mobile money contact.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 20,000 to a mobile money contact.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 25,000 to a mobile money contact.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 35,000 to a mobile money contact.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received UGX 2,000 from another mobile money user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received UGX 3,500 from another mobile money user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received UGX 5,000 from another mobile money user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received UGX 7,500 from another mobile money user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received UGX 10,000 from another mobile money user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received UGX 12,500 from another mobile money user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received UGX 15,000 from another mobile money user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received UGX 20,000 from another mobile money user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received UGX 25,000 from another mobile money user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received UGX 35,000 from another mobile money user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred UGX 2,000 to a registered mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred UGX 3,500 to a registered mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred UGX 5,000 to a registered mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred UGX 7,500 to a registered mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred UGX 10,000 to a registered mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred UGX 12,500 to a registered mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred UGX 15,000 to a registered mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred UGX 20,000 to a registered mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred UGX 25,000 to a registered mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transferred UGX 35,000 to a registered mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Moved UGX 2,000 from my bank account to mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Moved UGX 3,500 from my bank account to mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Moved UGX 5,000 from my bank account to mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Moved UGX 7,500 from my bank account to mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Moved UGX 10,000 from my bank account to mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Moved UGX 12,500 from my bank account to mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Moved UGX 15,000 from my bank account to mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Moved UGX 20,000 from my bank account to mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Moved UGX 25,000 from my bank account to mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Moved UGX 35,000 from my bank account to mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a bank transfer of UGX 2,000.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a bank transfer of UGX 3,500.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a bank transfer of UGX 5,000.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a bank transfer of UGX 7,500.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a bank transfer of UGX 10,000.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a bank transfer of UGX 12,500.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a bank transfer of UGX 15,000.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a bank transfer of UGX 20,000.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a bank transfer of UGX 25,000.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Received a bank transfer of UGX 35,000.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 2,000 to a friend's phone number.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 3,500 to a friend's phone number.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 5,000 to a friend's phone number.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 7,500 to a friend's phone number.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 10,000 to a friend's phone number.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 12,500 to a friend's phone number.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 15,000 to a friend's phone number.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 20,000 to a friend's phone number.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 25,000 to a friend's phone number.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Sent UGX 35,000 to a friend's phone number.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A mobile money transfer of UGX 2,000 was completed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A mobile money transfer of UGX 3,500 was completed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A mobile money transfer of UGX 5,000 was completed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A mobile money transfer of UGX 7,500 was completed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A mobile money transfer of UGX 10,000 was completed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A mobile money transfer of UGX 12,500 was completed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A mobile money transfer of UGX 15,000 was completed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A mobile money transfer of UGX 20,000 was completed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A mobile money transfer of UGX 25,000 was completed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A mobile money transfer of UGX 35,000 was completed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 2,000 was credited through a bank transfer.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 3,500 was credited through a bank transfer.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 5,000 was credited through a bank transfer.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 7,500 was credited through a bank transfer.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 10,000 was credited through a bank transfer.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 12,500 was credited through a bank transfer.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 15,000 was credited through a bank transfer.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 20,000 was credited through a bank transfer.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 25,000 was credited through a bank transfer.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 35,000 was credited through a bank transfer.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Withdrew UGX 2,000 from a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew UGX 3,500 from a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew UGX 5,000 from a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew UGX 7,500 from a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew UGX 10,000 from a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew UGX 12,500 from a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew UGX 15,000 from a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew UGX 20,000 from a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew UGX 25,000 from a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Withdrew UGX 35,000 from a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX 2,000 with a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX 3,500 with a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX 5,000 with a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX 7,500 with a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX 10,000 with a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX 12,500 with a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX 15,000 with a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX 20,000 with a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX 25,000 with a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Deposited UGX 35,000 with a mobile money agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Collected UGX 2,000 in cash from an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Collected UGX 3,500 in cash from an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Collected UGX 5,000 in cash from an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Collected UGX 7,500 in cash from an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Collected UGX 10,000 in cash from an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Collected UGX 12,500 in cash from an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Collected UGX 15,000 in cash from an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Collected UGX 20,000 in cash from an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Collected UGX 25,000 in cash from an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Collected UGX 35,000 in cash from an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal of UGX 2,000 completed successfully.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal of UGX 3,500 completed successfully.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal of UGX 5,000 completed successfully.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal of UGX 7,500 completed successfully.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal of UGX 10,000 completed successfully.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal of UGX 12,500 completed successfully.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal of UGX 15,000 completed successfully.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal of UGX 20,000 completed successfully.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal of UGX 25,000 completed successfully.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash withdrawal of UGX 35,000 completed successfully.",
+        "category": "Cash"
+    },
+    {
+        "text": "Added UGX 2,000 to my mobile money wallet at an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Added UGX 3,500 to my mobile money wallet at an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Added UGX 5,000 to my mobile money wallet at an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Added UGX 7,500 to my mobile money wallet at an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Added UGX 10,000 to my mobile money wallet at an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Added UGX 12,500 to my mobile money wallet at an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Added UGX 15,000 to my mobile money wallet at an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Added UGX 20,000 to my mobile money wallet at an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Added UGX 25,000 to my mobile money wallet at an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Added UGX 35,000 to my mobile money wallet at an agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Received cash worth UGX 2,000 from the agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Received cash worth UGX 3,500 from the agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Received cash worth UGX 5,000 from the agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Received cash worth UGX 7,500 from the agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Received cash worth UGX 10,000 from the agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Received cash worth UGX 12,500 from the agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Received cash worth UGX 15,000 from the agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Received cash worth UGX 20,000 from the agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Received cash worth UGX 25,000 from the agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Received cash worth UGX 35,000 from the agent.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent processed a cash deposit of UGX 2,000.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent processed a cash deposit of UGX 3,500.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent processed a cash deposit of UGX 5,000.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent processed a cash deposit of UGX 7,500.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent processed a cash deposit of UGX 10,000.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent processed a cash deposit of UGX 12,500.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent processed a cash deposit of UGX 15,000.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent processed a cash deposit of UGX 20,000.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent processed a cash deposit of UGX 25,000.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent processed a cash deposit of UGX 35,000.",
+        "category": "Cash"
+    },
+    {
+        "text": "UGX 2,000 was withdrawn from my wallet in cash.",
+        "category": "Cash"
+    },
+    {
+        "text": "UGX 3,500 was withdrawn from my wallet in cash.",
+        "category": "Cash"
+    },
+    {
+        "text": "UGX 5,000 was withdrawn from my wallet in cash.",
+        "category": "Cash"
+    },
+    {
+        "text": "UGX 7,500 was withdrawn from my wallet in cash.",
+        "category": "Cash"
+    },
+    {
+        "text": "UGX 10,000 was withdrawn from my wallet in cash.",
+        "category": "Cash"
+    },
+    {
+        "text": "UGX 12,500 was withdrawn from my wallet in cash.",
+        "category": "Cash"
+    },
+    {
+        "text": "UGX 15,000 was withdrawn from my wallet in cash.",
+        "category": "Cash"
+    },
+    {
+        "text": "UGX 20,000 was withdrawn from my wallet in cash.",
+        "category": "Cash"
+    },
+    {
+        "text": "UGX 25,000 was withdrawn from my wallet in cash.",
+        "category": "Cash"
+    },
+    {
+        "text": "UGX 35,000 was withdrawn from my wallet in cash.",
+        "category": "Cash"
+    },
+    {
+        "text": "Purchased UGX 2,000 airtime for my phone.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased UGX 3,500 airtime for my phone.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased UGX 5,000 airtime for my phone.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased UGX 7,500 airtime for my phone.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased UGX 10,000 airtime for my phone.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased UGX 12,500 airtime for my phone.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased UGX 15,000 airtime for my phone.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased UGX 20,000 airtime for my phone.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased UGX 25,000 airtime for my phone.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased UGX 35,000 airtime for my phone.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought a mobile internet bundle worth UGX 2,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought a mobile internet bundle worth UGX 3,500.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought a mobile internet bundle worth UGX 5,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought a mobile internet bundle worth UGX 7,500.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought a mobile internet bundle worth UGX 10,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought a mobile internet bundle worth UGX 12,500.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought a mobile internet bundle worth UGX 15,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought a mobile internet bundle worth UGX 20,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought a mobile internet bundle worth UGX 25,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Bought a mobile internet bundle worth UGX 35,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment of UGX 2,000 completed.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment of UGX 3,500 completed.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment of UGX 5,000 completed.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment of UGX 7,500 completed.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment of UGX 10,000 completed.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment of UGX 12,500 completed.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment of UGX 15,000 completed.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment of UGX 20,000 completed.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment of UGX 25,000 completed.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Data subscription payment of UGX 35,000 completed.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharged my phone with UGX 2,000 airtime.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharged my phone with UGX 3,500 airtime.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharged my phone with UGX 5,000 airtime.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharged my phone with UGX 7,500 airtime.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharged my phone with UGX 10,000 airtime.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharged my phone with UGX 12,500 airtime.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharged my phone with UGX 15,000 airtime.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharged my phone with UGX 20,000 airtime.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharged my phone with UGX 25,000 airtime.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharged my phone with UGX 35,000 airtime.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased a daily data package for UGX 2,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased a daily data package for UGX 3,500.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased a daily data package for UGX 5,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased a daily data package for UGX 7,500.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased a daily data package for UGX 10,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased a daily data package for UGX 12,500.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased a daily data package for UGX 15,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased a daily data package for UGX 20,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased a daily data package for UGX 25,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Purchased a daily data package for UGX 35,000.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "A mobile data bundle costing UGX 2,000 was activated.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "A mobile data bundle costing UGX 3,500 was activated.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "A mobile data bundle costing UGX 5,000 was activated.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "A mobile data bundle costing UGX 7,500 was activated.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "A mobile data bundle costing UGX 10,000 was activated.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "A mobile data bundle costing UGX 12,500 was activated.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "A mobile data bundle costing UGX 15,000 was activated.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "A mobile data bundle costing UGX 20,000 was activated.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "A mobile data bundle costing UGX 25,000 was activated.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "A mobile data bundle costing UGX 35,000 was activated.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 2,000 for internet bundles.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 3,500 for internet bundles.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 5,000 for internet bundles.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 7,500 for internet bundles.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 10,000 for internet bundles.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 12,500 for internet bundles.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 15,000 for internet bundles.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 20,000 for internet bundles.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 25,000 for internet bundles.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 35,000 for internet bundles.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime recharge of UGX 2,000 was successful.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime recharge of UGX 3,500 was successful.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime recharge of UGX 5,000 was successful.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime recharge of UGX 7,500 was successful.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime recharge of UGX 10,000 was successful.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime recharge of UGX 12,500 was successful.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime recharge of UGX 15,000 was successful.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime recharge of UGX 20,000 was successful.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime recharge of UGX 25,000 was successful.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime recharge of UGX 35,000 was successful.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Paid UGX 2,000 for UMEME electricity.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid UGX 3,500 for UMEME electricity.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid UGX 5,000 for UMEME electricity.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid UGX 7,500 for UMEME electricity.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid UGX 10,000 for UMEME electricity.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid UGX 12,500 for UMEME electricity.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid UGX 15,000 for UMEME electricity.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid UGX 20,000 for UMEME electricity.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid UGX 25,000 for UMEME electricity.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid UGX 35,000 for UMEME electricity.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Settled my NWSC water bill of UGX 2,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Settled my NWSC water bill of UGX 3,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Settled my NWSC water bill of UGX 5,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Settled my NWSC water bill of UGX 7,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Settled my NWSC water bill of UGX 10,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Settled my NWSC water bill of UGX 12,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Settled my NWSC water bill of UGX 15,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Settled my NWSC water bill of UGX 20,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Settled my NWSC water bill of UGX 25,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Settled my NWSC water bill of UGX 35,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchased for UGX 2,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchased for UGX 3,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchased for UGX 5,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchased for UGX 7,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchased for UGX 10,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchased for UGX 12,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchased for UGX 15,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchased for UGX 20,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchased for UGX 25,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity token purchased for UGX 35,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the monthly water supply bill worth UGX 2,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the monthly water supply bill worth UGX 3,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the monthly water supply bill worth UGX 5,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the monthly water supply bill worth UGX 7,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the monthly water supply bill worth UGX 10,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the monthly water supply bill worth UGX 12,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the monthly water supply bill worth UGX 15,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the monthly water supply bill worth UGX 20,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the monthly water supply bill worth UGX 25,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the monthly water supply bill worth UGX 35,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME payment of UGX 2,000 completed.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME payment of UGX 3,500 completed.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME payment of UGX 5,000 completed.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME payment of UGX 7,500 completed.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME payment of UGX 10,000 completed.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME payment of UGX 12,500 completed.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME payment of UGX 15,000 completed.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME payment of UGX 20,000 completed.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME payment of UGX 25,000 completed.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME payment of UGX 35,000 completed.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased an electricity unit token costing UGX 2,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased an electricity unit token costing UGX 3,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased an electricity unit token costing UGX 5,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased an electricity unit token costing UGX 7,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased an electricity unit token costing UGX 10,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased an electricity unit token costing UGX 12,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased an electricity unit token costing UGX 15,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased an electricity unit token costing UGX 20,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased an electricity unit token costing UGX 25,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased an electricity unit token costing UGX 35,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid my water utility account UGX 2,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid my water utility account UGX 3,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid my water utility account UGX 5,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid my water utility account UGX 7,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid my water utility account UGX 10,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid my water utility account UGX 12,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid my water utility account UGX 15,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid my water utility account UGX 20,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid my water utility account UGX 25,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid my water utility account UGX 35,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water and electricity service payment of UGX 2,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water and electricity service payment of UGX 3,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water and electricity service payment of UGX 5,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water and electricity service payment of UGX 7,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water and electricity service payment of UGX 10,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water and electricity service payment of UGX 12,500.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water and electricity service payment of UGX 15,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water and electricity service payment of UGX 20,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water and electricity service payment of UGX 25,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water and electricity service payment of UGX 35,000.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid UGX 2,000 for my DSTV subscription.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 3,500 for my DSTV subscription.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 5,000 for my DSTV subscription.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 7,500 for my DSTV subscription.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 10,000 for my DSTV subscription.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 12,500 for my DSTV subscription.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 15,000 for my DSTV subscription.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 20,000 for my DSTV subscription.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 25,000 for my DSTV subscription.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 35,000 for my DSTV subscription.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my television subscription for UGX 2,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my television subscription for UGX 3,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my television subscription for UGX 5,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my television subscription for UGX 7,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my television subscription for UGX 10,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my television subscription for UGX 12,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my television subscription for UGX 15,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my television subscription for UGX 20,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my television subscription for UGX 25,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my television subscription for UGX 35,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased a monthly entertainment package worth UGX 2,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased a monthly entertainment package worth UGX 3,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased a monthly entertainment package worth UGX 5,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased a monthly entertainment package worth UGX 7,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased a monthly entertainment package worth UGX 10,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased a monthly entertainment package worth UGX 12,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased a monthly entertainment package worth UGX 15,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased a monthly entertainment package worth UGX 20,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased a monthly entertainment package worth UGX 25,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Purchased a monthly entertainment package worth UGX 35,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV account payment of UGX 2,000 was successful.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV account payment of UGX 3,500 was successful.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV account payment of UGX 5,000 was successful.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV account payment of UGX 7,500 was successful.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV account payment of UGX 10,000 was successful.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV account payment of UGX 12,500 was successful.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV account payment of UGX 15,000 was successful.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV account payment of UGX 20,000 was successful.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV account payment of UGX 25,000 was successful.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "DSTV account payment of UGX 35,000 was successful.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels costing UGX 2,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels costing UGX 3,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels costing UGX 5,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels costing UGX 7,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels costing UGX 10,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels costing UGX 12,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels costing UGX 15,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels costing UGX 20,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels costing UGX 25,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid for television channels costing UGX 35,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my home TV package using UGX 2,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my home TV package using UGX 3,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my home TV package using UGX 5,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my home TV package using UGX 7,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my home TV package using UGX 10,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my home TV package using UGX 12,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my home TV package using UGX 15,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my home TV package using UGX 20,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my home TV package using UGX 25,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Renewed my home TV package using UGX 35,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription payment of UGX 2,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription payment of UGX 3,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription payment of UGX 5,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription payment of UGX 7,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription payment of UGX 10,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription payment of UGX 12,500.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription payment of UGX 15,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription payment of UGX 20,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription payment of UGX 25,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Entertainment subscription payment of UGX 35,000.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 2,000 to restore my television service.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 3,500 to restore my television service.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 5,000 to restore my television service.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 7,500 to restore my television service.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 10,000 to restore my television service.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 12,500 to restore my television service.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 15,000 to restore my television service.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 20,000 to restore my television service.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 25,000 to restore my television service.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 35,000 to restore my television service.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Paid UGX 2,000 to URA for tax obligations.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 3,500 to URA for tax obligations.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 5,000 to URA for tax obligations.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 7,500 to URA for tax obligations.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 10,000 to URA for tax obligations.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 12,500 to URA for tax obligations.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 15,000 to URA for tax obligations.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 20,000 to URA for tax obligations.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 25,000 to URA for tax obligations.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 35,000 to URA for tax obligations.",
+        "category": "Government"
+    },
+    {
+        "text": "Completed a government tax payment of UGX 2,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Completed a government tax payment of UGX 3,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Completed a government tax payment of UGX 5,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Completed a government tax payment of UGX 7,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Completed a government tax payment of UGX 10,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Completed a government tax payment of UGX 12,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Completed a government tax payment of UGX 15,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Completed a government tax payment of UGX 20,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Completed a government tax payment of UGX 25,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Completed a government tax payment of UGX 35,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Settled my URA payment reference for UGX 2,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Settled my URA payment reference for UGX 3,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Settled my URA payment reference for UGX 5,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Settled my URA payment reference for UGX 7,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Settled my URA payment reference for UGX 10,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Settled my URA payment reference for UGX 12,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Settled my URA payment reference for UGX 15,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Settled my URA payment reference for UGX 20,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Settled my URA payment reference for UGX 25,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Settled my URA payment reference for UGX 35,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 2,000 for a government revenue assessment.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 3,500 for a government revenue assessment.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 5,000 for a government revenue assessment.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 7,500 for a government revenue assessment.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 10,000 for a government revenue assessment.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 12,500 for a government revenue assessment.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 15,000 for a government revenue assessment.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 20,000 for a government revenue assessment.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 25,000 for a government revenue assessment.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid UGX 35,000 for a government revenue assessment.",
+        "category": "Government"
+    },
+    {
+        "text": "Submitted a tax payment worth UGX 2,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Submitted a tax payment worth UGX 3,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Submitted a tax payment worth UGX 5,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Submitted a tax payment worth UGX 7,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Submitted a tax payment worth UGX 10,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Submitted a tax payment worth UGX 12,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Submitted a tax payment worth UGX 15,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Submitted a tax payment worth UGX 20,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Submitted a tax payment worth UGX 25,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Submitted a tax payment worth UGX 35,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment of UGX 2,000 completed.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment of UGX 3,500 completed.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment of UGX 5,000 completed.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment of UGX 7,500 completed.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment of UGX 10,000 completed.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment of UGX 12,500 completed.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment of UGX 15,000 completed.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment of UGX 20,000 completed.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment of UGX 25,000 completed.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue payment of UGX 35,000 completed.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid the assessed tax amount of UGX 2,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid the assessed tax amount of UGX 3,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid the assessed tax amount of UGX 5,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid the assessed tax amount of UGX 7,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid the assessed tax amount of UGX 10,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid the assessed tax amount of UGX 12,500.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid the assessed tax amount of UGX 15,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid the assessed tax amount of UGX 20,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid the assessed tax amount of UGX 25,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Paid the assessed tax amount of UGX 35,000.",
+        "category": "Government"
+    },
+    {
+        "text": "URA received a payment of UGX 2,000.",
+        "category": "Government"
+    },
+    {
+        "text": "URA received a payment of UGX 3,500.",
+        "category": "Government"
+    },
+    {
+        "text": "URA received a payment of UGX 5,000.",
+        "category": "Government"
+    },
+    {
+        "text": "URA received a payment of UGX 7,500.",
+        "category": "Government"
+    },
+    {
+        "text": "URA received a payment of UGX 10,000.",
+        "category": "Government"
+    },
+    {
+        "text": "URA received a payment of UGX 12,500.",
+        "category": "Government"
+    },
+    {
+        "text": "URA received a payment of UGX 15,000.",
+        "category": "Government"
+    },
+    {
+        "text": "URA received a payment of UGX 20,000.",
+        "category": "Government"
+    },
+    {
+        "text": "URA received a payment of UGX 25,000.",
+        "category": "Government"
+    },
+    {
+        "text": "URA received a payment of UGX 35,000.",
+        "category": "Government"
+    },
+    {
+        "text": "Bought groceries at Carrefour for UGX 2,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries at Carrefour for UGX 3,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries at Carrefour for UGX 5,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries at Carrefour for UGX 7,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries at Carrefour for UGX 10,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries at Carrefour for UGX 12,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries at Carrefour for UGX 15,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries at Carrefour for UGX 20,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries at Carrefour for UGX 25,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries at Carrefour for UGX 35,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket shopping worth UGX 2,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket shopping worth UGX 3,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket shopping worth UGX 5,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket shopping worth UGX 7,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket shopping worth UGX 10,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket shopping worth UGX 12,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket shopping worth UGX 15,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket shopping worth UGX 20,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket shopping worth UGX 25,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for supermarket shopping worth UGX 35,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food items costing UGX 2,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food items costing UGX 3,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food items costing UGX 5,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food items costing UGX 7,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food items costing UGX 10,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food items costing UGX 12,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food items costing UGX 15,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food items costing UGX 20,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food items costing UGX 25,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food items costing UGX 35,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid UGX 2,000 for lunch at a restaurant.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid UGX 3,500 for lunch at a restaurant.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid UGX 5,000 for lunch at a restaurant.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid UGX 7,500 for lunch at a restaurant.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid UGX 10,000 for lunch at a restaurant.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid UGX 12,500 for lunch at a restaurant.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid UGX 15,000 for lunch at a restaurant.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid UGX 20,000 for lunch at a restaurant.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid UGX 25,000 for lunch at a restaurant.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid UGX 35,000 for lunch at a restaurant.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries for UGX 2,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries for UGX 3,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries for UGX 5,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries for UGX 7,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries for UGX 10,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries for UGX 12,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries for UGX 15,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries for UGX 20,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries for UGX 25,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought household groceries for UGX 35,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for vegetables and other food supplies worth UGX 2,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for vegetables and other food supplies worth UGX 3,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for vegetables and other food supplies worth UGX 5,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for vegetables and other food supplies worth UGX 7,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for vegetables and other food supplies worth UGX 10,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for vegetables and other food supplies worth UGX 12,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for vegetables and other food supplies worth UGX 15,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for vegetables and other food supplies worth UGX 20,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for vegetables and other food supplies worth UGX 25,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for vegetables and other food supplies worth UGX 35,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase of UGX 2,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase of UGX 3,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase of UGX 5,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase of UGX 7,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase of UGX 10,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase of UGX 12,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase of UGX 15,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase of UGX 20,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase of UGX 25,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase of UGX 35,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant bill settled using UGX 2,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant bill settled using UGX 3,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant bill settled using UGX 5,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant bill settled using UGX 7,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant bill settled using UGX 10,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant bill settled using UGX 12,500.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant bill settled using UGX 15,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant bill settled using UGX 20,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant bill settled using UGX 25,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant bill settled using UGX 35,000.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid FARAS UGX 2,000 for a ride.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid FARAS UGX 3,500 for a ride.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid FARAS UGX 5,000 for a ride.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid FARAS UGX 7,500 for a ride.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid FARAS UGX 10,000 for a ride.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid FARAS UGX 12,500 for a ride.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid FARAS UGX 15,000 for a ride.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid FARAS UGX 20,000 for a ride.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid FARAS UGX 25,000 for a ride.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid FARAS UGX 35,000 for a ride.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment of UGX 2,000 completed.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment of UGX 3,500 completed.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment of UGX 5,000 completed.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment of UGX 7,500 completed.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment of UGX 10,000 completed.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment of UGX 12,500 completed.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment of UGX 15,000 completed.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment of UGX 20,000 completed.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment of UGX 25,000 completed.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT trip payment of UGX 35,000 completed.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid SafeBoda UGX 2,000 for motorcycle transport.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid SafeBoda UGX 3,500 for motorcycle transport.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid SafeBoda UGX 5,000 for motorcycle transport.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid SafeBoda UGX 7,500 for motorcycle transport.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid SafeBoda UGX 10,000 for motorcycle transport.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid SafeBoda UGX 12,500 for motorcycle transport.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid SafeBoda UGX 15,000 for motorcycle transport.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid SafeBoda UGX 20,000 for motorcycle transport.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid SafeBoda UGX 25,000 for motorcycle transport.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid SafeBoda UGX 35,000 for motorcycle transport.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased fuel worth UGX 2,000 at Shell.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased fuel worth UGX 3,500 at Shell.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased fuel worth UGX 5,000 at Shell.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased fuel worth UGX 7,500 at Shell.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased fuel worth UGX 10,000 at Shell.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased fuel worth UGX 12,500 at Shell.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased fuel worth UGX 15,000 at Shell.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased fuel worth UGX 20,000 at Shell.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased fuel worth UGX 25,000 at Shell.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased fuel worth UGX 35,000 at Shell.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid TotalEnergies UGX 2,000 for fuel.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid TotalEnergies UGX 3,500 for fuel.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid TotalEnergies UGX 5,000 for fuel.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid TotalEnergies UGX 7,500 for fuel.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid TotalEnergies UGX 10,000 for fuel.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid TotalEnergies UGX 12,500 for fuel.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid TotalEnergies UGX 15,000 for fuel.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid TotalEnergies UGX 20,000 for fuel.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid TotalEnergies UGX 25,000 for fuel.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid TotalEnergies UGX 35,000 for fuel.",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport fare of UGX 2,000 paid through mobile money.",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport fare of UGX 3,500 paid through mobile money.",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport fare of UGX 5,000 paid through mobile money.",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport fare of UGX 7,500 paid through mobile money.",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport fare of UGX 10,000 paid through mobile money.",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport fare of UGX 12,500 paid through mobile money.",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport fare of UGX 15,000 paid through mobile money.",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport fare of UGX 20,000 paid through mobile money.",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport fare of UGX 25,000 paid through mobile money.",
+        "category": "Transport"
+    },
+    {
+        "text": "Transport fare of UGX 35,000 paid through mobile money.",
+        "category": "Transport"
+    },
+    {
+        "text": "Used a ride service and paid UGX 2,000.",
+        "category": "Transport"
+    },
+    {
+        "text": "Used a ride service and paid UGX 3,500.",
+        "category": "Transport"
+    },
+    {
+        "text": "Used a ride service and paid UGX 5,000.",
+        "category": "Transport"
+    },
+    {
+        "text": "Used a ride service and paid UGX 7,500.",
+        "category": "Transport"
+    },
+    {
+        "text": "Used a ride service and paid UGX 10,000.",
+        "category": "Transport"
+    },
+    {
+        "text": "Used a ride service and paid UGX 12,500.",
+        "category": "Transport"
+    },
+    {
+        "text": "Used a ride service and paid UGX 15,000.",
+        "category": "Transport"
+    },
+    {
+        "text": "Used a ride service and paid UGX 20,000.",
+        "category": "Transport"
+    },
+    {
+        "text": "Used a ride service and paid UGX 25,000.",
+        "category": "Transport"
+    },
+    {
+        "text": "Used a ride service and paid UGX 35,000.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid a driver UGX 2,000 for transportation.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid a driver UGX 3,500 for transportation.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid a driver UGX 5,000 for transportation.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid a driver UGX 7,500 for transportation.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid a driver UGX 10,000 for transportation.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid a driver UGX 12,500 for transportation.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid a driver UGX 15,000 for transportation.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid a driver UGX 20,000 for transportation.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid a driver UGX 25,000 for transportation.",
+        "category": "Transport"
+    },
+    {
+        "text": "Paid a driver UGX 35,000 for transportation.",
+        "category": "Transport"
+    },
+    {
+        "text": "Purchased household items through Jumia for UGX 2,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased household items through Jumia for UGX 3,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased household items through Jumia for UGX 5,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased household items through Jumia for UGX 7,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased household items through Jumia for UGX 10,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased household items through Jumia for UGX 12,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased household items through Jumia for UGX 15,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased household items through Jumia for UGX 20,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased household items through Jumia for UGX 25,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased household items through Jumia for UGX 35,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid an online retailer UGX 2,000 for an order.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid an online retailer UGX 3,500 for an order.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid an online retailer UGX 5,000 for an order.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid an online retailer UGX 7,500 for an order.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid an online retailer UGX 10,000 for an order.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid an online retailer UGX 12,500 for an order.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid an online retailer UGX 15,000 for an order.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid an online retailer UGX 20,000 for an order.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid an online retailer UGX 25,000 for an order.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid an online retailer UGX 35,000 for an order.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothing worth UGX 2,000 from a retail shop.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothing worth UGX 3,500 from a retail shop.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothing worth UGX 5,000 from a retail shop.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothing worth UGX 7,500 from a retail shop.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothing worth UGX 10,000 from a retail shop.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothing worth UGX 12,500 from a retail shop.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothing worth UGX 15,000 from a retail shop.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothing worth UGX 20,000 from a retail shop.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothing worth UGX 25,000 from a retail shop.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought clothing worth UGX 35,000 from a retail shop.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Completed an online shopping order worth UGX 2,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Completed an online shopping order worth UGX 3,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Completed an online shopping order worth UGX 5,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Completed an online shopping order worth UGX 7,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Completed an online shopping order worth UGX 10,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Completed an online shopping order worth UGX 12,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Completed an online shopping order worth UGX 15,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Completed an online shopping order worth UGX 20,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Completed an online shopping order worth UGX 25,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Completed an online shopping order worth UGX 35,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 2,000 for electronics purchased from a store.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 3,500 for electronics purchased from a store.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 5,000 for electronics purchased from a store.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 7,500 for electronics purchased from a store.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 10,000 for electronics purchased from a store.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 12,500 for electronics purchased from a store.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 15,000 for electronics purchased from a store.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 20,000 for electronics purchased from a store.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 25,000 for electronics purchased from a store.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 35,000 for electronics purchased from a store.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased accessories costing UGX 2,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased accessories costing UGX 3,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased accessories costing UGX 5,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased accessories costing UGX 7,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased accessories costing UGX 10,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased accessories costing UGX 12,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased accessories costing UGX 15,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased accessories costing UGX 20,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased accessories costing UGX 25,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased accessories costing UGX 35,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a merchant for a retail purchase of UGX 2,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a merchant for a retail purchase of UGX 3,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a merchant for a retail purchase of UGX 5,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a merchant for a retail purchase of UGX 7,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a merchant for a retail purchase of UGX 10,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a merchant for a retail purchase of UGX 12,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a merchant for a retail purchase of UGX 15,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a merchant for a retail purchase of UGX 20,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a merchant for a retail purchase of UGX 25,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a merchant for a retail purchase of UGX 35,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Received confirmation for an online order payment of UGX 2,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Received confirmation for an online order payment of UGX 3,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Received confirmation for an online order payment of UGX 5,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Received confirmation for an online order payment of UGX 7,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Received confirmation for an online order payment of UGX 10,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Received confirmation for an online order payment of UGX 12,500.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Received confirmation for an online order payment of UGX 15,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Received confirmation for an online order payment of UGX 20,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Received confirmation for an online order payment of UGX 25,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Received confirmation for an online order payment of UGX 35,000.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid UGX 2,000 to Kato General Services.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 3,500 to Kato General Services.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 5,000 to Kato General Services.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 7,500 to Kato General Services.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 10,000 to Kato General Services.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 12,500 to Kato General Services.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 15,000 to Kato General Services.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 20,000 to Kato General Services.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 25,000 to Kato General Services.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 35,000 to Kato General Services.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 2,000 was made to a local service provider.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 3,500 was made to a local service provider.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 5,000 was made to a local service provider.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 7,500 was made to a local service provider.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 10,000 was made to a local service provider.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 12,500 was made to a local service provider.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 15,000 was made to a local service provider.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 20,000 was made to a local service provider.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 25,000 was made to a local service provider.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 35,000 was made to a local service provider.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 2,000 for a miscellaneous service.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 3,500 for a miscellaneous service.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 5,000 for a miscellaneous service.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 7,500 for a miscellaneous service.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 10,000 for a miscellaneous service.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 12,500 for a miscellaneous service.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 15,000 for a miscellaneous service.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 20,000 for a miscellaneous service.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 25,000 for a miscellaneous service.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 35,000 for a miscellaneous service.",
+        "category": "Other"
+    },
+    {
+        "text": "A merchant received UGX 2,000 for an unspecified service.",
+        "category": "Other"
+    },
+    {
+        "text": "A merchant received UGX 3,500 for an unspecified service.",
+        "category": "Other"
+    },
+    {
+        "text": "A merchant received UGX 5,000 for an unspecified service.",
+        "category": "Other"
+    },
+    {
+        "text": "A merchant received UGX 7,500 for an unspecified service.",
+        "category": "Other"
+    },
+    {
+        "text": "A merchant received UGX 10,000 for an unspecified service.",
+        "category": "Other"
+    },
+    {
+        "text": "A merchant received UGX 12,500 for an unspecified service.",
+        "category": "Other"
+    },
+    {
+        "text": "A merchant received UGX 15,000 for an unspecified service.",
+        "category": "Other"
+    },
+    {
+        "text": "A merchant received UGX 20,000 for an unspecified service.",
+        "category": "Other"
+    },
+    {
+        "text": "A merchant received UGX 25,000 for an unspecified service.",
+        "category": "Other"
+    },
+    {
+        "text": "A merchant received UGX 35,000 for an unspecified service.",
+        "category": "Other"
+    },
+    {
+        "text": "Completed a payment of UGX 2,000 to a local business.",
+        "category": "Other"
+    },
+    {
+        "text": "Completed a payment of UGX 3,500 to a local business.",
+        "category": "Other"
+    },
+    {
+        "text": "Completed a payment of UGX 5,000 to a local business.",
+        "category": "Other"
+    },
+    {
+        "text": "Completed a payment of UGX 7,500 to a local business.",
+        "category": "Other"
+    },
+    {
+        "text": "Completed a payment of UGX 10,000 to a local business.",
+        "category": "Other"
+    },
+    {
+        "text": "Completed a payment of UGX 12,500 to a local business.",
+        "category": "Other"
+    },
+    {
+        "text": "Completed a payment of UGX 15,000 to a local business.",
+        "category": "Other"
+    },
+    {
+        "text": "Completed a payment of UGX 20,000 to a local business.",
+        "category": "Other"
+    },
+    {
+        "text": "Completed a payment of UGX 25,000 to a local business.",
+        "category": "Other"
+    },
+    {
+        "text": "Completed a payment of UGX 35,000 to a local business.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid a service provider UGX 2,000 using mobile money.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid a service provider UGX 3,500 using mobile money.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid a service provider UGX 5,000 using mobile money.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid a service provider UGX 7,500 using mobile money.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid a service provider UGX 10,000 using mobile money.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid a service provider UGX 12,500 using mobile money.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid a service provider UGX 15,000 using mobile money.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid a service provider UGX 20,000 using mobile money.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid a service provider UGX 25,000 using mobile money.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid a service provider UGX 35,000 using mobile money.",
+        "category": "Other"
+    },
+    {
+        "text": "A transaction of UGX 2,000 was completed with an unfamiliar merchant.",
+        "category": "Other"
+    },
+    {
+        "text": "A transaction of UGX 3,500 was completed with an unfamiliar merchant.",
+        "category": "Other"
+    },
+    {
+        "text": "A transaction of UGX 5,000 was completed with an unfamiliar merchant.",
+        "category": "Other"
+    },
+    {
+        "text": "A transaction of UGX 7,500 was completed with an unfamiliar merchant.",
+        "category": "Other"
+    },
+    {
+        "text": "A transaction of UGX 10,000 was completed with an unfamiliar merchant.",
+        "category": "Other"
+    },
+    {
+        "text": "A transaction of UGX 12,500 was completed with an unfamiliar merchant.",
+        "category": "Other"
+    },
+    {
+        "text": "A transaction of UGX 15,000 was completed with an unfamiliar merchant.",
+        "category": "Other"
+    },
+    {
+        "text": "A transaction of UGX 20,000 was completed with an unfamiliar merchant.",
+        "category": "Other"
+    },
+    {
+        "text": "A transaction of UGX 25,000 was completed with an unfamiliar merchant.",
+        "category": "Other"
+    },
+    {
+        "text": "A transaction of UGX 35,000 was completed with an unfamiliar merchant.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 2,000 for a service not listed in my usual expenses.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 3,500 for a service not listed in my usual expenses.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 5,000 for a service not listed in my usual expenses.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 7,500 for a service not listed in my usual expenses.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 10,000 for a service not listed in my usual expenses.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 12,500 for a service not listed in my usual expenses.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 15,000 for a service not listed in my usual expenses.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 20,000 for a service not listed in my usual expenses.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 25,000 for a service not listed in my usual expenses.",
+        "category": "Other"
+    },
+    {
+        "text": "Paid UGX 35,000 for a service not listed in my usual expenses.",
+        "category": "Other"
+    },
+    {
+        "text": "You received a mobile money transfer from a registered sender. UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "You received a mobile money transfer from a registered sender. UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "You received a mobile money transfer from a registered sender. UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "You received a mobile money transfer from a registered sender. UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Incoming payment from another mobile wallet: UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Incoming payment from another mobile wallet: UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Incoming payment from another mobile wallet: UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Incoming payment from another mobile wallet: UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A person sent you UGX 6,200 through mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A person sent you UGX 11,750 through mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A person sent you UGX 18,400 through mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A person sent you UGX 27,900 through mobile money.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your account received a transfer of UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your account received a transfer of UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your account received a transfer of UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your account received a transfer of UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Mobile money received from a contact: UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Mobile money received from a contact: UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Mobile money received from a contact: UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Mobile money received from a contact: UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A transfer into your wallet was successful. Amount UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A transfer into your wallet was successful. Amount UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A transfer into your wallet was successful. Amount UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A transfer into your wallet was successful. Amount UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "You have received funds from another subscriber worth UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "You have received funds from another subscriber worth UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "You have received funds from another subscriber worth UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "You have received funds from another subscriber worth UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 6,200 has been sent to your wallet by another user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 11,750 has been sent to your wallet by another user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 18,400 has been sent to your wallet by another user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 27,900 has been sent to your wallet by another user.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your mobile wallet received an incoming transfer of UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your mobile wallet received an incoming transfer of UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your mobile wallet received an incoming transfer of UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your mobile wallet received an incoming transfer of UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transfer received successfully from another phone number. UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transfer received successfully from another phone number. UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transfer received successfully from another phone number. UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transfer received successfully from another phone number. UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "An incoming bank transfer of UGX 6,200 has been confirmed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "An incoming bank transfer of UGX 11,750 has been confirmed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "An incoming bank transfer of UGX 18,400 has been confirmed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "An incoming bank transfer of UGX 27,900 has been confirmed.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Funds sent from a bank account to your account: UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Funds sent from a bank account to your account: UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Funds sent from a bank account to your account: UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Funds sent from a bank account to your account: UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your account has received money from a bank transfer. UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your account has received money from a bank transfer. UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your account has received money from a bank transfer. UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your account has received money from a bank transfer. UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A customer transferred UGX 6,200 to your mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A customer transferred UGX 11,750 to your mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A customer transferred UGX 18,400 to your mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "A customer transferred UGX 27,900 to your mobile wallet.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Payment received from a mobile money subscriber. UGX 6,200.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Payment received from a mobile money subscriber. UGX 11,750.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Payment received from a mobile money subscriber. UGX 18,400.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Payment received from a mobile money subscriber. UGX 27,900.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Water charges paid to National Water and Sewerage Corporation: UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water charges paid to National Water and Sewerage Corporation: UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water charges paid to National Water and Sewerage Corporation: UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water charges paid to National Water and Sewerage Corporation: UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Your NWSC water account has been cleared with UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Your NWSC water account has been cleared with UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Your NWSC water account has been cleared with UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Your NWSC water account has been cleared with UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water supply services payment confirmed. Amount UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water supply services payment confirmed. Amount UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water supply services payment confirmed. Amount UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water supply services payment confirmed. Amount UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the outstanding water bill using UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the outstanding water bill using UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the outstanding water bill using UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid the outstanding water bill using UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "NWSC has received your water bill payment of UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "NWSC has received your water bill payment of UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "NWSC has received your water bill payment of UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "NWSC has received your water bill payment of UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Monthly water charges settled successfully. UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Monthly water charges settled successfully. UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Monthly water charges settled successfully. UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Monthly water charges settled successfully. UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME prepaid electricity purchase completed for UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME prepaid electricity purchase completed for UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME prepaid electricity purchase completed for UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME prepaid electricity purchase completed for UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity Yaka units purchased using UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity Yaka units purchased using UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity Yaka units purchased using UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity Yaka units purchased using UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Your electricity account payment was accepted. UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Your electricity account payment was accepted. UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Your electricity account payment was accepted. UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Your electricity account payment was accepted. UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Power bill payment confirmed by UMEME. Amount UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Power bill payment confirmed by UMEME. Amount UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Power bill payment confirmed by UMEME. Amount UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Power bill payment confirmed by UMEME. Amount UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid for domestic water services. UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid for domestic water services. UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid for domestic water services. UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Paid for domestic water services. UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity service charges settled using UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity service charges settled using UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity service charges settled using UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity service charges settled using UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water account recharge completed successfully. UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water account recharge completed successfully. UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water account recharge completed successfully. UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water account recharge completed successfully. UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased prepaid power units worth UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased prepaid power units worth UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased prepaid power units worth UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Purchased prepaid power units worth UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Payment for household water supply processed. UGX 6,200.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Payment for household water supply processed. UGX 11,750.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Payment for household water supply processed. UGX 18,400.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Payment for household water supply processed. UGX 27,900.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Carrefour supermarket purchase completed. Total UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase completed. Total UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase completed. Total UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Carrefour supermarket purchase completed. Total UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for groceries and household food at Carrefour. UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for groceries and household food at Carrefour. UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for groceries and household food at Carrefour. UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for groceries and household food at Carrefour. UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Supermarket bill settled at Carrefour Uganda for UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Supermarket bill settled at Carrefour Uganda for UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Supermarket bill settled at Carrefour Uganda for UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Supermarket bill settled at Carrefour Uganda for UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food products from a grocery retailer. UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food products from a grocery retailer. UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food products from a grocery retailer. UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased food products from a grocery retailer. UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fresh produce and groceries. Amount UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fresh produce and groceries. Amount UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fresh produce and groceries. Amount UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fresh produce and groceries. Amount UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food shopping transaction approved at a supermarket. UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food shopping transaction approved at a supermarket. UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food shopping transaction approved at a supermarket. UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food shopping transaction approved at a supermarket. UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Capital Shoppers grocery bill paid. UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Capital Shoppers grocery bill paid. UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Capital Shoppers grocery bill paid. UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Capital Shoppers grocery bill paid. UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Quality Supermarket food purchase confirmed. UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Quality Supermarket food purchase confirmed. UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Quality Supermarket food purchase confirmed. UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Quality Supermarket food purchase confirmed. UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought cooking ingredients and food supplies for UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought cooking ingredients and food supplies for UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought cooking ingredients and food supplies for UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought cooking ingredients and food supplies for UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment for supermarket food items processed. UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment for supermarket food items processed. UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment for supermarket food items processed. UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment for supermarket food items processed. UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid a restaurant for a meal order. Amount UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid a restaurant for a meal order. Amount UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid a restaurant for a meal order. Amount UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid a restaurant for a meal order. Amount UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant dining bill completed using UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant dining bill completed using UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant dining bill completed using UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant dining bill completed using UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased groceries including milk, bread and vegetables. UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased groceries including milk, bread and vegetables. UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased groceries including milk, bread and vegetables. UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased groceries including milk, bread and vegetables. UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food items purchased from a local supermarket. Total UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food items purchased from a local supermarket. Total UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food items purchased from a local supermarket. Total UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food items purchased from a local supermarket. Total UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fresh fruits and vegetables at a food store. UGX 6,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fresh fruits and vegetables at a food store. UGX 11,750.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fresh fruits and vegetables at a food store. UGX 18,400.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fresh fruits and vegetables at a food store. UGX 27,900.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased fresh vegetables and fruit from a market for UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased fresh vegetables and fruit from a market for UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased fresh vegetables and fruit from a market for UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased fresh vegetables and fruit from a market for UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for meat and other food supplies costing UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for meat and other food supplies costing UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for meat and other food supplies costing UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for meat and other food supplies costing UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries for the household at a supermarket. Total UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries for the household at a supermarket. Total UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries for the household at a supermarket. Total UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought groceries for the household at a supermarket. Total UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for bread, milk and eggs at a food store. UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for bread, milk and eggs at a food store. UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for bread, milk and eggs at a food store. UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for bread, milk and eggs at a food store. UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant meal order paid using UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant meal order paid using UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant meal order paid using UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant meal order paid using UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought cooking oil, rice and flour worth UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought cooking oil, rice and flour worth UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought cooking oil, rice and flour worth UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought cooking oil, rice and flour worth UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food shopping at a local grocery shop completed. UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food shopping at a local grocery shop completed. UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food shopping at a local grocery shop completed. UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food shopping at a local grocery shop completed. UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid a bakery for bread and pastries costing UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid a bakery for bread and pastries costing UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid a bakery for bread and pastries costing UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid a bakery for bread and pastries costing UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased fresh produce from a vegetable vendor. UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased fresh produce from a vegetable vendor. UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased fresh produce from a vegetable vendor. UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased fresh produce from a vegetable vendor. UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Supermarket food bill settled successfully. UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Supermarket food bill settled successfully. UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Supermarket food bill settled successfully. UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Supermarket food bill settled successfully. UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for groceries including beans and maize flour. UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for groceries including beans and maize flour. UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for groceries including beans and maize flour. UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for groceries including beans and maize flour. UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant dining payment processed for UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant dining payment processed for UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant dining payment processed for UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Restaurant dining payment processed for UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought dairy products and household food supplies. UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought dairy products and household food supplies. UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought dairy products and household food supplies. UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Bought dairy products and household food supplies. UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fish and other food items worth UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fish and other food items worth UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fish and other food items worth UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Paid for fish and other food items worth UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food delivery order payment confirmed. UGX 9,300.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food delivery order payment confirmed. UGX 14,600.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food delivery order payment confirmed. UGX 23,800.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Food delivery order payment confirmed. UGX 41,200.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Purchased a new pair of shoes from a retail shop for UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a new pair of shoes from a retail shop for UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a new pair of shoes from a retail shop for UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a new pair of shoes from a retail shop for UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for clothing items bought from a fashion store. UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for clothing items bought from a fashion store. UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for clothing items bought from a fashion store. UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for clothing items bought from a fashion store. UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought a mobile phone accessory costing UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought a mobile phone accessory costing UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought a mobile phone accessory costing UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought a mobile phone accessory costing UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a household appliance from an electronics retailer. UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a household appliance from an electronics retailer. UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a household appliance from an electronics retailer. UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a household appliance from an electronics retailer. UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for furniture purchased from a home goods store. UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for furniture purchased from a home goods store. UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for furniture purchased from a home goods store. UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for furniture purchased from a home goods store. UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought a handbag and other fashion accessories for UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought a handbag and other fashion accessories for UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought a handbag and other fashion accessories for UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought a handbag and other fashion accessories for UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online order for electronic equipment paid. UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online order for electronic equipment paid. UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online order for electronic equipment paid. UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online order for electronic equipment paid. UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a shirt and trousers from a clothing shop. UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a shirt and trousers from a clothing shop. UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a shirt and trousers from a clothing shop. UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a shirt and trousers from a clothing shop. UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a hardware store for building materials worth UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a hardware store for building materials worth UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a hardware store for building materials worth UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid a hardware store for building materials worth UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought kitchen utensils from a household goods retailer. UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought kitchen utensils from a household goods retailer. UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought kitchen utensils from a household goods retailer. UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Bought kitchen utensils from a household goods retailer. UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a laptop accessory online for UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a laptop accessory online for UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a laptop accessory online for UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a laptop accessory online for UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Retail store payment for a wristwatch. Amount UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Retail store payment for a wristwatch. Amount UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Retail store payment for a wristwatch. Amount UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Retail store payment for a wristwatch. Amount UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for cosmetics and personal care products. UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for cosmetics and personal care products. UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for cosmetics and personal care products. UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Paid for cosmetics and personal care products. UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a school bag and stationery items worth UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a school bag and stationery items worth UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a school bag and stationery items worth UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Purchased a school bag and stationery items worth UGX 41,200.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online retail purchase confirmed. Order total UGX 9,300.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online retail purchase confirmed. Order total UGX 14,600.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online retail purchase confirmed. Order total UGX 23,800.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online retail purchase confirmed. Order total UGX 41,200.",
+        "category": "Shopping"
+    }
 ]

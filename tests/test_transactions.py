@@ -1,4 +1,12 @@
+
 """Tests for MoneyLens UG transaction endpoints."""
+
+from sqlalchemy import select
+
+from app.models.category import Category
+from app.models.category_correction import CategoryCorrection
+from app.models.transaction import Transaction
+from app.models.user import User
 
 
 def create_transaction(client, auth_headers, transaction_id, amount=35000):
@@ -15,6 +23,36 @@ def create_transaction(client, auth_headers, transaction_id, amount=35000):
         headers=auth_headers,
         json={"messages": [message]},
     )
+
+
+def get_category_id(db_session, category_name):
+    """Retrieve a shared system category ID by name."""
+
+    category = db_session.scalar(
+        select(Category).where(
+            Category.name == category_name,
+            Category.is_system.is_(True),
+            Category.user_id.is_(None),
+        )
+    )
+
+    assert category is not None
+
+    return category.id
+
+
+def get_transaction(db_session, transaction_id):
+    """Retrieve a transaction using its external transaction ID."""
+
+    transaction = db_session.scalar(
+        select(Transaction).where(
+            Transaction.transaction_id == transaction_id,
+        )
+    )
+
+    assert transaction is not None
+
+    return transaction
 
 
 def test_get_transactions(client, auth_headers):
@@ -166,7 +204,6 @@ def test_users_cannot_access_each_others_transactions(
 ):
     """Users should only see their own transactions."""
 
-    # Create a transaction for the first authenticated user.
     first_upload = create_transaction(
         client,
         auth_headers,
@@ -175,7 +212,6 @@ def test_users_cannot_access_each_others_transactions(
 
     assert first_upload.status_code == 201
 
-    # Register a second synthetic user.
     second_user_data = {
         "email": "seconduser@moneylens.ug",
         "password": "SecurePassword123!",
@@ -188,7 +224,6 @@ def test_users_cannot_access_each_others_transactions(
 
     assert register_response.status_code == 201
 
-    # Log in as the second user.
     login_response = client.post(
         "/api/v1/auth/login",
         json=second_user_data,
@@ -198,9 +233,10 @@ def test_users_cannot_access_each_others_transactions(
 
     second_access_token = login_response.json()["access_token"]
 
-    second_auth_headers = {"Authorization": f"Bearer {second_access_token}"}
+    second_auth_headers = {
+        "Authorization": f"Bearer {second_access_token}"
+    }
 
-    # Create a transaction belonging to the second user.
     second_upload = create_transaction(
         client,
         second_auth_headers,
@@ -209,7 +245,6 @@ def test_users_cannot_access_each_others_transactions(
 
     assert second_upload.status_code == 201
 
-    # Retrieve transactions as the first user.
     first_user_response = client.get(
         "/api/v1/transactions",
         headers=auth_headers,
@@ -220,13 +255,13 @@ def test_users_cannot_access_each_others_transactions(
     first_user_transactions = first_user_response.json()["items"]
 
     first_user_transaction_ids = [
-        transaction["transaction_id"] for transaction in first_user_transactions
+        transaction["transaction_id"]
+        for transaction in first_user_transactions
     ]
 
     assert "USERONE001" in first_user_transaction_ids
     assert "USERTWO001" not in first_user_transaction_ids
 
-    # Retrieve transactions as the second user.
     second_user_response = client.get(
         "/api/v1/transactions",
         headers=second_auth_headers,
@@ -237,8 +272,205 @@ def test_users_cannot_access_each_others_transactions(
     second_user_transactions = second_user_response.json()["items"]
 
     second_user_transaction_ids = [
-        transaction["transaction_id"] for transaction in second_user_transactions
+        transaction["transaction_id"]
+        for transaction in second_user_transactions
     ]
 
     assert "USERTWO001" in second_user_transaction_ids
     assert "USERONE001" not in second_user_transaction_ids
+
+
+# ---------------------------------------------------------
+# Transaction category correction tests
+# ---------------------------------------------------------
+
+
+def test_user_can_correct_transaction_category(
+    client,
+    auth_headers,
+    db_session,
+):
+    """Users should be able to correct their transaction categories."""
+
+    create_transaction(client, auth_headers, "CORRECT001")
+
+    transaction = get_transaction(db_session, "CORRECT001")
+    category_id = get_category_id(db_session, "Cash")
+
+    response = client.patch(
+        f"/api/v1/transactions/{transaction.id}/category",
+        headers=auth_headers,
+        json={"category_id": category_id},
+    )
+
+    assert response.status_code == 200
+    assert response.json()["category_id"] == category_id
+
+    correction = db_session.scalar(
+        select(CategoryCorrection).where(
+            CategoryCorrection.transaction_id == transaction.id,
+        )
+    )
+
+    assert correction is not None
+    assert correction.category_id == category_id
+
+
+def test_category_correction_rejects_nonexistent_category(
+    client,
+    auth_headers,
+    db_session,
+):
+    """Users cannot assign a category that does not exist."""
+
+    create_transaction(client, auth_headers, "INVALIDCATEGORY001")
+
+    transaction = get_transaction(db_session, "INVALIDCATEGORY001")
+
+    response = client.patch(
+        f"/api/v1/transactions/{transaction.id}/category",
+        headers=auth_headers,
+        json={"category_id": 999999},
+    )
+
+    assert response.status_code == 404
+
+
+def test_user_cannot_correct_another_users_transaction(
+    client,
+    auth_headers,
+    db_session,
+):
+    """Users cannot change transactions belonging to other users."""
+
+    create_transaction(client, auth_headers, "PRIVATE001")
+
+    transaction = get_transaction(db_session, "PRIVATE001")
+    category_id = get_category_id(db_session, "Cash")
+
+    second_user_data = {
+        "email": "correctionuser@moneylens.ug",
+        "password": "SecurePassword123!",
+    }
+
+    register_response = client.post(
+        "/api/v1/auth/register",
+        json=second_user_data,
+    )
+
+    assert register_response.status_code == 201
+
+    login_response = client.post(
+        "/api/v1/auth/login",
+        json=second_user_data,
+    )
+
+    assert login_response.status_code == 200
+
+    second_auth_headers = {
+        "Authorization": (
+            f"Bearer {login_response.json()['access_token']}"
+        )
+    }
+
+    response = client.patch(
+        f"/api/v1/transactions/{transaction.id}/category",
+        headers=second_auth_headers,
+        json={"category_id": category_id},
+    )
+
+    assert response.status_code == 404
+
+
+def test_user_cannot_assign_another_users_private_category(
+    client,
+    auth_headers,
+    db_session,
+    test_user,
+):
+    """Users cannot assign categories owned by another user."""
+
+    second_user_data = {
+        "email": "privatecategory@moneylens.ug",
+        "password": "SecurePassword123!",
+    }
+
+    register_response = client.post(
+        "/api/v1/auth/register",
+        json=second_user_data,
+    )
+
+    assert register_response.status_code == 201
+
+    second_user = db_session.scalar(
+        select(User).where(
+            User.email == second_user_data["email"],
+        )
+    )
+
+    assert second_user is not None
+
+    private_category = Category(
+        user_id=second_user.id,
+        name="Private Category",
+        description="A category belonging to another user.",
+        is_system=False,
+    )
+
+    db_session.add(private_category)
+    db_session.commit()
+    db_session.refresh(private_category)
+
+    create_transaction(client, auth_headers, "PRIVATECATEGORY001")
+
+    transaction = get_transaction(db_session, "PRIVATECATEGORY001")
+
+    response = client.patch(
+        f"/api/v1/transactions/{transaction.id}/category",
+        headers=auth_headers,
+        json={"category_id": private_category.id},
+    )
+
+    assert response.status_code == 404
+
+
+def test_correcting_category_updates_existing_correction(
+    client,
+    auth_headers,
+    db_session,
+):
+    """Repeated corrections should update rather than duplicate feedback."""
+
+    create_transaction(client, auth_headers, "UPDATECORRECTION001")
+
+    transaction = get_transaction(db_session, "UPDATECORRECTION001")
+
+    first_category_id = get_category_id(db_session, "Cash")
+    second_category_id = get_category_id(db_session, "Entertainment")
+
+    first_response = client.patch(
+        f"/api/v1/transactions/{transaction.id}/category",
+        headers=auth_headers,
+        json={"category_id": first_category_id},
+    )
+
+    assert first_response.status_code == 200
+    assert first_response.json()["category_id"] == first_category_id
+
+    second_response = client.patch(
+        f"/api/v1/transactions/{transaction.id}/category",
+        headers=auth_headers,
+        json={"category_id": second_category_id},
+    )
+
+    assert second_response.status_code == 200
+    assert second_response.json()["category_id"] == second_category_id
+
+    corrections = db_session.scalars(
+        select(CategoryCorrection).where(
+            CategoryCorrection.transaction_id == transaction.id,
+        )
+    ).all()
+
+    assert len(corrections) == 1
+    assert corrections[0].category_id == second_category_id

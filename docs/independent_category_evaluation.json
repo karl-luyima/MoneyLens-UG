@@ -1,0 +1,269 @@
+{
+    "test_examples": 200,
+    "categories": [
+        "Airtime & Data",
+        "Cash",
+        "Entertainment",
+        "Food & Groceries",
+        "Government",
+        "Other",
+        "Shopping",
+        "Transfers",
+        "Transport",
+        "Utilities"
+    ],
+    "accuracy": 0.955,
+    "classification_report": {
+        "Airtime & Data": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 20.0
+        },
+        "Cash": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 20.0
+        },
+        "Entertainment": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 20.0
+        },
+        "Food & Groceries": {
+            "precision": 0.8333333333333334,
+            "recall": 0.75,
+            "f1-score": 0.7894736842105263,
+            "support": 20.0
+        },
+        "Government": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 20.0
+        },
+        "Other": {
+            "precision": 0.8333333333333334,
+            "recall": 1.0,
+            "f1-score": 0.9090909090909091,
+            "support": 20.0
+        },
+        "Shopping": {
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1-score": 0.8888888888888888,
+            "support": 20.0
+        },
+        "Transfers": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 20.0
+        },
+        "Transport": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 20.0
+        },
+        "Utilities": {
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "f1-score": 0.9523809523809523,
+            "support": 20.0
+        },
+        "accuracy": 0.955,
+        "macro avg": {
+            "precision": 0.9575757575757576,
+            "recall": 0.9550000000000001,
+            "f1-score": 0.9539834434571277,
+            "support": 200.0
+        },
+        "weighted avg": {
+            "precision": 0.9575757575757576,
+            "recall": 0.955,
+            "f1-score": 0.9539834434571276,
+            "support": 200.0
+        }
+    },
+    "confusion_matrix": [
+        [
+            20,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            20,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            20,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            15,
+            0,
+            4,
+            0,
+            0,
+            0,
+            1
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            20,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            20,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            16,
+            0,
+            0,
+            1
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20
+        ]
+    ],
+    "misclassified_examples": [
+        {
+            "text": "Payment to Carrefour Uganda: UGX 8,500. Merchant ref MLX701.",
+            "actual_category": "Food & Groceries",
+            "predicted_category": "Other",
+            "confidence": 0.19787481061522105
+        },
+        {
+            "text": "Payment to Carrefour Uganda: UGX 17,500. Merchant ref MLX824.",
+            "actual_category": "Food & Groceries",
+            "predicted_category": "Other",
+            "confidence": 0.20040643426212085
+        },
+        {
+            "text": "Payment to Carrefour Uganda: UGX 32,000. Merchant ref MLX936.",
+            "actual_category": "Food & Groceries",
+            "predicted_category": "Other",
+            "confidence": 0.20190825411604232
+        },
+        {
+            "text": "Payment to Carrefour Uganda: UGX 46,500. Merchant ref MLX415.",
+            "actual_category": "Food & Groceries",
+            "predicted_category": "Other",
+            "confidence": 0.20040643426212085
+        },
+        {
+            "text": "Your restaurant bill of UGX 8,500 has been paid. Ref MLX701.",
+            "actual_category": "Food & Groceries",
+            "predicted_category": "Utilities",
+            "confidence": 0.22450864632769466
+        },
+        {
+            "text": "Your household item purchase has been paid. UGX 8,500. Ref MLX701.",
+            "actual_category": "Shopping",
+            "predicted_category": "Utilities",
+            "confidence": 0.14407617825995597
+        },
+        {
+            "text": "Your household item purchase has been paid. UGX 17,500. Ref MLX824.",
+            "actual_category": "Shopping",
+            "predicted_category": "Food & Groceries",
+            "confidence": 0.14909608057320115
+        },
+        {
+            "text": "Your household item purchase has been paid. UGX 32,000. Ref MLX936.",
+            "actual_category": "Shopping",
+            "predicted_category": "Food & Groceries",
+            "confidence": 0.14755085586148198
+        },
+        {
+            "text": "Your household item purchase has been paid. UGX 46,500. Ref MLX415.",
+            "actual_category": "Shopping",
+            "predicted_category": "Food & Groceries",
+            "confidence": 0.14909608057320115
+        }
+    ]
+}

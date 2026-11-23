@@ -62,5 +62,9 @@ module = ["tests.*"]
 disallow_untyped_defs = false
 
 [[tool.mypy.overrides]]
-module = ["jose.*"]
+module = [
+    "jose.*",
+    "joblib",
+    "sklearn.*",
+]
 ignore_missing_imports = true

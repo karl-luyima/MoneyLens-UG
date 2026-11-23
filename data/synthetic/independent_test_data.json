@@ -1,0 +1,802 @@
+[
+    {
+        "text": "Confirmed: UGX 8,500 sent to 0700000001. Ref MLX701.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Confirmed: UGX 17,500 sent to 0700000001. Ref MLX824.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Confirmed: UGX 32,000 sent to 0700000001. Ref MLX936.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Confirmed: UGX 46,500 sent to 0700000001. Ref MLX415.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your wallet has been credited with UGX 8,500. Ref: MLX701.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your wallet has been credited with UGX 17,500. Ref: MLX824.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your wallet has been credited with UGX 32,000. Ref: MLX936.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Your wallet has been credited with UGX 46,500. Ref: MLX415.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transfer successful. You sent UGX 8,500 to a mobile wallet. ID MLX701.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transfer successful. You sent UGX 17,500 to a mobile wallet. ID MLX824.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transfer successful. You sent UGX 32,000 to a mobile wallet. ID MLX936.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Transfer successful. You sent UGX 46,500 to a mobile wallet. ID MLX415.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 8,500 received from 0700000002 on 23/11/2026. Ref MLX701.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 17,500 received from 0700000002 on 23/11/2026. Ref MLX824.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 32,000 received from 0700000002 on 23/11/2026. Ref MLX936.",
+        "category": "Transfers"
+    },
+    {
+        "text": "UGX 46,500 received from 0700000002 on 23/11/2026. Ref MLX415.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Bank-to-wallet transfer of UGX 8,500 completed. Reference MLX701.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Bank-to-wallet transfer of UGX 17,500 completed. Reference MLX824.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Bank-to-wallet transfer of UGX 32,000 completed. Reference MLX936.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Bank-to-wallet transfer of UGX 46,500 completed. Reference MLX415.",
+        "category": "Transfers"
+    },
+    {
+        "text": "Agent transaction successful. You withdrew UGX 8,500. Ref MLX701.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent transaction successful. You withdrew UGX 17,500. Ref MLX824.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent transaction successful. You withdrew UGX 32,000. Ref MLX936.",
+        "category": "Cash"
+    },
+    {
+        "text": "Agent transaction successful. You withdrew UGX 46,500. Ref MLX415.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash-in completed: UGX 8,500 added to your wallet. ID MLX701.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash-in completed: UGX 17,500 added to your wallet. ID MLX824.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash-in completed: UGX 32,000 added to your wallet. ID MLX936.",
+        "category": "Cash"
+    },
+    {
+        "text": "Cash-in completed: UGX 46,500 added to your wallet. ID MLX415.",
+        "category": "Cash"
+    },
+    {
+        "text": "You collected UGX 8,500 from a cash agent. Ref MLX701.",
+        "category": "Cash"
+    },
+    {
+        "text": "You collected UGX 17,500 from a cash agent. Ref MLX824.",
+        "category": "Cash"
+    },
+    {
+        "text": "You collected UGX 32,000 from a cash agent. Ref MLX936.",
+        "category": "Cash"
+    },
+    {
+        "text": "You collected UGX 46,500 from a cash agent. Ref MLX415.",
+        "category": "Cash"
+    },
+    {
+        "text": "Your agent deposit of UGX 8,500 was successful. Ref MLX701.",
+        "category": "Cash"
+    },
+    {
+        "text": "Your agent deposit of UGX 17,500 was successful. Ref MLX824.",
+        "category": "Cash"
+    },
+    {
+        "text": "Your agent deposit of UGX 32,000 was successful. Ref MLX936.",
+        "category": "Cash"
+    },
+    {
+        "text": "Your agent deposit of UGX 46,500 was successful. Ref MLX415.",
+        "category": "Cash"
+    },
+    {
+        "text": "Wallet cash withdrawal: UGX 8,500. Transaction MLX701.",
+        "category": "Cash"
+    },
+    {
+        "text": "Wallet cash withdrawal: UGX 17,500. Transaction MLX824.",
+        "category": "Cash"
+    },
+    {
+        "text": "Wallet cash withdrawal: UGX 32,000. Transaction MLX936.",
+        "category": "Cash"
+    },
+    {
+        "text": "Wallet cash withdrawal: UGX 46,500. Transaction MLX415.",
+        "category": "Cash"
+    },
+    {
+        "text": "Airtime top-up of UGX 8,500 completed. Ref MLX701.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime top-up of UGX 17,500 completed. Ref MLX824.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime top-up of UGX 32,000 completed. Ref MLX936.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Airtime top-up of UGX 46,500 completed. Ref MLX415.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Your internet bundle purchase of UGX 8,500 is active. ID MLX701.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Your internet bundle purchase of UGX 17,500 is active. ID MLX824.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Your internet bundle purchase of UGX 32,000 is active. ID MLX936.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Your internet bundle purchase of UGX 46,500 is active. ID MLX415.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "UGX 8,500 deducted for a mobile data package. Ref MLX701.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "UGX 17,500 deducted for a mobile data package. Ref MLX824.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "UGX 32,000 deducted for a mobile data package. Ref MLX936.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "UGX 46,500 deducted for a mobile data package. Ref MLX415.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharge successful. Mobile credit worth UGX 8,500. MLX701.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharge successful. Mobile credit worth UGX 17,500. MLX824.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharge successful. Mobile credit worth UGX 32,000. MLX936.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "Recharge successful. Mobile credit worth UGX 46,500. MLX415.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "You have subscribed to a data package costing UGX 8,500. Ref MLX701.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "You have subscribed to a data package costing UGX 17,500. Ref MLX824.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "You have subscribed to a data package costing UGX 32,000. Ref MLX936.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "You have subscribed to a data package costing UGX 46,500. Ref MLX415.",
+        "category": "Airtime & Data"
+    },
+    {
+        "text": "UMEME Yaka payment received: UGX 8,500. Token purchase ref MLX701.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME Yaka payment received: UGX 17,500. Token purchase ref MLX824.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME Yaka payment received: UGX 32,000. Token purchase ref MLX936.",
+        "category": "Utilities"
+    },
+    {
+        "text": "UMEME Yaka payment received: UGX 46,500. Token purchase ref MLX415.",
+        "category": "Utilities"
+    },
+    {
+        "text": "NWSC account payment of UGX 8,500 processed. Receipt MLX701.",
+        "category": "Utilities"
+    },
+    {
+        "text": "NWSC account payment of UGX 17,500 processed. Receipt MLX824.",
+        "category": "Utilities"
+    },
+    {
+        "text": "NWSC account payment of UGX 32,000 processed. Receipt MLX936.",
+        "category": "Utilities"
+    },
+    {
+        "text": "NWSC account payment of UGX 46,500 processed. Receipt MLX415.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity units payment successful. Amount UGX 8,500. Ref MLX701.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity units payment successful. Amount UGX 17,500. Ref MLX824.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity units payment successful. Amount UGX 32,000. Ref MLX936.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Electricity units payment successful. Amount UGX 46,500. Ref MLX415.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water bill settled using UGX 8,500. Confirmation MLX701.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water bill settled using UGX 17,500. Confirmation MLX824.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water bill settled using UGX 32,000. Confirmation MLX936.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Water bill settled using UGX 46,500. Confirmation MLX415.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Utility payment accepted by UMEME. UGX 8,500. ID MLX701.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Utility payment accepted by UMEME. UGX 17,500. ID MLX824.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Utility payment accepted by UMEME. UGX 32,000. ID MLX936.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Utility payment accepted by UMEME. UGX 46,500. ID MLX415.",
+        "category": "Utilities"
+    },
+    {
+        "text": "Your DSTV account has been renewed. Payment UGX 8,500. Ref MLX701.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Your DSTV account has been renewed. Payment UGX 17,500. Ref MLX824.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Your DSTV account has been renewed. Payment UGX 32,000. Ref MLX936.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Your DSTV account has been renewed. Payment UGX 46,500. Ref MLX415.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Television subscription activated after payment of UGX 8,500. MLX701.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Television subscription activated after payment of UGX 17,500. MLX824.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Television subscription activated after payment of UGX 32,000. MLX936.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Television subscription activated after payment of UGX 46,500. MLX415.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "UGX 8,500 received for your TV package renewal. Receipt MLX701.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "UGX 17,500 received for your TV package renewal. Receipt MLX824.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "UGX 32,000 received for your TV package renewal. Receipt MLX936.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "UGX 46,500 received for your TV package renewal. Receipt MLX415.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Decoder subscription payment successful. UGX 8,500. Ref MLX701.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Decoder subscription payment successful. UGX 17,500. Ref MLX824.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Decoder subscription payment successful. UGX 32,000. Ref MLX936.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Decoder subscription payment successful. UGX 46,500. Ref MLX415.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Your entertainment package is active. Paid UGX 8,500. ID MLX701.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Your entertainment package is active. Paid UGX 17,500. ID MLX824.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Your entertainment package is active. Paid UGX 32,000. ID MLX936.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "Your entertainment package is active. Paid UGX 46,500. ID MLX415.",
+        "category": "Entertainment"
+    },
+    {
+        "text": "URA payment confirmed. Amount received UGX 8,500. PRN MLX701.",
+        "category": "Government"
+    },
+    {
+        "text": "URA payment confirmed. Amount received UGX 17,500. PRN MLX824.",
+        "category": "Government"
+    },
+    {
+        "text": "URA payment confirmed. Amount received UGX 32,000. PRN MLX936.",
+        "category": "Government"
+    },
+    {
+        "text": "URA payment confirmed. Amount received UGX 46,500. PRN MLX415.",
+        "category": "Government"
+    },
+    {
+        "text": "Tax obligation payment of UGX 8,500 successfully processed. Ref MLX701.",
+        "category": "Government"
+    },
+    {
+        "text": "Tax obligation payment of UGX 17,500 successfully processed. Ref MLX824.",
+        "category": "Government"
+    },
+    {
+        "text": "Tax obligation payment of UGX 32,000 successfully processed. Ref MLX936.",
+        "category": "Government"
+    },
+    {
+        "text": "Tax obligation payment of UGX 46,500 successfully processed. Ref MLX415.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue collection: UGX 8,500 paid. Receipt MLX701.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue collection: UGX 17,500 paid. Receipt MLX824.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue collection: UGX 32,000 paid. Receipt MLX936.",
+        "category": "Government"
+    },
+    {
+        "text": "Government revenue collection: UGX 46,500 paid. Receipt MLX415.",
+        "category": "Government"
+    },
+    {
+        "text": "Your URA assessment has been settled with UGX 8,500. PRN MLX701.",
+        "category": "Government"
+    },
+    {
+        "text": "Your URA assessment has been settled with UGX 17,500. PRN MLX824.",
+        "category": "Government"
+    },
+    {
+        "text": "Your URA assessment has been settled with UGX 32,000. PRN MLX936.",
+        "category": "Government"
+    },
+    {
+        "text": "Your URA assessment has been settled with UGX 46,500. PRN MLX415.",
+        "category": "Government"
+    },
+    {
+        "text": "Tax payment accepted. Amount UGX 8,500. Payment reference MLX701.",
+        "category": "Government"
+    },
+    {
+        "text": "Tax payment accepted. Amount UGX 17,500. Payment reference MLX824.",
+        "category": "Government"
+    },
+    {
+        "text": "Tax payment accepted. Amount UGX 32,000. Payment reference MLX936.",
+        "category": "Government"
+    },
+    {
+        "text": "Tax payment accepted. Amount UGX 46,500. Payment reference MLX415.",
+        "category": "Government"
+    },
+    {
+        "text": "Payment to Carrefour Uganda: UGX 8,500. Merchant ref MLX701.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment to Carrefour Uganda: UGX 17,500. Merchant ref MLX824.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment to Carrefour Uganda: UGX 32,000. Merchant ref MLX936.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment to Carrefour Uganda: UGX 46,500. Merchant ref MLX415.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "POS purchase at a supermarket approved. UGX 8,500. Receipt MLX701.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "POS purchase at a supermarket approved. UGX 17,500. Receipt MLX824.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "POS purchase at a supermarket approved. UGX 32,000. Receipt MLX936.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "POS purchase at a supermarket approved. UGX 46,500. Receipt MLX415.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Your restaurant bill of UGX 8,500 has been paid. Ref MLX701.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Your restaurant bill of UGX 17,500 has been paid. Ref MLX824.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Your restaurant bill of UGX 32,000 has been paid. Ref MLX936.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Your restaurant bill of UGX 46,500 has been paid. Ref MLX415.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Grocery purchase processed for UGX 8,500. Merchant ID MLX701.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Grocery purchase processed for UGX 17,500. Merchant ID MLX824.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Grocery purchase processed for UGX 32,000. Merchant ID MLX936.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Grocery purchase processed for UGX 46,500. Merchant ID MLX415.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment for food supplies completed. UGX 8,500. Ref MLX701.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment for food supplies completed. UGX 17,500. Ref MLX824.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment for food supplies completed. UGX 32,000. Ref MLX936.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "Payment for food supplies completed. UGX 46,500. Ref MLX415.",
+        "category": "Food & Groceries"
+    },
+    {
+        "text": "FARAS trip completed. Fare charged: UGX 8,500. Trip MLX701.",
+        "category": "Transport"
+    },
+    {
+        "text": "FARAS trip completed. Fare charged: UGX 17,500. Trip MLX824.",
+        "category": "Transport"
+    },
+    {
+        "text": "FARAS trip completed. Fare charged: UGX 32,000. Trip MLX936.",
+        "category": "Transport"
+    },
+    {
+        "text": "FARAS trip completed. Fare charged: UGX 46,500. Trip MLX415.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT ride payment processed for UGX 8,500. Receipt MLX701.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT ride payment processed for UGX 17,500. Receipt MLX824.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT ride payment processed for UGX 32,000. Receipt MLX936.",
+        "category": "Transport"
+    },
+    {
+        "text": "BOLT ride payment processed for UGX 46,500. Receipt MLX415.",
+        "category": "Transport"
+    },
+    {
+        "text": "SafeBoda fare paid successfully. UGX 8,500. Trip ID MLX701.",
+        "category": "Transport"
+    },
+    {
+        "text": "SafeBoda fare paid successfully. UGX 17,500. Trip ID MLX824.",
+        "category": "Transport"
+    },
+    {
+        "text": "SafeBoda fare paid successfully. UGX 32,000. Trip ID MLX936.",
+        "category": "Transport"
+    },
+    {
+        "text": "SafeBoda fare paid successfully. UGX 46,500. Trip ID MLX415.",
+        "category": "Transport"
+    },
+    {
+        "text": "Fuel purchase at Shell approved. UGX 8,500. Ref MLX701.",
+        "category": "Transport"
+    },
+    {
+        "text": "Fuel purchase at Shell approved. UGX 17,500. Ref MLX824.",
+        "category": "Transport"
+    },
+    {
+        "text": "Fuel purchase at Shell approved. UGX 32,000. Ref MLX936.",
+        "category": "Transport"
+    },
+    {
+        "text": "Fuel purchase at Shell approved. UGX 46,500. Ref MLX415.",
+        "category": "Transport"
+    },
+    {
+        "text": "Your transport fare has been settled. UGX 8,500. Transaction MLX701.",
+        "category": "Transport"
+    },
+    {
+        "text": "Your transport fare has been settled. UGX 17,500. Transaction MLX824.",
+        "category": "Transport"
+    },
+    {
+        "text": "Your transport fare has been settled. UGX 32,000. Transaction MLX936.",
+        "category": "Transport"
+    },
+    {
+        "text": "Your transport fare has been settled. UGX 46,500. Transaction MLX415.",
+        "category": "Transport"
+    },
+    {
+        "text": "Jumia order payment accepted. Total UGX 8,500. Order MLX701.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Jumia order payment accepted. Total UGX 17,500. Order MLX824.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Jumia order payment accepted. Total UGX 32,000. Order MLX936.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Jumia order payment accepted. Total UGX 46,500. Order MLX415.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Retail purchase approved at a clothing store. UGX 8,500. Ref MLX701.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Retail purchase approved at a clothing store. UGX 17,500. Ref MLX824.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Retail purchase approved at a clothing store. UGX 32,000. Ref MLX936.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Retail purchase approved at a clothing store. UGX 46,500. Ref MLX415.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Payment for your electronics order: UGX 8,500. Receipt MLX701.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Payment for your electronics order: UGX 17,500. Receipt MLX824.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Payment for your electronics order: UGX 32,000. Receipt MLX936.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Payment for your electronics order: UGX 46,500. Receipt MLX415.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online merchant transaction successful. UGX 8,500. Order ID MLX701.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online merchant transaction successful. UGX 17,500. Order ID MLX824.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online merchant transaction successful. UGX 32,000. Order ID MLX936.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Online merchant transaction successful. UGX 46,500. Order ID MLX415.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Your household item purchase has been paid. UGX 8,500. Ref MLX701.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Your household item purchase has been paid. UGX 17,500. Ref MLX824.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Your household item purchase has been paid. UGX 32,000. Ref MLX936.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Your household item purchase has been paid. UGX 46,500. Ref MLX415.",
+        "category": "Shopping"
+    },
+    {
+        "text": "Payment to Kato General Services completed. UGX 8,500. Ref MLX701.",
+        "category": "Other"
+    },
+    {
+        "text": "Payment to Kato General Services completed. UGX 17,500. Ref MLX824.",
+        "category": "Other"
+    },
+    {
+        "text": "Payment to Kato General Services completed. UGX 32,000. Ref MLX936.",
+        "category": "Other"
+    },
+    {
+        "text": "Payment to Kato General Services completed. UGX 46,500. Ref MLX415.",
+        "category": "Other"
+    },
+    {
+        "text": "Merchant collection successful. UGX 8,500 paid to Mirembe Services. MLX701.",
+        "category": "Other"
+    },
+    {
+        "text": "Merchant collection successful. UGX 17,500 paid to Mirembe Services. MLX824.",
+        "category": "Other"
+    },
+    {
+        "text": "Merchant collection successful. UGX 32,000 paid to Mirembe Services. MLX936.",
+        "category": "Other"
+    },
+    {
+        "text": "Merchant collection successful. UGX 46,500 paid to Mirembe Services. MLX415.",
+        "category": "Other"
+    },
+    {
+        "text": "Service charge payment processed for UGX 8,500. Receipt MLX701.",
+        "category": "Other"
+    },
+    {
+        "text": "Service charge payment processed for UGX 17,500. Receipt MLX824.",
+        "category": "Other"
+    },
+    {
+        "text": "Service charge payment processed for UGX 32,000. Receipt MLX936.",
+        "category": "Other"
+    },
+    {
+        "text": "Service charge payment processed for UGX 46,500. Receipt MLX415.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 8,500 was made to a local business. ID MLX701.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 17,500 was made to a local business. ID MLX824.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 32,000 was made to a local business. ID MLX936.",
+        "category": "Other"
+    },
+    {
+        "text": "A payment of UGX 46,500 was made to a local business. ID MLX415.",
+        "category": "Other"
+    },
+    {
+        "text": "Transaction completed with an independent service provider. UGX 8,500. MLX701.",
+        "category": "Other"
+    },
+    {
+        "text": "Transaction completed with an independent service provider. UGX 17,500. MLX824.",
+        "category": "Other"
+    },
+    {
+        "text": "Transaction completed with an independent service provider. UGX 32,000. MLX936.",
+        "category": "Other"
+    },
+    {
+        "text": "Transaction completed with an independent service provider. UGX 46,500. MLX415.",
+        "category": "Other"
+    }
+]

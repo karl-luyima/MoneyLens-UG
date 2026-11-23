@@ -10,7 +10,6 @@ from app.models.category import Category
 from app.models.category_rule import CategoryRule
 from app.models.transaction import Transaction
 
-
 # Minimum confidence required before accepting an ML prediction.
 ML_CONFIDENCE_THRESHOLD = 0.70
 
@@ -90,7 +89,10 @@ def categorize_transaction(
     )
 
     try:
-        prediction = predict_category(prediction_text)
+        prediction = predict_category(
+            prediction_text,
+            user_id=transaction.user_id,
+        )
     except (FileNotFoundError, ValueError):
         # Keep the transaction uncategorized if the model is unavailable
         # or the prediction input is invalid.
@@ -98,6 +100,13 @@ def categorize_transaction(
 
     predicted_category = prediction["category"]
     confidence = prediction["confidence"]
+
+    # Validate prediction values before using them.
+    if not isinstance(predicted_category, str):
+        return None
+
+    if not isinstance(confidence, (int, float)):
+        return None
 
     # Reject predictions below the minimum confidence threshold.
     if confidence < ML_CONFIDENCE_THRESHOLD:

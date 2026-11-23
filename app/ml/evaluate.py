@@ -17,7 +17,6 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import train_test_split
 
-
 # Resolve project paths.
 BASE_DIR = Path(__file__).resolve().parents[2]
 DATASET_PATH = BASE_DIR / "data" / "synthetic" / "category_training_data.json"
