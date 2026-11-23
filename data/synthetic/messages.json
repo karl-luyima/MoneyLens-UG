@@ -1,0 +1,702 @@
+[
+    {
+        "message_id": "MSG0001",
+        "provider": "MTN",
+        "expected_type": "send_money",
+        "expected_status": "parsed",
+        "raw_message": "You have sent UGX 80000 to 0772000222 (Peter Brown). Transaction ID: MTN000001. Fee: UGX 200. New balance: UGX 63,112. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0002",
+        "provider": "MTN",
+        "expected_type": "send_money",
+        "expected_status": "parsed",
+        "raw_message": "You have sent UGX 10,000 to 0772000111 (John Doe). Transaction ID: MTN000002. Fee: UGX 500. New balance: UGX 436,123. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0003",
+        "provider": "MTN",
+        "expected_type": "send_money",
+        "expected_status": "parsed",
+        "raw_message": "You have sent UGX 50000 to 0772000111 (John Doe). Transaction ID: MTN000003. New balance: UGX 66,663. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0004",
+        "provider": "MTN",
+        "expected_type": "send_money",
+        "expected_status": "parsed",
+        "raw_message": "You  have  sent UGX 10000 to 0772000111 (David Wilson). Transaction ID: MTN000004. Fee: UGX 500. New balance: UGX 314,951. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0005",
+        "provider": "MTN",
+        "expected_type": "send_money",
+        "expected_status": "unparsed",
+        "raw_message": "You have sent UGX 50000 to 0703000222 (David Wilson). Transaction ID: MT"
+    },
+    {
+        "message_id": "MSG0006",
+        "provider": "MTN",
+        "expected_type": "receive_money",
+        "expected_status": "parsed",
+        "raw_message": "You have received UGX 10000 from 0772000111 (Peter Brown). Transaction ID: MTN000006. Fee: UGX 1000. New balance: UGX 358,944. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0007",
+        "provider": "MTN",
+        "expected_type": "receive_money",
+        "expected_status": "parsed",
+        "raw_message": "You have received UGX 100,000 from 0703000111 (Mary Jones). Transaction ID: MTN000007. Fee: UGX 500. New balance: UGX 416,026. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0008",
+        "provider": "MTN",
+        "expected_type": "receive_money",
+        "expected_status": "parsed",
+        "raw_message": "You have received UGX 20000 from 0772000111 (Peter Brown). Transaction ID: MTN000008. New balance: UGX 162,886. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0009",
+        "provider": "MTN",
+        "expected_type": "receive_money",
+        "expected_status": "parsed",
+        "raw_message": "You  have  received UGX 5000 from 0703000111 (Peter Brown). Transaction ID: MTN000009. Fee: UGX 1000. New balance: UGX 100,707. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0010",
+        "provider": "MTN",
+        "expected_type": "receive_money",
+        "expected_status": "unparsed",
+        "raw_message": "You have received UGX 50000 from 0703000222 (John Doe). Transaction ID: M"
+    },
+    {
+        "message_id": "MSG0011",
+        "provider": "MTN",
+        "expected_type": "cash_withdrawal",
+        "expected_status": "parsed",
+        "raw_message": "You have withdrawn UGX 50000. Transaction ID: MTN000011. Fee: UGX 200. New balance: UGX 248,461. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0012",
+        "provider": "MTN",
+        "expected_type": "cash_withdrawal",
+        "expected_status": "parsed",
+        "raw_message": "You have withdrawn UGX 100,000. Transaction ID: MTN000012. Fee: UGX 700. New balance: UGX 352,698. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0013",
+        "provider": "MTN",
+        "expected_type": "cash_withdrawal",
+        "expected_status": "parsed",
+        "raw_message": "You have withdrawn UGX 5000. Transaction ID: MTN000013. New balance: UGX 455,310. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0014",
+        "provider": "MTN",
+        "expected_type": "cash_withdrawal",
+        "expected_status": "parsed",
+        "raw_message": "You  have  withdrawn UGX 100000. Transaction ID: MTN000014. Fee: UGX 500. New balance: UGX 102,953. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0015",
+        "provider": "MTN",
+        "expected_type": "cash_withdrawal",
+        "expected_status": "unparsed",
+        "raw_message": "You have withdrawn UGX 30000. Transaction ID: MTN000015. Fee"
+    },
+    {
+        "message_id": "MSG0016",
+        "provider": "MTN",
+        "expected_type": "cash_deposit",
+        "expected_status": "parsed",
+        "raw_message": "You have deposited UGX 10000. Transaction ID: MTN000016. Fee: UGX 700. New balance: UGX 417,955. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0017",
+        "provider": "MTN",
+        "expected_type": "cash_deposit",
+        "expected_status": "parsed",
+        "raw_message": "You have deposited UGX 50,000. Transaction ID: MTN000017. Fee: UGX 500. New balance: UGX 135,669. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0018",
+        "provider": "MTN",
+        "expected_type": "cash_deposit",
+        "expected_status": "parsed",
+        "raw_message": "You have deposited UGX 20000. Transaction ID: MTN000018. New balance: UGX 408,935. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0019",
+        "provider": "MTN",
+        "expected_type": "cash_deposit",
+        "expected_status": "parsed",
+        "raw_message": "You  have  deposited UGX 10000. Transaction ID: MTN000019. Fee: UGX 200. New balance: UGX 472,075. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0020",
+        "provider": "MTN",
+        "expected_type": "cash_deposit",
+        "expected_status": "unparsed",
+        "raw_message": "You have deposited UGX 20000. Transaction ID: MTN000020. Fee"
+    },
+    {
+        "message_id": "MSG0021",
+        "provider": "MTN",
+        "expected_type": "airtime",
+        "expected_status": "parsed",
+        "raw_message": "Airtime purchase of UGX 10000 successful. Transaction ID: MTN000021. Fee: UGX 1000. New balance: UGX 257,425. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0022",
+        "provider": "MTN",
+        "expected_type": "airtime",
+        "expected_status": "parsed",
+        "raw_message": "Airtime purchase of UGX 20,000 successful. Transaction ID: MTN000022. Fee: UGX 500. New balance: UGX 179,303. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0023",
+        "provider": "MTN",
+        "expected_type": "airtime",
+        "expected_status": "parsed",
+        "raw_message": "Airtime purchase of UGX 80000 successful. Transaction ID: MTN000023. New balance: UGX 355,939. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0024",
+        "provider": "MTN",
+        "expected_type": "airtime",
+        "expected_status": "parsed",
+        "raw_message": "Airtime  purchase  of UGX 10000 successful. Transaction ID: MTN000024. Fee: UGX 500. New balance: UGX 317,138. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0025",
+        "provider": "MTN",
+        "expected_type": "airtime",
+        "expected_status": "unparsed",
+        "raw_message": "Airtime purchase of UGX 100000 successful. Transaction ID: MTN0000"
+    },
+    {
+        "message_id": "MSG0026",
+        "provider": "MTN",
+        "expected_type": "bill_umeme",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 100000 to UMEME successful. Transaction ID: MTN000026. Fee: UGX 1000. New balance: UGX 362,690. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0027",
+        "provider": "MTN",
+        "expected_type": "bill_umeme",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 30,000 to UMEME successful. Transaction ID: MTN000027. Fee: UGX 1,000. New balance: UGX 327,408. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0028",
+        "provider": "MTN",
+        "expected_type": "bill_umeme",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 80000 to UMEME successful. Transaction ID: MTN000028. New balance: UGX 407,412. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0029",
+        "provider": "MTN",
+        "expected_type": "bill_umeme",
+        "expected_status": "parsed",
+        "raw_message": "Payment  of  UGX 100000 to UMEME successful. Transaction ID: MTN000029. Fee: UGX 700. New balance: UGX 108,485. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0030",
+        "provider": "MTN",
+        "expected_type": "bill_umeme",
+        "expected_status": "unparsed",
+        "raw_message": "Payment of UGX 10000 to UMEME successful. Transaction ID: MTN00003"
+    },
+    {
+        "message_id": "MSG0031",
+        "provider": "MTN",
+        "expected_type": "bill_nwsc",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 50000 to NWSC successful. Transaction ID: MTN000031. Fee: UGX 200. New balance: UGX 377,837. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0032",
+        "provider": "MTN",
+        "expected_type": "bill_nwsc",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 10,000 to NWSC successful. Transaction ID: MTN000032. Fee: UGX 700. New balance: UGX 449,775. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0033",
+        "provider": "MTN",
+        "expected_type": "bill_nwsc",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 50000 to NWSC successful. Transaction ID: MTN000033. New balance: UGX 306,170. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0034",
+        "provider": "MTN",
+        "expected_type": "bill_nwsc",
+        "expected_status": "parsed",
+        "raw_message": "Payment  of  UGX 20000 to NWSC successful. Transaction ID: MTN000034. Fee: UGX 700. New balance: UGX 175,541. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0035",
+        "provider": "MTN",
+        "expected_type": "bill_nwsc",
+        "expected_status": "unparsed",
+        "raw_message": "Payment of UGX 50000 to NWSC successful. Transaction ID: MTN00003"
+    },
+    {
+        "message_id": "MSG0036",
+        "provider": "MTN",
+        "expected_type": "bill_dstv",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 100000 to DSTV successful. Transaction ID: MTN000036. Fee: UGX 500. New balance: UGX 117,314. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0037",
+        "provider": "MTN",
+        "expected_type": "bill_dstv",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 20,000 to DSTV successful. Transaction ID: MTN000037. Fee: UGX 1,000. New balance: UGX 161,043. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0038",
+        "provider": "MTN",
+        "expected_type": "bill_dstv",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 80000 to DSTV successful. Transaction ID: MTN000038. New balance: UGX 259,186. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0039",
+        "provider": "MTN",
+        "expected_type": "bill_dstv",
+        "expected_status": "parsed",
+        "raw_message": "Payment  of  UGX 50000 to DSTV successful. Transaction ID: MTN000039. Fee: UGX 1000. New balance: UGX 113,441. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0040",
+        "provider": "MTN",
+        "expected_type": "bill_dstv",
+        "expected_status": "unparsed",
+        "raw_message": "Payment of UGX 5000 to DSTV successful. Transaction ID: MTN00004"
+    },
+    {
+        "message_id": "MSG0041",
+        "provider": "MTN",
+        "expected_type": "bill_ura",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 50000 to URA successful. Transaction ID: MTN000041. Fee: UGX 500. New balance: UGX 53,770. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0042",
+        "provider": "MTN",
+        "expected_type": "bill_ura",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 10,000 to URA successful. Transaction ID: MTN000042. Fee: UGX 200. New balance: UGX 66,469. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0043",
+        "provider": "MTN",
+        "expected_type": "bill_ura",
+        "expected_status": "parsed",
+        "raw_message": "Payment of UGX 50000 to URA successful. Transaction ID: MTN000043. New balance: UGX 196,002. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0044",
+        "provider": "MTN",
+        "expected_type": "bill_ura",
+        "expected_status": "parsed",
+        "raw_message": "Payment  of  UGX 50000 to URA successful. Transaction ID: MTN000044. Fee: UGX 500. New balance: UGX 429,245. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0045",
+        "provider": "MTN",
+        "expected_type": "bill_ura",
+        "expected_status": "unparsed",
+        "raw_message": "Payment of UGX 10000 to URA successful. Transaction ID: MTN000045"
+    },
+    {
+        "message_id": "MSG0046",
+        "provider": "MTN",
+        "expected_type": "bank_transfer",
+        "expected_status": "parsed",
+        "raw_message": "Bank transfer of UGX 5000 to Mary Jones successful. Transaction ID: MTN000046. Fee: UGX 200. New balance: UGX 395,496. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0047",
+        "provider": "MTN",
+        "expected_type": "bank_transfer",
+        "expected_status": "parsed",
+        "raw_message": "Bank transfer of UGX 30,000 to John Doe successful. Transaction ID: MTN000047. Fee: UGX 1,000. New balance: UGX 294,855. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0048",
+        "provider": "MTN",
+        "expected_type": "bank_transfer",
+        "expected_status": "parsed",
+        "raw_message": "Bank transfer of UGX 5000 to Peter Brown successful. Transaction ID: MTN000048. New balance: UGX 431,793. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0049",
+        "provider": "MTN",
+        "expected_type": "bank_transfer",
+        "expected_status": "parsed",
+        "raw_message": "Bank  transfer  of UGX 10000 to David Wilson successful. Transaction ID: MTN000049. Fee: UGX 500. New balance: UGX 149,724. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0050",
+        "provider": "MTN",
+        "expected_type": "bank_transfer",
+        "expected_status": "unparsed",
+        "raw_message": "Bank transfer of UGX 10000 to Peter Brown successful. Transaction ID: MT"
+    },
+    {
+        "message_id": "MSG0051",
+        "provider": "AIRTEL",
+        "expected_type": "send_money",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have sent UGX 10000 to 0772000111 (David Wilson). Ref: AIRTEL000051. Charge: UGX 200. Balance: UGX 282,328. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0052",
+        "provider": "AIRTEL",
+        "expected_type": "send_money",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have sent UGX 5,000 to 0772000222 (Jane Smith). Ref: AIRTEL000052. Charge: UGX 200. Balance: UGX 98,896. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0053",
+        "provider": "AIRTEL",
+        "expected_type": "send_money",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have sent UGX 30000 to 0703000222 (Jane Smith). Ref: AIRTEL000053. Balance: UGX 302,370. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0054",
+        "provider": "AIRTEL",
+        "expected_type": "send_money",
+        "expected_status": "parsed",
+        "raw_message": "Airtel  Money:  You have sent UGX 5000 to 0703000222 (John Doe). Ref: AIRTEL000054. Charge: UGX 500. Balance: UGX 248,691. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0055",
+        "provider": "AIRTEL",
+        "expected_type": "send_money",
+        "expected_status": "unparsed",
+        "raw_message": "Airtel Money: You have sent UGX 20000 to 0703000222 (Mary Jones). Ref: AIR"
+    },
+    {
+        "message_id": "MSG0056",
+        "provider": "AIRTEL",
+        "expected_type": "receive_money",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have received UGX 10000 from 0772000111 (Jane Smith). Ref: AIRTEL000056. Charge: UGX 500. Balance: UGX 205,560. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0057",
+        "provider": "AIRTEL",
+        "expected_type": "receive_money",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have received UGX 50,000 from 0772000111 (Peter Brown). Ref: AIRTEL000057. Charge: UGX 200. Balance: UGX 442,154. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0058",
+        "provider": "AIRTEL",
+        "expected_type": "receive_money",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have received UGX 5000 from 0772000222 (David Wilson). Ref: AIRTEL000058. Balance: UGX 313,638. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0059",
+        "provider": "AIRTEL",
+        "expected_type": "receive_money",
+        "expected_status": "parsed",
+        "raw_message": "Airtel  Money:  You have received UGX 5000 from 0772000111 (Jane Smith). Ref: AIRTEL000059. Charge: UGX 200. Balance: UGX 496,348. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0060",
+        "provider": "AIRTEL",
+        "expected_type": "receive_money",
+        "expected_status": "unparsed",
+        "raw_message": "Airtel Money: You have received UGX 50000 from 0703000222 (Jane Smith). Ref:"
+    },
+    {
+        "message_id": "MSG0061",
+        "provider": "AIRTEL",
+        "expected_type": "cash_withdrawal",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have withdrawn UGX 5000. Ref: AIRTEL000061. Charge: UGX 500. Balance: UGX 353,520. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0062",
+        "provider": "AIRTEL",
+        "expected_type": "cash_withdrawal",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have withdrawn UGX 50,000. Ref: AIRTEL000062. Charge: UGX 200. Balance: UGX 269,794. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0063",
+        "provider": "AIRTEL",
+        "expected_type": "cash_withdrawal",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have withdrawn UGX 20000. Ref: AIRTEL000063. Balance: UGX 401,129. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0064",
+        "provider": "AIRTEL",
+        "expected_type": "cash_withdrawal",
+        "expected_status": "parsed",
+        "raw_message": "Airtel  Money:  You have withdrawn UGX 20000. Ref: AIRTEL000064. Charge: UGX 1000. Balance: UGX 118,617. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0065",
+        "provider": "AIRTEL",
+        "expected_type": "cash_withdrawal",
+        "expected_status": "unparsed",
+        "raw_message": "Airtel Money: You have withdrawn UGX 20000. Ref: AIRTEL000065."
+    },
+    {
+        "message_id": "MSG0066",
+        "provider": "AIRTEL",
+        "expected_type": "cash_deposit",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have deposited UGX 5000. Ref: AIRTEL000066. Charge: UGX 500. Balance: UGX 315,229. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0067",
+        "provider": "AIRTEL",
+        "expected_type": "cash_deposit",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have deposited UGX 20,000. Ref: AIRTEL000067. Charge: UGX 200. Balance: UGX 178,075. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0068",
+        "provider": "AIRTEL",
+        "expected_type": "cash_deposit",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: You have deposited UGX 10000. Ref: AIRTEL000068. Balance: UGX 487,122. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0069",
+        "provider": "AIRTEL",
+        "expected_type": "cash_deposit",
+        "expected_status": "parsed",
+        "raw_message": "Airtel  Money:  You have deposited UGX 50000. Ref: AIRTEL000069. Charge: UGX 200. Balance: UGX 400,152. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0070",
+        "provider": "AIRTEL",
+        "expected_type": "cash_deposit",
+        "expected_status": "unparsed",
+        "raw_message": "Airtel Money: You have deposited UGX 80000. Ref: AIRTEL000070."
+    },
+    {
+        "message_id": "MSG0071",
+        "provider": "AIRTEL",
+        "expected_type": "airtime",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Airtime purchase of UGX 5000 successful. Ref: AIRTEL000071. Charge: UGX 500. Balance: UGX 192,788. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0072",
+        "provider": "AIRTEL",
+        "expected_type": "airtime",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Airtime purchase of UGX 80,000 successful. Ref: AIRTEL000072. Charge: UGX 700. Balance: UGX 156,743. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0073",
+        "provider": "AIRTEL",
+        "expected_type": "airtime",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Airtime purchase of UGX 20000 successful. Ref: AIRTEL000073. Balance: UGX 98,390. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0074",
+        "provider": "AIRTEL",
+        "expected_type": "airtime",
+        "expected_status": "parsed",
+        "raw_message": "Airtel  Money:  Airtime purchase of UGX 5000 successful. Ref: AIRTEL000074. Charge: UGX 200. Balance: UGX 224,879. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0075",
+        "provider": "AIRTEL",
+        "expected_type": "airtime",
+        "expected_status": "unparsed",
+        "raw_message": "Airtel Money: Airtime purchase of UGX 10000 successful. Ref: AIRTEL00"
+    },
+    {
+        "message_id": "MSG0076",
+        "provider": "AIRTEL",
+        "expected_type": "bill_umeme",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 5000 to UMEME successful. Ref: AIRTEL000076. Charge: UGX 200. Balance: UGX 412,293. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0077",
+        "provider": "AIRTEL",
+        "expected_type": "bill_umeme",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 100,000 to UMEME successful. Ref: AIRTEL000077. Charge: UGX 700. Balance: UGX 355,402. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0078",
+        "provider": "AIRTEL",
+        "expected_type": "bill_umeme",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 30000 to UMEME successful. Ref: AIRTEL000078. Balance: UGX 71,930. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0079",
+        "provider": "AIRTEL",
+        "expected_type": "bill_umeme",
+        "expected_status": "parsed",
+        "raw_message": "Airtel  Money:  Payment of UGX 100000 to UMEME successful. Ref: AIRTEL000079. Charge: UGX 200. Balance: UGX 237,595. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0080",
+        "provider": "AIRTEL",
+        "expected_type": "bill_umeme",
+        "expected_status": "unparsed",
+        "raw_message": "Airtel Money: Payment of UGX 80000 to UMEME successful. Ref: AIRTEL0"
+    },
+    {
+        "message_id": "MSG0081",
+        "provider": "AIRTEL",
+        "expected_type": "bill_nwsc",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 50000 to NWSC successful. Ref: AIRTEL000081. Charge: UGX 500. Balance: UGX 174,118. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0082",
+        "provider": "AIRTEL",
+        "expected_type": "bill_nwsc",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 30,000 to NWSC successful. Ref: AIRTEL000082. Charge: UGX 200. Balance: UGX 144,036. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0083",
+        "provider": "AIRTEL",
+        "expected_type": "bill_nwsc",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 100000 to NWSC successful. Ref: AIRTEL000083. Balance: UGX 189,883. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0084",
+        "provider": "AIRTEL",
+        "expected_type": "bill_nwsc",
+        "expected_status": "parsed",
+        "raw_message": "Airtel  Money:  Payment of UGX 30000 to NWSC successful. Ref: AIRTEL000084. Charge: UGX 200. Balance: UGX 296,777. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0085",
+        "provider": "AIRTEL",
+        "expected_type": "bill_nwsc",
+        "expected_status": "unparsed",
+        "raw_message": "Airtel Money: Payment of UGX 100000 to NWSC successful. Ref: AIRTEL00"
+    },
+    {
+        "message_id": "MSG0086",
+        "provider": "AIRTEL",
+        "expected_type": "bill_dstv",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 10000 to DSTV successful. Ref: AIRTEL000086. Charge: UGX 200. Balance: UGX 396,047. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0087",
+        "provider": "AIRTEL",
+        "expected_type": "bill_dstv",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 20,000 to DSTV successful. Ref: AIRTEL000087. Charge: UGX 700. Balance: UGX 86,396. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0088",
+        "provider": "AIRTEL",
+        "expected_type": "bill_dstv",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 80000 to DSTV successful. Ref: AIRTEL000088. Balance: UGX 406,263. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0089",
+        "provider": "AIRTEL",
+        "expected_type": "bill_dstv",
+        "expected_status": "parsed",
+        "raw_message": "Airtel  Money:  Payment of UGX 5000 to DSTV successful. Ref: AIRTEL000089. Charge: UGX 200. Balance: UGX 186,951. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0090",
+        "provider": "AIRTEL",
+        "expected_type": "bill_dstv",
+        "expected_status": "unparsed",
+        "raw_message": "Airtel Money: Payment of UGX 5000 to DSTV successful. Ref: AIRTEL00"
+    },
+    {
+        "message_id": "MSG0091",
+        "provider": "AIRTEL",
+        "expected_type": "bill_ura",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 80000 to URA successful. Ref: AIRTEL000091. Charge: UGX 700. Balance: UGX 278,796. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0092",
+        "provider": "AIRTEL",
+        "expected_type": "bill_ura",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 30,000 to URA successful. Ref: AIRTEL000092. Charge: UGX 500. Balance: UGX 183,547. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0093",
+        "provider": "AIRTEL",
+        "expected_type": "bill_ura",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Payment of UGX 5000 to URA successful. Ref: AIRTEL000093. Balance: UGX 240,956. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0094",
+        "provider": "AIRTEL",
+        "expected_type": "bill_ura",
+        "expected_status": "parsed",
+        "raw_message": "Airtel  Money:  Payment of UGX 80000 to URA successful. Ref: AIRTEL000094. Charge: UGX 700. Balance: UGX 376,712. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0095",
+        "provider": "AIRTEL",
+        "expected_type": "bill_ura",
+        "expected_status": "unparsed",
+        "raw_message": "Airtel Money: Payment of UGX 80000 to URA successful. Ref: AIRTEL00"
+    },
+    {
+        "message_id": "MSG0096",
+        "provider": "AIRTEL",
+        "expected_type": "bank_transfer",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Bank transfer of UGX 20000 to Peter Brown successful. Ref: AIRTEL000096. Charge: UGX 1000. Balance: UGX 415,538. Date: 23/11/2026 09:30."
+    },
+    {
+        "message_id": "MSG0097",
+        "provider": "AIRTEL",
+        "expected_type": "bank_transfer",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Bank transfer of UGX 10,000 to Mary Jones successful. Ref: AIRTEL000097. Charge: UGX 1,000. Balance: UGX 398,614. Date: 2026-11-23 10:15."
+    },
+    {
+        "message_id": "MSG0098",
+        "provider": "AIRTEL",
+        "expected_type": "bank_transfer",
+        "expected_status": "parsed",
+        "raw_message": "Airtel Money: Bank transfer of UGX 50000 to David Wilson successful. Ref: AIRTEL000098. Balance: UGX 262,900. Date: 23-Nov-2026 14:20."
+    },
+    {
+        "message_id": "MSG0099",
+        "provider": "AIRTEL",
+        "expected_type": "bank_transfer",
+        "expected_status": "parsed",
+        "raw_message": "Airtel  Money:  Bank transfer of UGX 20000 to Mary Jones successful. Ref: AIRTEL000099. Charge: UGX 700. Balance: UGX 160,196. Date: 24/11/2026 16:45."
+    },
+    {
+        "message_id": "MSG0100",
+        "provider": "AIRTEL",
+        "expected_type": "bank_transfer",
+        "expected_status": "unparsed",
+        "raw_message": "Airtel Money: Bank transfer of UGX 30000 to Jane Smith successful. Ref: AI"
+    }
+]
