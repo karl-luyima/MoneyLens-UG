@@ -292,8 +292,8 @@ def dashboard_page(client: APIClient) -> None:
                 y=trend_df["income"],
                 name="Income",
                 mode="lines+markers",
-                line={"color": "#008C95", "width": 3},
-                marker={"size": 8},
+                line={"color": "#2E8B57", "width": 3},
+                marker={"size": 9, "color": "#2E8B57"},
                 hovertemplate=(
                     "<b>%{x}</b><br>Income: UGX %{y:,.0f}<extra></extra>"
                 ),
@@ -305,8 +305,8 @@ def dashboard_page(client: APIClient) -> None:
                 y=trend_df["expenses"],
                 name="Expenses",
                 mode="lines+markers",
-                line={"color": "#1976A8", "width": 3},
-                marker={"size": 8},
+                line={"color": "#D95D39", "width": 3},
+                marker={"size": 9, "color": "#D95D39"},
                 hovertemplate=(
                     "<b>%{x}</b><br>Expenses: UGX %{y:,.0f}<extra></extra>"
                 ),
