@@ -486,12 +486,14 @@ def dashboard_page(client: APIClient) -> None:
 # ---------------------------------------------------------
 
 def upload_page(client: APIClient) -> None:
-    """Allow users to upload SMS messages and files."""
+    """Allow users to preview and bulk import SMS messages and files."""
+
+    from io import StringIO
 
     st.title("Upload Transactions")
-
     st.caption(
-        "Import your mobile money messages to analyse your finances."
+        "Import multiple mobile money messages at once. "
+        "Preview the records before sending them for processing."
     )
 
     sms_tab, file_tab = st.tabs(
@@ -499,10 +501,9 @@ def upload_page(client: APIClient) -> None:
     )
 
     with sms_tab:
-        st.subheader("Paste mobile money messages")
-
+        st.subheader("Bulk paste mobile money messages")
         messages_text = st.text_area(
-            "Enter your messages",
+            "Enter one SMS message per line",
             height=250,
             placeholder=(
                 "You have sent UGX 35,000 to John...\n"
@@ -510,102 +511,186 @@ def upload_page(client: APIClient) -> None:
             ),
         )
 
+        messages = [
+            message.strip()
+            for message in messages_text.splitlines()
+            if message.strip()
+        ]
+
+        if messages:
+            st.caption(f"{len(messages):,} message(s) ready to import.")
+            with st.expander("Preview messages", expanded=False):
+                for index, message in enumerate(messages[:10], start=1):
+                    st.write(f"{index}. {message}")
+                if len(messages) > 10:
+                    st.caption(
+                        f"Showing 10 of {len(messages):,} messages."
+                    )
+
         if st.button(
             "Process Messages",
             type="primary",
             key="process_messages",
+            disabled=not messages,
         ):
-            messages = [
-                message.strip()
-                for message in messages_text.splitlines()
-                if message.strip()
-            ]
+            with st.spinner("Processing your messages..."):
+                try:
+                    result = client.upload_messages(messages)
+                    st.success("Messages processed successfully.")
 
-            if not messages:
-                st.warning("Please enter at least one message.")
-
-            else:
-                with st.spinner("Processing your messages..."):
-                    try:
-                        result = client.upload_messages(messages)
-
-                        st.success("Messages processed successfully.")
-
-                        col1, col2, col3, col4 = st.columns(4)
-
-                        col1.metric(
-                            "Total",
-                            result.get("total_messages", 0),
-                        )
-
-                        col2.metric(
-                            "Parsed",
-                            result.get("parsed_count", 0),
-                        )
-
-                        col3.metric(
-                            "Duplicates",
-                            result.get("duplicate_count", 0),
-                        )
-
-                        col4.metric(
-                            "Unparsed",
-                            result.get("unparsed_count", 0),
-                        )
-
-                    except APIError as exc:
-                        show_error(exc)
+                    col1, col2, col3, col4 = st.columns(4)
+                    col1.metric("Total", result.get("total_messages", 0))
+                    col2.metric("Parsed", result.get("parsed_count", 0))
+                    col3.metric(
+                        "Duplicates", result.get("duplicate_count", 0)
+                    )
+                    col4.metric("Unparsed", result.get("unparsed_count", 0))
+                except APIError as exc:
+                    show_error(exc)
 
     with file_tab:
-        st.subheader("Upload a transaction file")
+        st.subheader("Import an SMS export file")
+        st.write(
+            "Upload a TXT file with one message per line, or a CSV file "
+            "containing an SMS/message column. Import many records at once."
+        )
 
         uploaded_file = st.file_uploader(
             "Choose a TXT or CSV file",
             type=["txt", "csv"],
             help="Maximum file size: 5 MB.",
+            key="bulk_sms_file",
         )
 
         if uploaded_file is not None:
-            st.caption(f"Selected file: {uploaded_file.name}")
+            file_bytes = uploaded_file.getvalue()
+            file_name = uploaded_file.name
+            st.caption(
+                f"Selected: {file_name} · {len(file_bytes):,} bytes"
+            )
 
-            if st.button(
-                "Upload and Process File",
-                type="primary",
-                key="process_file",
-            ):
-                with st.spinner("Uploading and processing file..."):
-                    try:
-                        result = client.upload_file(
-                            file_name=uploaded_file.name,
-                            file_bytes=uploaded_file.getvalue(),
-                        )
+            if len(file_bytes) > 5 * 1024 * 1024:
+                st.error("The file exceeds the 5 MB upload limit.")
+                return
 
-                        st.success("File processed successfully.")
+            try:
+                if file_name.lower().endswith(".txt"):
+                    decoded_text = file_bytes.decode("utf-8-sig")
+                    preview_messages = [
+                        line.strip()
+                        for line in decoded_text.splitlines()
+                        if line.strip()
+                    ]
+                else:
+                    decoded_text = file_bytes.decode("utf-8-sig")
+                    source_df = pd.read_csv(StringIO(decoded_text))
 
-                        col1, col2, col3, col4 = st.columns(4)
+                    accepted_headers = {
+                        "message",
+                        "sms",
+                        "raw_message",
+                        "transaction_message",
+                    }
+                    matching_columns = [
+                        column
+                        for column in source_df.columns
+                        if str(column).strip().lower() in accepted_headers
+                    ]
+                    message_column = (
+                        matching_columns[0]
+                        if matching_columns
+                        else source_df.columns[0]
+                    )
+                    preview_messages = (
+                        source_df[message_column]
+                        .dropna()
+                        .astype(str)
+                        .map(str.strip)
+                        .tolist()
+                    )
+                    preview_messages = [
+                        message for message in preview_messages if message
+                    ]
 
-                        col1.metric(
-                            "Total",
-                            result.get("total_messages", 0),
-                        )
+                if not preview_messages:
+                    st.warning(
+                        "No non-empty SMS messages were found in this file."
+                    )
+                    return
 
-                        col2.metric(
-                            "Parsed",
-                            result.get("parsed_count", 0),
-                        )
+                preview_df = pd.DataFrame(
+                    {"Message": preview_messages}
+                )
+                st.subheader("Import preview")
+                preview_col1, preview_col2 = st.columns(2)
+                preview_col1.metric(
+                    "Messages detected", f"{len(preview_messages):,}"
+                )
+                preview_col2.metric(
+                    "File size", f"{len(file_bytes) / 1024:,.1f} KB"
+                )
+                st.dataframe(
+                    preview_df.head(10),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+                if len(preview_messages) > 10:
+                    st.caption(
+                        f"Showing 10 of {len(preview_messages):,} messages."
+                    )
 
-                        col3.metric(
-                            "Duplicates",
-                            result.get("duplicate_count", 0),
-                        )
+                st.info(
+                    "Review the preview. When you continue, MoneyLens will "
+                    "send the file to the backend for parsing, "
+                    "categorisation and duplicate detection."
+                )
 
-                        col4.metric(
-                            "Unparsed",
-                            result.get("unparsed_count", 0),
-                        )
+                if st.button(
+                    "Confirm and Process File",
+                    type="primary",
+                    key="confirm_bulk_file",
+                ):
+                    with st.spinner(
+                        f"Processing {len(preview_messages):,} messages..."
+                    ):
+                        try:
+                            result = client.upload_file(
+                                file_name=file_name,
+                                file_bytes=file_bytes,
+                            )
+                            st.success(
+                                "File uploaded and processed successfully."
+                            )
 
-                    except APIError as exc:
-                        show_error(exc)
+                            result_col1, result_col2, result_col3, result_col4 = (
+                                st.columns(4)
+                            )
+                            result_col1.metric(
+                                "Total", result.get("total_messages", 0)
+                            )
+                            result_col2.metric(
+                                "Parsed", result.get("parsed_count", 0)
+                            )
+                            result_col3.metric(
+                                "Duplicates",
+                                result.get("duplicate_count", 0),
+                            )
+                            result_col4.metric(
+                                "Unparsed", result.get("unparsed_count", 0)
+                            )
+                        except APIError as exc:
+                            show_error(exc)
+
+            except (
+                UnicodeDecodeError,
+                pd.errors.ParserError,
+                IndexError,
+                ValueError,
+            ) as exc:
+                st.error(
+                    "The file could not be previewed. Check that it is a "
+                    f"valid UTF-8 TXT or CSV file. Details: {exc}"
+                )
 
 
 # ---------------------------------------------------------
