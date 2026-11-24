@@ -1,12 +1,3 @@
-#This file will contain:
-#- Login and registration.
-#- Dashboard with financial KPIs and charts.
-#- Mobile money SMS and file uploads.
-#- Transactions table with category correction.
-#- Upload history.
-#- Anomaly detection results.
-#- Logout and error handling.
-
 
 """Main Streamlit application for MoneyLens UG."""
 
@@ -15,11 +6,11 @@ from typing import Any
 
 import pandas as pd
 import streamlit as st
-
 from api_client import APIClient, APIError
 
 st.set_page_config(
     page_title="MoneyLens UG",
+    page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -60,6 +51,17 @@ st.markdown(
         padding: 18px;
         border-radius: 10px;
         border: 1px solid #E2E8F0;
+        min-height: 120px;
+    }
+
+    [data-testid="stMetricValue"] {
+        font-size: 1.25rem !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    [data-testid="stMetricLabel"] {
+        font-size: 0.95rem;
     }
     </style>
     """,
@@ -102,7 +104,7 @@ def format_currency(value: Any) -> str:
     """Format a numeric value as Ugandan shillings."""
 
     amount = Decimal(str(value or 0))
-    return f"UGX {amount:,.2f}"
+    return f"UGX {amount:,.0f}"
 
 
 def show_error(error: Exception) -> None:
@@ -159,8 +161,7 @@ def authentication_page() -> None:
                     st.warning("Please enter your email and password.")
                 else:
                     try:
-                        client = APIClient()
-                        result = client.login(email, password)
+                        result = APIClient().login(email, password)
 
                         st.session_state.access_token = result[
                             "access_token"
@@ -210,13 +211,13 @@ def authentication_page() -> None:
                     st.error("Passwords do not match.")
 
                 elif len(new_password) < 8:
-                    st.error("Password must contain at least 8 characters.")
+                    st.error(
+                        "Password must contain at least 8 characters."
+                    )
 
                 else:
                     try:
-                        client = APIClient()
-
-                        client.register(
+                        APIClient().register(
                             email=new_email,
                             password=new_password,
                         )
@@ -287,7 +288,6 @@ def dashboard_page(client: APIClient) -> None:
 
     if monthly_data:
         trend_df = pd.DataFrame(monthly_data)
-
         trend_df = trend_df.set_index("month")
 
         st.line_chart(
@@ -464,9 +464,7 @@ def upload_page(client: APIClient) -> None:
         )
 
         if uploaded_file is not None:
-            st.caption(
-                f"Selected file: {uploaded_file.name}"
-            )
+            st.caption(f"Selected file: {uploaded_file.name}")
 
             if st.button(
                 "Upload and Process File",
@@ -612,6 +610,14 @@ def transactions_page(client: APIClient) -> None:
         return
 
     try:
+        # Retrieve categories to translate category IDs into names.
+        categories = client.get_categories()
+
+        category_names = {
+            category["id"]: category["name"]
+            for category in categories
+        }
+
         result = client.get_transactions(
             page=int(page),
             page_size=page_size,
@@ -628,26 +634,36 @@ def transactions_page(client: APIClient) -> None:
             st.info("No transactions found for these filters.")
             return
 
-        # Display transaction records.
+        # Display transaction records with category names.
         display_data = []
 
         for transaction in transactions:
+            category_id = transaction["category_id"]
+
+            category_name = (
+                category_names.get(category_id, "Unknown Category")
+                if category_id is not None
+                else "Uncategorized"
+            )
+
             display_data.append(
                 {
                     "ID": transaction["id"],
                     "Date": transaction["timestamp"],
                     "Provider": transaction["provider"],
                     "Type": transaction["transaction_type"],
-                    "Amount (UGX)": float(transaction["amount"]),
+                    "Amount (UGX)": format_currency(
+                        transaction["amount"]
+                    ),
                     "Fee (UGX)": (
-                        float(transaction["fee"])
+                        format_currency(transaction["fee"])
                         if transaction["fee"] is not None
-                        else 0.0
+                        else "UGX 0"
                     ),
                     "Counterparty": (
                         transaction["counterparty"] or "Unknown"
                     ),
-                    "Category ID": transaction["category_id"],
+                    "Category": category_name,
                 }
             )
 
@@ -667,8 +683,6 @@ def transactions_page(client: APIClient) -> None:
         # Category correction.
         st.subheader("Correct Transaction Category")
 
-        categories = client.get_categories()
-
         if not categories:
             st.warning("No categories are available.")
             return
@@ -682,7 +696,7 @@ def transactions_page(client: APIClient) -> None:
             (
                 f"Transaction #{transaction['id']} — "
                 f"{transaction['provider']} — "
-                f"UGX {float(transaction['amount']):,.2f}"
+                f"{format_currency(transaction['amount'])}"
             ): transaction["id"]
             for transaction in transactions
         }
