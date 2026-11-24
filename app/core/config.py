@@ -1,14 +1,5 @@
 
-#
-# What this file does:
-# - Reads application settings from your .env file.
-# - Loads your PostgreSQL connection URL and secret key.
-# - Provides defaults for token expiration and optional AI functionality.
-# - Makes the settings available throughout the application through settings.
-
-
 """Application configuration loaded from environment variables."""
-
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -26,6 +17,11 @@ class Settings(BaseSettings):
 
     anthropic_api_key: str | None = None
     enable_llm: bool = False
+
+    cors_origins: list[str] = [
+        "http://localhost:8502",
+        "http://127.0.0.1:8502",
+    ]
 
     model_config = SettingsConfigDict(
         env_file=".env",
