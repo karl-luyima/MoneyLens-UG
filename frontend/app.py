@@ -5,6 +5,7 @@ from decimal import Decimal
 from typing import Any
 
 import pandas as pd
+import plotly.graph_objects as go
 import streamlit as st
 from api_client import APIClient, APIError
 
@@ -236,17 +237,15 @@ def authentication_page() -> None:
 # ---------------------------------------------------------
 
 def dashboard_page(client: APIClient) -> None:
-    """Display financial insights and dashboard charts."""
+    """Display financial insights and polished interactive charts."""
 
     st.title("Financial Dashboard")
-
     st.caption(
         "An overview of your mobile money transactions and spending."
     )
 
     try:
         insights = client.get_insights()
-
     except APIError as exc:
         show_error(exc)
         return
@@ -258,100 +257,203 @@ def dashboard_page(client: APIClient) -> None:
 
     # Financial KPI cards.
     col1, col2, col3, col4 = st.columns(4)
-
-    col1.metric(
-        "Total Income",
-        format_currency(total_income),
-    )
-
-    col2.metric(
-        "Total Expenses",
-        format_currency(total_expenses),
-    )
-
-    col3.metric(
-        "Total Fees",
-        format_currency(total_fees),
-    )
-
-    col4.metric(
-        "Transactions",
-        f"{transaction_count:,}",
-    )
+    col1.metric("Total Income", format_currency(total_income))
+    col2.metric("Total Expenses", format_currency(total_expenses))
+    col3.metric("Total Fees", format_currency(total_fees))
+    col4.metric("Transactions", f"{transaction_count:,}")
 
     st.divider()
 
-    # Monthly financial trend.
+    # Monthly income and expense trend.
     st.subheader("Monthly Financial Trend")
-
     monthly_data = insights.get("monthly_trend", [])
 
     if monthly_data:
         trend_df = pd.DataFrame(monthly_data)
-        trend_df = trend_df.set_index("month")
+        trend_df["income"] = pd.to_numeric(
+            trend_df["income"], errors="coerce"
+        ).fillna(0)
+        trend_df["expenses"] = pd.to_numeric(
+            trend_df["expenses"], errors="coerce"
+        ).fillna(0)
 
-        st.line_chart(
-            trend_df[["income", "expenses"]],
-            use_container_width=True,
+        # Sort month labels chronologically where they use YYYY-MM.
+        trend_df["_month_sort"] = pd.to_datetime(
+            trend_df["month"], format="%Y-%m", errors="coerce"
+        )
+        trend_df = trend_df.sort_values(
+            "_month_sort", na_position="last"
         )
 
+        monthly_chart = go.Figure()
+        monthly_chart.add_trace(
+            go.Scatter(
+                x=trend_df["month"],
+                y=trend_df["income"],
+                name="Income",
+                mode="lines+markers",
+                line={"color": "#008C95", "width": 3},
+                marker={"size": 8},
+                hovertemplate=(
+                    "<b>%{x}</b><br>Income: UGX %{y:,.0f}<extra></extra>"
+                ),
+            )
+        )
+        monthly_chart.add_trace(
+            go.Scatter(
+                x=trend_df["month"],
+                y=trend_df["expenses"],
+                name="Expenses",
+                mode="lines+markers",
+                line={"color": "#1976A8", "width": 3},
+                marker={"size": 8},
+                hovertemplate=(
+                    "<b>%{x}</b><br>Expenses: UGX %{y:,.0f}<extra></extra>"
+                ),
+            )
+        )
+        monthly_chart.update_layout(
+            height=350,
+            margin={"l": 15, "r": 20, "t": 25, "b": 15},
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="white",
+            font={"color": "#123B5D"},
+            hovermode="x unified",
+            legend={
+                "orientation": "h",
+                "yanchor": "bottom",
+                "y": 1.02,
+                "xanchor": "right",
+                "x": 1,
+            },
+            xaxis={
+                "title": None,
+                "showgrid": False,
+                "showline": True,
+                "linecolor": "#E2E8F0",
+            },
+            yaxis={
+                "title": "Amount (UGX)",
+                "tickformat": ",.0f",
+                "gridcolor": "#E2E8F0",
+                "zeroline": False,
+            },
+        )
+        st.plotly_chart(
+            monthly_chart, use_container_width=True,
+            config={"displayModeBar": False},
+        )
     else:
         st.info("No monthly transaction data available yet.")
 
     st.divider()
 
-    # Category breakdown and counterparties.
+    # Category and counterparty charts.
     left_col, right_col = st.columns(2)
 
     with left_col:
-        st.subheader("Spending by Category")
-
-        category_data = insights.get(
-            "category_breakdown",
-            [],
-        )
+        st.subheader("Transaction Value by Category")
+        category_data = insights.get("category_breakdown", [])
 
         if category_data:
             category_df = pd.DataFrame(category_data)
-
-            st.bar_chart(
-                category_df.set_index("category")["total_amount"],
-                use_container_width=True,
+            category_df["total_amount"] = pd.to_numeric(
+                category_df["total_amount"], errors="coerce"
+            ).fillna(0)
+            category_df = category_df.sort_values(
+                "total_amount", ascending=True
             )
 
-            st.dataframe(
-                category_df,
-                use_container_width=True,
-                hide_index=True,
+            category_chart = go.Figure(
+                go.Bar(
+                    x=category_df["total_amount"],
+                    y=category_df["category"],
+                    orientation="h",
+                    marker={"color": "#008C95"},
+                    text=[
+                        f"UGX {amount:,.0f}"
+                        for amount in category_df["total_amount"]
+                    ],
+                    textposition="outside",
+                    cliponaxis=False,
+                    hovertemplate=(
+                        "<b>%{y}</b><br>Amount: UGX %{x:,.0f}"
+                        "<extra></extra>"
+                    ),
+                )
             )
-
+            category_chart.update_layout(
+                height=max(300, 55 * len(category_df)),
+                margin={"l": 10, "r": 35, "t": 15, "b": 35},
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="white",
+                font={"color": "#123B5D"},
+                showlegend=False,
+                xaxis={
+                    "title": "Amount (UGX)",
+                    "tickformat": ",.0f",
+                    "gridcolor": "#E2E8F0",
+                    "zeroline": False,
+                },
+                yaxis={"title": None, "showgrid": False},
+            )
+            st.plotly_chart(
+                category_chart, use_container_width=True,
+                config={"displayModeBar": False},
+            )
         else:
             st.info("No category information available yet.")
 
     with right_col:
         st.subheader("Top Counterparties")
-
-        counterparty_data = insights.get(
-            "top_counterparties",
-            [],
-        )
+        counterparty_data = insights.get("top_counterparties", [])
 
         if counterparty_data:
             counterparty_df = pd.DataFrame(counterparty_data)
-
-            st.dataframe(
-                counterparty_df,
-                use_container_width=True,
-                hide_index=True,
+            counterparty_df["total_amount"] = pd.to_numeric(
+                counterparty_df["total_amount"], errors="coerce"
+            ).fillna(0)
+            counterparty_df = counterparty_df.sort_values(
+                "total_amount", ascending=True
             )
 
-            st.bar_chart(
-                counterparty_df.set_index("counterparty")[
-                    "total_amount"
-                ],
-                use_container_width=True,
+            counterparty_chart = go.Figure(
+                go.Bar(
+                    x=counterparty_df["total_amount"],
+                    y=counterparty_df["counterparty"],
+                    orientation="h",
+                    marker={"color": "#1976A8"},
+                    text=[
+                        f"UGX {amount:,.0f}"
+                        for amount in counterparty_df["total_amount"]
+                    ],
+                    textposition="outside",
+                    cliponaxis=False,
+                    hovertemplate=(
+                        "<b>%{y}</b><br>Amount: UGX %{x:,.0f}"
+                        "<extra></extra>"
+                    ),
+                )
             )
-
+            counterparty_chart.update_layout(
+                height=max(300, 55 * len(counterparty_df)),
+                margin={"l": 10, "r": 35, "t": 15, "b": 35},
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="white",
+                font={"color": "#123B5D"},
+                showlegend=False,
+                xaxis={
+                    "title": "Amount (UGX)",
+                    "tickformat": ",.0f",
+                    "gridcolor": "#E2E8F0",
+                    "zeroline": False,
+                },
+                yaxis={"title": None, "showgrid": False},
+            )
+            st.plotly_chart(
+                counterparty_chart, use_container_width=True,
+                config={"displayModeBar": False},
+            )
         else:
             st.info("No counterparty information available yet.")
 
@@ -359,22 +461,22 @@ def dashboard_page(client: APIClient) -> None:
 
     # Anomaly detection.
     st.subheader("Unusual Transactions")
-
     anomalies = insights.get("anomalies", [])
 
     if anomalies:
-        anomaly_df = pd.DataFrame(anomalies)
-
+        anomaly_df = pd.DataFrame(anomalies).copy()
+        if "amount" in anomaly_df.columns:
+            anomaly_df["amount"] = anomaly_df["amount"].map(
+                format_currency
+            )
         st.warning(
             f"{len(anomalies)} unusual transaction(s) detected."
         )
-
         st.dataframe(
             anomaly_df,
             use_container_width=True,
             hide_index=True,
         )
-
     else:
         st.success("No unusual transactions detected.")
 
