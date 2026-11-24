@@ -7,7 +7,6 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import plotly.graph_objects as go  # type: ignore[import-untyped]
-import plotly.graph_objects as go
 import streamlit as st
 from api_client import APIClient, APIError
 
