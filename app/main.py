@@ -5,6 +5,7 @@ from fastapi import FastAPI
 
 from app.api.auth import router as auth_router
 from app.api.categories import router as categories_router
+from app.api.insights import router as insights_router
 from app.api.transactions import router as transactions_router
 from app.api.uploads import router as uploads_router
 from app.api.users import router as users_router
@@ -40,6 +41,11 @@ app.include_router(
 
 app.include_router(
     categories_router,
+    prefix="/api/v1",
+)
+
+app.include_router(
+    insights_router,
     prefix="/api/v1",
 )
 

@@ -1,19 +1,40 @@
-
 """API endpoints for transaction categories and ML retraining."""
 
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.core.dependencies import get_current_user, get_db
 from app.ml.retraining import retrain_user_model
+from app.models.category import Category
 from app.models.user import User
+from app.schemas.category import CategoryResponse
 
 router = APIRouter(
     prefix="/categories",
     tags=["Categories"],
 )
+
+
+@router.get("/", response_model=list[CategoryResponse])
+def get_categories(
+    db: Annotated[Session, Depends(get_db)],
+    current_user: Annotated[User, Depends(get_current_user)],
+) -> list[Category]:
+    """Return system categories and categories belonging to the current user."""
+
+    return list(
+        db.scalars(
+            select(Category)
+            .where(
+                (Category.is_system.is_(True) & Category.user_id.is_(None))
+                | (Category.user_id == current_user.id)
+            )
+            .order_by(Category.name)
+        ).all()
+    )
 
 
 @router.post("/retrain")
