@@ -3,7 +3,9 @@
 
 from collections import defaultdict
 from collections.abc import Sequence
+from datetime import date, datetime, time, timedelta
 from decimal import Decimal
+from zoneinfo import ZoneInfo
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
@@ -36,6 +38,7 @@ EXPENSE_TYPES = {
 ZERO = Decimal("0.00")
 IQR_MULTIPLIER = Decimal("1.5")
 MINIMUM_ANOMALY_SAMPLES = 4
+UGANDA_TIMEZONE = ZoneInfo("Africa/Kampala")
 
 
 def calculate_quartile(
@@ -135,14 +138,35 @@ def detect_anomalies(
 def generate_insights_summary(
     db: Session,
     user_id: int,
+    start_date: date | None = None,
+    end_date: date | None = None,
 ) -> InsightsSummaryResponse:
-    """Generate financial insights using only one user's transactions."""
+    """Generate financial insights for one user within an optional date range."""
 
-    transactions = db.scalars(
+    query = (
         select(Transaction)
         .options(selectinload(Transaction.category))
         .where(Transaction.user_id == user_id)
-        .order_by(Transaction.timestamp.asc())
+    )
+
+    if start_date is not None:
+        start_datetime = datetime.combine(
+            start_date,
+            time.min,
+            tzinfo=UGANDA_TIMEZONE,
+        )
+        query = query.where(Transaction.timestamp >= start_datetime)
+
+    if end_date is not None:
+        end_datetime = datetime.combine(
+            end_date + timedelta(days=1),
+            time.min,
+            tzinfo=UGANDA_TIMEZONE,
+        )
+        query = query.where(Transaction.timestamp < end_datetime)
+
+    transactions = db.scalars(
+        query.order_by(Transaction.timestamp.asc())
     ).all()
 
     total_income = ZERO
@@ -173,7 +197,9 @@ def generate_insights_summary(
     for transaction in transactions:
         amount = transaction.amount
         fee = transaction.fee or ZERO
-        month = transaction.timestamp.strftime("%Y-%m")
+        month = transaction.timestamp.astimezone(
+            UGANDA_TIMEZONE
+        ).strftime("%Y-%m")
 
         total_fees += fee
 

@@ -2,6 +2,7 @@
 """HTTP client for communicating with the MoneyLens UG API."""
 
 import os
+from datetime import date
 from typing import Any, cast
 
 import httpx
@@ -226,12 +227,28 @@ class APIClient:
             self._request("GET", "/categories/"),
         )
 
-    def get_insights(self) -> dict[str, Any]:
-        """Retrieve the financial insights summary."""
+    def get_insights(
+        self,
+        start_date: date | None = None,
+        end_date: date | None = None,
+    ) -> dict[str, Any]:
+        """Retrieve financial insights for an optional date range."""
+
+        params = {}
+
+        if start_date is not None:
+            params["start_date"] = start_date.isoformat()
+
+        if end_date is not None:
+            params["end_date"] = end_date.isoformat()
 
         return cast(
             dict[str, Any],
-            self._request("GET", "/insights/summary"),
+            self._request(
+                "GET",
+                "/insights/summary",
+                params=params,
+            ),
         )
 
     def retrain_category_model(self) -> dict[str, Any]:

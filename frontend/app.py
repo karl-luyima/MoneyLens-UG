@@ -1,10 +1,12 @@
-
 """Main Streamlit application for MoneyLens UG."""
 
-from decimal import Decimal
+from datetime import date, datetime, timedelta
+from decimal import Decimal, InvalidOperation
 from typing import Any
+from zoneinfo import ZoneInfo
 
 import pandas as pd
+import plotly.graph_objects as go  # type: ignore[import-untyped]
 import plotly.graph_objects as go
 import streamlit as st
 from api_client import APIClient, APIError
@@ -16,7 +18,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-
 # ---------------------------------------------------------
 # Application styling
 # ---------------------------------------------------------
@@ -24,29 +25,15 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    .stApp {
-        background-color: #F5F7FA;
-    }
-
-    [data-testid="stSidebar"] {
-        background-color: #123B5D;
-    }
-
-    [data-testid="stSidebar"] * {
-        color: white;
-    }
-
+    .stApp { background-color: #F5F7FA; }
+    [data-testid="stSidebar"] { background-color: #123B5D; }
+    [data-testid="stSidebar"] * { color: white; }
     .main-title {
         color: #123B5D;
         font-size: 2rem;
         font-weight: 700;
     }
-
-    .subtitle {
-        color: #64748B;
-        font-size: 0.95rem;
-    }
-
+    .subtitle { color: #64748B; font-size: 0.95rem; }
     div[data-testid="stMetric"] {
         background-color: white;
         padding: 18px;
@@ -54,21 +41,16 @@ st.markdown(
         border: 1px solid #E2E8F0;
         min-height: 120px;
     }
-
     [data-testid="stMetricValue"] {
         font-size: 1.25rem !important;
         white-space: normal !important;
         overflow-wrap: anywhere !important;
     }
-
-    [data-testid="stMetricLabel"] {
-        font-size: 0.95rem;
-    }
+    [data-testid="stMetricLabel"] { font-size: 0.95rem; }
     </style>
     """,
     unsafe_allow_html=True,
 )
-
 
 # ---------------------------------------------------------
 # Session state and API client
@@ -76,25 +58,19 @@ st.markdown(
 
 if "access_token" not in st.session_state:
     st.session_state.access_token = None
-
 if "refresh_token" not in st.session_state:
     st.session_state.refresh_token = None
-
 if "user_email" not in st.session_state:
     st.session_state.user_email = None
 
 
 def get_api_client() -> APIClient:
     """Create an API client using the current session token."""
-
-    return APIClient(
-        access_token=st.session_state.access_token,
-    )
+    return APIClient(access_token=st.session_state.access_token)
 
 
 def logout() -> None:
     """Clear authentication information."""
-
     st.session_state.access_token = None
     st.session_state.refresh_token = None
     st.session_state.user_email = None
@@ -103,14 +79,32 @@ def logout() -> None:
 
 def format_currency(value: Any) -> str:
     """Format a numeric value as Ugandan shillings."""
-
-    amount = Decimal(str(value or 0))
+    try:
+        amount = Decimal(str(value if value is not None else 0))
+    except (InvalidOperation, TypeError, ValueError):
+        amount = Decimal("0")
     return f"UGX {amount:,.0f}"
+
+
+def format_label(value: Any) -> str:
+    """Convert API-style labels such as send_money into readable text."""
+    if value is None or str(value).strip() == "":
+        return "Unknown"
+    return str(value).replace("_", " ").replace("-", " ").title()
+
+
+def format_datetime(value: Any) -> str:
+    """Format an API timestamp as a readable local date and time."""
+    if value is None or str(value).strip() == "":
+        return "Unknown"
+    parsed = pd.to_datetime(value, errors="coerce")
+    if pd.isna(parsed):
+        return str(value)
+    return str(parsed.strftime("%d %b %Y, %I:%M %p"))
 
 
 def show_error(error: Exception) -> None:
     """Display a user-friendly error message."""
-
     st.error(str(error))
 
 
@@ -120,116 +114,127 @@ def show_error(error: Exception) -> None:
 
 def authentication_page() -> None:
     """Display registration and login forms."""
-
-    st.markdown(
-        '<p class="main-title">MoneyLens UG</p>',
-        unsafe_allow_html=True,
-    )
-
+    st.markdown('<p class="main-title">MoneyLens UG</p>', unsafe_allow_html=True)
     st.markdown(
         '<p class="subtitle">Understand your mobile money. '
         'Take control of your finances.</p>',
         unsafe_allow_html=True,
     )
-
     st.divider()
 
-    login_tab, register_tab = st.tabs(
-        ["Login", "Create Account"]
-    )
+    login_tab, register_tab = st.tabs(["Login", "Create Account"])
 
     with login_tab:
         st.subheader("Welcome back")
-
         with st.form("login_form"):
-            email = st.text_input(
-                "Email address",
-                placeholder="you@example.com",
-            )
-
-            password = st.text_input(
-                "Password",
-                type="password",
-            )
-
-            submitted = st.form_submit_button(
-                "Login",
-                use_container_width=True,
-            )
-
+            email = st.text_input("Email address", placeholder="you@example.com")
+            password = st.text_input("Password", type="password")
+            submitted = st.form_submit_button("Login", use_container_width=True)
             if submitted:
                 if not email or not password:
                     st.warning("Please enter your email and password.")
                 else:
                     try:
                         result = APIClient().login(email, password)
-
-                        st.session_state.access_token = result[
-                            "access_token"
-                        ]
-                        st.session_state.refresh_token = result[
-                            "refresh_token"
-                        ]
+                        st.session_state.access_token = result["access_token"]
+                        st.session_state.refresh_token = result["refresh_token"]
                         st.session_state.user_email = email
-
                         st.success("Login successful.")
                         st.rerun()
-
                     except APIError as exc:
                         show_error(exc)
 
     with register_tab:
         st.subheader("Create your MoneyLens account")
-
         with st.form("register_form"):
             new_email = st.text_input(
-                "Email address",
-                key="register_email",
+                "Email address", key="register_email",
                 placeholder="you@example.com",
             )
-
             new_password = st.text_input(
-                "Password",
-                type="password",
-                key="register_password",
+                "Password", type="password", key="register_password",
             )
-
-            confirm_password = st.text_input(
-                "Confirm password",
-                type="password",
-            )
-
+            confirm_password = st.text_input("Confirm password", type="password")
             submitted = st.form_submit_button(
-                "Create Account",
-                use_container_width=True,
+                "Create Account", use_container_width=True,
             )
-
             if submitted:
                 if not new_email or not new_password:
                     st.warning("Please complete all fields.")
-
                 elif new_password != confirm_password:
                     st.error("Passwords do not match.")
-
                 elif len(new_password) < 8:
-                    st.error(
-                        "Password must contain at least 8 characters."
-                    )
-
+                    st.error("Password must contain at least 8 characters.")
                 else:
                     try:
-                        APIClient().register(
-                            email=new_email,
-                            password=new_password,
-                        )
-
+                        APIClient().register(email=new_email, password=new_password)
                         st.success(
-                            "Account created successfully. "
-                            "You can now log in."
+                            "Account created successfully. You can now log in."
                         )
-
                     except APIError as exc:
                         show_error(exc)
+
+
+# ---------------------------------------------------------
+# Dashboard date filtering
+# ---------------------------------------------------------
+
+UGANDA_TIMEZONE = ZoneInfo("Africa/Kampala")
+
+
+def dashboard_date_filter() -> tuple[date | None, date | None]:
+    """Allow users to select a financial dashboard date range."""
+
+    today = datetime.now(UGANDA_TIMEZONE).date()
+    first_day_this_month = today.replace(day=1)
+
+    st.subheader("Filter Financial Period")
+
+    period = st.selectbox(
+        "Select reporting period",
+        [
+            "All Time",
+            "This Month",
+            "Last Month",
+            "This Year",
+            "Custom Range",
+        ],
+        key="dashboard_period",
+    )
+
+    if period == "All Time":
+        return None, None
+
+    if period == "This Month":
+        return first_day_this_month, today
+
+    if period == "Last Month":
+        last_day_previous_month = first_day_this_month - timedelta(days=1)
+        first_day_previous_month = last_day_previous_month.replace(day=1)
+        return first_day_previous_month, last_day_previous_month
+
+    if period == "This Year":
+        return today.replace(month=1, day=1), today
+
+    st.caption("Choose the beginning and end of your reporting period.")
+
+    selected_range = st.date_input(
+        "Custom date range",
+        value=(today - timedelta(days=29), today),
+        key="dashboard_custom_range",
+    )
+
+    if not isinstance(selected_range, (tuple, list)) or len(selected_range) != 2:
+        st.info("Please select both a start date and an end date.")
+        return None, None
+
+    start_date, end_date = selected_range
+
+    if start_date > end_date:
+        st.error("The start date cannot be after the end date.")
+        return None, None
+
+    return start_date, end_date
 
 
 # ---------------------------------------------------------
@@ -238,36 +243,51 @@ def authentication_page() -> None:
 
 def dashboard_page(client: APIClient) -> None:
     """Display financial insights and polished interactive charts."""
-
     st.title("Financial Dashboard")
     st.caption(
         "An overview of your mobile money transactions and spending."
     )
 
+    start_date, end_date = dashboard_date_filter()
+
+    # A partial custom range should not silently display all-time figures.
+    if (
+        st.session_state.get("dashboard_period") == "Custom Range"
+        and (start_date is None or end_date is None)
+    ):
+        return
+
     try:
-        insights = client.get_insights()
+        insights = client.get_insights(
+            start_date=start_date,
+            end_date=end_date,
+        )
     except APIError as exc:
         show_error(exc)
         return
+
+    if start_date and end_date:
+        st.caption(
+            f"Showing financial activity from "
+            f"{start_date:%d %b %Y} to {end_date:%d %b %Y}."
+        )
+    else:
+        st.caption("Showing your complete transaction history.")
 
     total_income = insights.get("total_income", 0)
     total_expenses = insights.get("total_expenses", 0)
     total_fees = insights.get("total_fees", 0)
     transaction_count = insights.get("transaction_count", 0)
 
-    # Financial KPI cards.
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Total Income", format_currency(total_income))
     col2.metric("Total Expenses", format_currency(total_expenses))
     col3.metric("Total Fees", format_currency(total_fees))
     col4.metric("Transactions", f"{transaction_count:,}")
-
     st.divider()
 
-    # Monthly income and expense trend.
     st.subheader("Monthly Financial Trend")
     monthly_data = insights.get("monthly_trend", [])
-
     if monthly_data:
         trend_df = pd.DataFrame(monthly_data)
         trend_df["income"] = pd.to_numeric(
@@ -276,67 +296,42 @@ def dashboard_page(client: APIClient) -> None:
         trend_df["expenses"] = pd.to_numeric(
             trend_df["expenses"], errors="coerce"
         ).fillna(0)
-
-        # Sort month labels chronologically where they use YYYY-MM.
         trend_df["_month_sort"] = pd.to_datetime(
             trend_df["month"], format="%Y-%m", errors="coerce"
         )
-        trend_df = trend_df.sort_values(
-            "_month_sort", na_position="last"
-        )
+        trend_df = trend_df.sort_values("_month_sort", na_position="last")
 
         monthly_chart = go.Figure()
-        monthly_chart.add_trace(
-            go.Scatter(
-                x=trend_df["month"],
-                y=trend_df["income"],
-                name="Income",
-                mode="lines+markers",
-                line={"color": "#2E8B57", "width": 3},
-                marker={"size": 9, "color": "#2E8B57"},
-                hovertemplate=(
-                    "<b>%{x}</b><br>Income: UGX %{y:,.0f}<extra></extra>"
-                ),
-            )
-        )
-        monthly_chart.add_trace(
-            go.Scatter(
-                x=trend_df["month"],
-                y=trend_df["expenses"],
-                name="Expenses",
-                mode="lines+markers",
-                line={"color": "#D95D39", "width": 3},
-                marker={"size": 9, "color": "#D95D39"},
-                hovertemplate=(
-                    "<b>%{x}</b><br>Expenses: UGX %{y:,.0f}<extra></extra>"
-                ),
-            )
-        )
+        monthly_chart.add_trace(go.Scatter(
+            x=trend_df["month"], y=trend_df["income"], name="Income",
+            mode="lines+markers",
+            line={"color": "#2E8B57", "width": 3},
+            marker={"size": 9, "color": "#2E8B57"},
+            hovertemplate="<b>%{x}</b><br>Income: UGX %{y:,.0f}<extra></extra>",
+        ))
+        monthly_chart.add_trace(go.Scatter(
+            x=trend_df["month"], y=trend_df["expenses"], name="Expenses",
+            mode="lines+markers",
+            line={"color": "#D95D39", "width": 3},
+            marker={"size": 9, "color": "#D95D39"},
+            hovertemplate="<b>%{x}</b><br>Expenses: UGX %{y:,.0f}<extra></extra>",
+        ))
         monthly_chart.update_layout(
             height=350,
             margin={"l": 15, "r": 20, "t": 25, "b": 15},
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="white",
-            font={"color": "#123B5D"},
-            hovermode="x unified",
+            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="white",
+            font={"color": "#123B5D"}, hovermode="x unified",
             legend={
-                "orientation": "h",
-                "yanchor": "bottom",
-                "y": 1.02,
-                "xanchor": "right",
-                "x": 1,
+                "orientation": "h", "yanchor": "bottom", "y": 1.02,
+                "xanchor": "right", "x": 1,
             },
             xaxis={
-                "title": None,
-                "showgrid": False,
-                "showline": True,
+                "title": None, "showgrid": False, "showline": True,
                 "linecolor": "#E2E8F0",
             },
             yaxis={
-                "title": "Amount (UGX)",
-                "tickformat": ",.0f",
-                "gridcolor": "#E2E8F0",
-                "zeroline": False,
+                "title": "Amount (UGX)", "tickformat": ",.0f",
+                "gridcolor": "#E2E8F0", "zeroline": False,
             },
         )
         st.plotly_chart(
@@ -344,17 +339,14 @@ def dashboard_page(client: APIClient) -> None:
             config={"displayModeBar": False},
         )
     else:
-        st.info("No monthly transaction data available yet.")
+        st.info("No monthly transaction data available for this period.")
 
     st.divider()
-
-    # Category and counterparty charts.
     left_col, right_col = st.columns(2)
 
     with left_col:
         st.subheader("Transaction Value by Category")
         category_data = insights.get("category_breakdown", [])
-
         if category_data:
             category_df = pd.DataFrame(category_data)
             category_df["total_amount"] = pd.to_numeric(
@@ -363,37 +355,21 @@ def dashboard_page(client: APIClient) -> None:
             category_df = category_df.sort_values(
                 "total_amount", ascending=True
             )
-
-            category_chart = go.Figure(
-                go.Bar(
-                    x=category_df["total_amount"],
-                    y=category_df["category"],
-                    orientation="h",
-                    marker={"color": "#008C95"},
-                    text=[
-                        f"UGX {amount:,.0f}"
-                        for amount in category_df["total_amount"]
-                    ],
-                    textposition="outside",
-                    cliponaxis=False,
-                    hovertemplate=(
-                        "<b>%{y}</b><br>Amount: UGX %{x:,.0f}"
-                        "<extra></extra>"
-                    ),
-                )
-            )
+            category_chart = go.Figure(go.Bar(
+                x=category_df["total_amount"], y=category_df["category"],
+                orientation="h", marker={"color": "#008C95"},
+                text=[f"UGX {amount:,.0f}" for amount in category_df["total_amount"]],
+                textposition="outside", cliponaxis=False,
+                hovertemplate="<b>%{y}</b><br>Amount: UGX %{x:,.0f}<extra></extra>",
+            ))
             category_chart.update_layout(
                 height=max(300, 55 * len(category_df)),
                 margin={"l": 10, "r": 35, "t": 15, "b": 35},
-                paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="white",
-                font={"color": "#123B5D"},
-                showlegend=False,
+                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="white",
+                font={"color": "#123B5D"}, showlegend=False,
                 xaxis={
-                    "title": "Amount (UGX)",
-                    "tickformat": ",.0f",
-                    "gridcolor": "#E2E8F0",
-                    "zeroline": False,
+                    "title": "Amount (UGX)", "tickformat": ",.0f",
+                    "gridcolor": "#E2E8F0", "zeroline": False,
                 },
                 yaxis={"title": None, "showgrid": False},
             )
@@ -402,12 +378,11 @@ def dashboard_page(client: APIClient) -> None:
                 config={"displayModeBar": False},
             )
         else:
-            st.info("No category information available yet.")
+            st.info("No category information available for this period.")
 
     with right_col:
         st.subheader("Top Counterparties")
         counterparty_data = insights.get("top_counterparties", [])
-
         if counterparty_data:
             counterparty_df = pd.DataFrame(counterparty_data)
             counterparty_df["total_amount"] = pd.to_numeric(
@@ -416,37 +391,25 @@ def dashboard_page(client: APIClient) -> None:
             counterparty_df = counterparty_df.sort_values(
                 "total_amount", ascending=True
             )
-
-            counterparty_chart = go.Figure(
-                go.Bar(
-                    x=counterparty_df["total_amount"],
-                    y=counterparty_df["counterparty"],
-                    orientation="h",
-                    marker={"color": "#1976A8"},
-                    text=[
-                        f"UGX {amount:,.0f}"
-                        for amount in counterparty_df["total_amount"]
-                    ],
-                    textposition="outside",
-                    cliponaxis=False,
-                    hovertemplate=(
-                        "<b>%{y}</b><br>Amount: UGX %{x:,.0f}"
-                        "<extra></extra>"
-                    ),
-                )
-            )
+            counterparty_chart = go.Figure(go.Bar(
+                x=counterparty_df["total_amount"],
+                y=counterparty_df["counterparty"], orientation="h",
+                marker={"color": "#1976A8"},
+                text=[
+                    f"UGX {amount:,.0f}"
+                    for amount in counterparty_df["total_amount"]
+                ],
+                textposition="outside", cliponaxis=False,
+                hovertemplate="<b>%{y}</b><br>Amount: UGX %{x:,.0f}<extra></extra>",
+            ))
             counterparty_chart.update_layout(
                 height=max(300, 55 * len(counterparty_df)),
                 margin={"l": 10, "r": 35, "t": 15, "b": 35},
-                paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="white",
-                font={"color": "#123B5D"},
-                showlegend=False,
+                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="white",
+                font={"color": "#123B5D"}, showlegend=False,
                 xaxis={
-                    "title": "Amount (UGX)",
-                    "tickformat": ",.0f",
-                    "gridcolor": "#E2E8F0",
-                    "zeroline": False,
+                    "title": "Amount (UGX)", "tickformat": ",.0f",
+                    "gridcolor": "#E2E8F0", "zeroline": False,
                 },
                 yaxis={"title": None, "showgrid": False},
             )
@@ -455,28 +418,19 @@ def dashboard_page(client: APIClient) -> None:
                 config={"displayModeBar": False},
             )
         else:
-            st.info("No counterparty information available yet.")
+            st.info("No counterparty information available for this period.")
 
     st.divider()
-
-    # Anomaly detection.
     st.subheader("Unusual Transactions")
     anomalies = insights.get("anomalies", [])
-
     if anomalies:
         anomaly_df = pd.DataFrame(anomalies).copy()
         if "amount" in anomaly_df.columns:
-            anomaly_df["amount"] = anomaly_df["amount"].map(
-                format_currency
-            )
-        st.warning(
-            f"{len(anomalies)} unusual transaction(s) detected."
-        )
-        st.dataframe(
-            anomaly_df,
-            use_container_width=True,
-            hide_index=True,
-        )
+            anomaly_df["amount"] = anomaly_df["amount"].map(format_currency)
+        if "timestamp" in anomaly_df.columns:
+            anomaly_df["timestamp"] = anomaly_df["timestamp"].map(format_datetime)
+        st.warning(f"{len(anomalies)} unusual transaction(s) detected.")
+        st.dataframe(anomaly_df, use_container_width=True, hide_index=True)
     else:
         st.success("No unusual transactions detected.")
 
@@ -487,7 +441,6 @@ def dashboard_page(client: APIClient) -> None:
 
 def upload_page(client: APIClient) -> None:
     """Allow users to preview and bulk import SMS messages and files."""
-
     from io import StringIO
 
     st.title("Upload Transactions")
@@ -495,55 +448,41 @@ def upload_page(client: APIClient) -> None:
         "Import multiple mobile money messages at once. "
         "Preview the records before sending them for processing."
     )
-
-    sms_tab, file_tab = st.tabs(
-        ["Paste SMS Messages", "Upload TXT / CSV"]
-    )
+    sms_tab, file_tab = st.tabs(["Paste SMS Messages", "Upload TXT / CSV"])
 
     with sms_tab:
         st.subheader("Bulk paste mobile money messages")
         messages_text = st.text_area(
-            "Enter one SMS message per line",
-            height=250,
+            "Enter one SMS message per line", height=250,
             placeholder=(
                 "You have sent UGX 35,000 to John...\n"
                 "You have received UGX 50,000 from Mary..."
             ),
         )
-
         messages = [
-            message.strip()
-            for message in messages_text.splitlines()
+            message.strip() for message in messages_text.splitlines()
             if message.strip()
         ]
-
         if messages:
             st.caption(f"{len(messages):,} message(s) ready to import.")
             with st.expander("Preview messages", expanded=False):
                 for index, message in enumerate(messages[:10], start=1):
                     st.write(f"{index}. {message}")
                 if len(messages) > 10:
-                    st.caption(
-                        f"Showing 10 of {len(messages):,} messages."
-                    )
+                    st.caption(f"Showing 10 of {len(messages):,} messages.")
 
         if st.button(
-            "Process Messages",
-            type="primary",
-            key="process_messages",
+            "Process Messages", type="primary", key="process_messages",
             disabled=not messages,
         ):
             with st.spinner("Processing your messages..."):
                 try:
                     result = client.upload_messages(messages)
                     st.success("Messages processed successfully.")
-
                     col1, col2, col3, col4 = st.columns(4)
                     col1.metric("Total", result.get("total_messages", 0))
                     col2.metric("Parsed", result.get("parsed_count", 0))
-                    col3.metric(
-                        "Duplicates", result.get("duplicate_count", 0)
-                    )
+                    col3.metric("Duplicates", result.get("duplicate_count", 0))
                     col4.metric("Unparsed", result.get("unparsed_count", 0))
                 except APIError as exc:
                     show_error(exc)
@@ -554,59 +493,42 @@ def upload_page(client: APIClient) -> None:
             "Upload a TXT file with one message per line, or a CSV file "
             "containing an SMS/message column. Import many records at once."
         )
-
         uploaded_file = st.file_uploader(
-            "Choose a TXT or CSV file",
-            type=["txt", "csv"],
-            help="Maximum file size: 5 MB.",
-            key="bulk_sms_file",
+            "Choose a TXT or CSV file", type=["txt", "csv"],
+            help="Maximum file size: 5 MB.", key="bulk_sms_file",
         )
-
         if uploaded_file is not None:
             file_bytes = uploaded_file.getvalue()
             file_name = uploaded_file.name
-            st.caption(
-                f"Selected: {file_name} · {len(file_bytes):,} bytes"
-            )
-
+            st.caption(f"Selected: {file_name} · {len(file_bytes):,} bytes")
             if len(file_bytes) > 5 * 1024 * 1024:
                 st.error("The file exceeds the 5 MB upload limit.")
                 return
-
             try:
                 if file_name.lower().endswith(".txt"):
                     decoded_text = file_bytes.decode("utf-8-sig")
                     preview_messages = [
-                        line.strip()
-                        for line in decoded_text.splitlines()
+                        line.strip() for line in decoded_text.splitlines()
                         if line.strip()
                     ]
                 else:
                     decoded_text = file_bytes.decode("utf-8-sig")
                     source_df = pd.read_csv(StringIO(decoded_text))
-
                     accepted_headers = {
-                        "message",
-                        "sms",
-                        "raw_message",
+                        "message", "sms", "raw_message",
                         "transaction_message",
                     }
                     matching_columns = [
-                        column
-                        for column in source_df.columns
+                        column for column in source_df.columns
                         if str(column).strip().lower() in accepted_headers
                     ]
                     message_column = (
                         matching_columns[0]
-                        if matching_columns
-                        else source_df.columns[0]
+                        if matching_columns else source_df.columns[0]
                     )
                     preview_messages = (
-                        source_df[message_column]
-                        .dropna()
-                        .astype(str)
-                        .map(str.strip)
-                        .tolist()
+                        source_df[message_column].dropna().astype(str)
+                        .map(str.strip).tolist()
                     )
                     preview_messages = [
                         message for message in preview_messages if message
@@ -617,10 +539,7 @@ def upload_page(client: APIClient) -> None:
                         "No non-empty SMS messages were found in this file."
                     )
                     return
-
-                preview_df = pd.DataFrame(
-                    {"Message": preview_messages}
-                )
+                preview_df = pd.DataFrame({"Message": preview_messages})
                 st.subheader("Import preview")
                 preview_col1, preview_col2 = st.columns(2)
                 preview_col1.metric(
@@ -630,24 +549,20 @@ def upload_page(client: APIClient) -> None:
                     "File size", f"{len(file_bytes) / 1024:,.1f} KB"
                 )
                 st.dataframe(
-                    preview_df.head(10),
-                    use_container_width=True,
+                    preview_df.head(10), use_container_width=True,
                     hide_index=True,
                 )
                 if len(preview_messages) > 10:
                     st.caption(
                         f"Showing 10 of {len(preview_messages):,} messages."
                     )
-
                 st.info(
                     "Review the preview. When you continue, MoneyLens will "
                     "send the file to the backend for parsing, "
                     "categorisation and duplicate detection."
                 )
-
                 if st.button(
-                    "Confirm and Process File",
-                    type="primary",
+                    "Confirm and Process File", type="primary",
                     key="confirm_bulk_file",
                 ):
                     with st.spinner(
@@ -655,13 +570,11 @@ def upload_page(client: APIClient) -> None:
                     ):
                         try:
                             result = client.upload_file(
-                                file_name=file_name,
-                                file_bytes=file_bytes,
+                                file_name=file_name, file_bytes=file_bytes,
                             )
                             st.success(
                                 "File uploaded and processed successfully."
                             )
-
                             result_col1, result_col2, result_col3, result_col4 = (
                                 st.columns(4)
                             )
@@ -672,20 +585,15 @@ def upload_page(client: APIClient) -> None:
                                 "Parsed", result.get("parsed_count", 0)
                             )
                             result_col3.metric(
-                                "Duplicates",
-                                result.get("duplicate_count", 0),
+                                "Duplicates", result.get("duplicate_count", 0)
                             )
                             result_col4.metric(
                                 "Unparsed", result.get("unparsed_count", 0)
                             )
                         except APIError as exc:
                             show_error(exc)
-
             except (
-                UnicodeDecodeError,
-                pd.errors.ParserError,
-                IndexError,
-                ValueError,
+                UnicodeDecodeError, pd.errors.ParserError, IndexError, ValueError,
             ) as exc:
                 st.error(
                     "The file could not be previewed. Check that it is a "
@@ -699,231 +607,195 @@ def upload_page(client: APIClient) -> None:
 
 def transactions_page(client: APIClient) -> None:
     """Display, filter and correct transaction categories."""
-
     st.title("Transactions")
-
     st.caption(
-        "Review your transactions and correct their categories."
+        "Review your mobile money activity, understand transaction details "
+        "and correct categories where necessary."
     )
 
     st.subheader("Filters")
-
     col1, col2, col3 = st.columns(3)
-
     with col1:
-        provider = st.selectbox(
-            "Provider",
-            ["All", "MTN", "Airtel"],
-        )
-
+        provider = st.selectbox("Provider", ["All", "MTN", "Airtel"])
     with col2:
         sort_by = st.selectbox(
-            "Sort by",
-            ["timestamp", "amount", "created_at"],
+            "Sort by", ["timestamp", "amount", "created_at"]
         )
-
     with col3:
-        sort_order = st.selectbox(
-            "Sort order",
-            ["desc", "asc"],
-        )
+        sort_order = st.selectbox("Sort order", ["desc", "asc"])
 
     col4, col5 = st.columns(2)
-
     with col4:
-        date_from = st.date_input(
-            "From date",
-            value=None,
-        )
-
+        date_from = st.date_input("From date", value=None)
     with col5:
-        date_to = st.date_input(
-            "To date",
-            value=None,
-        )
+        date_to = st.date_input("To date", value=None)
 
     col6, col7 = st.columns(2)
-
     with col6:
         min_amount = st.number_input(
-            "Minimum amount (UGX)",
-            min_value=0.0,
-            value=0.0,
+            "Minimum amount (UGX)", min_value=0.0, value=0.0
         )
-
     with col7:
         max_amount = st.number_input(
-            "Maximum amount (UGX)",
-            min_value=0.0,
-            value=0.0,
+            "Maximum amount (UGX)", min_value=0.0, value=0.0,
             help="Leave at zero for no maximum.",
         )
 
     page_size = st.selectbox(
-        "Transactions per page",
-        [10, 20, 50, 100],
-        index=1,
+        "Transactions per page", [10, 20, 50, 100], index=1
     )
-
-    page = st.number_input(
-        "Page",
-        min_value=1,
-        value=1,
-        step=1,
-    )
+    page = st.number_input("Page", min_value=1, value=1, step=1)
 
     filters: dict[str, Any] = {
         "sort_by": sort_by,
         "sort_order": sort_order,
     }
-
     if provider != "All":
         filters["provider"] = provider.lower()
-
     if date_from:
         filters["date_from"] = date_from.isoformat()
-
     if date_to:
         filters["date_to"] = date_to.isoformat()
-
     if min_amount > 0:
         filters["min_amount"] = min_amount
-
     if max_amount > 0:
         filters["max_amount"] = max_amount
-
     if date_from and date_to and date_from > date_to:
         st.error("The start date cannot be after the end date.")
         return
 
     try:
-        # Retrieve categories to translate category IDs into names.
         categories = client.get_categories()
-
         category_names = {
-            category["id"]: category["name"]
-            for category in categories
+            category["id"]: category["name"] for category in categories
         }
-
         result = client.get_transactions(
-            page=int(page),
-            page_size=page_size,
-            **filters,
+            page=int(page), page_size=page_size, **filters,
         )
-
         transactions = result.get("items", [])
+        total_transactions = result.get("total", 0)
 
-        st.write(
-            f"Total transactions: {result.get('total', 0):,}"
-        )
+        metric_col1, metric_col2, metric_col3 = st.columns(3)
+        metric_col1.metric("Matching Transactions", f"{total_transactions:,}")
+        metric_col2.metric("Current Page", f"{result.get('page', page)}")
+        metric_col3.metric("Transactions on Page", f"{len(transactions):,}")
 
         if not transactions:
             st.info("No transactions found for these filters.")
             return
 
-        # Display transaction records with category names.
         display_data = []
-
         for transaction in transactions:
-            category_id = transaction["category_id"]
-
+            category_id = transaction.get("category_id")
             category_name = (
                 category_names.get(category_id, "Unknown Category")
-                if category_id is not None
-                else "Uncategorized"
+                if category_id is not None else "Uncategorized"
             )
+            display_data.append({
+                "Date": format_datetime(transaction.get("timestamp")),
+                "Provider": format_label(transaction.get("provider")).upper(),
+                "Transaction Type": format_label(
+                    transaction.get("transaction_type")
+                ),
+                "Amount": format_currency(transaction.get("amount")),
+                "Fee": (
+                    format_currency(transaction.get("fee"))
+                    if transaction.get("fee") is not None else "—"
+                ),
+                "Balance After": (
+                    format_currency(transaction.get("balance_after"))
+                    if transaction.get("balance_after") is not None else "—"
+                ),
+                "Counterparty": (
+                    transaction.get("counterparty") or "Not specified"
+                ),
+                "Category": category_name,
+                "ID": transaction.get("id"),
+            })
 
-            display_data.append(
-                {
-                    "ID": transaction["id"],
-                    "Date": transaction["timestamp"],
-                    "Provider": transaction["provider"],
-                    "Type": transaction["transaction_type"],
-                    "Amount (UGX)": format_currency(
-                        transaction["amount"]
-                    ),
-                    "Fee (UGX)": (
-                        format_currency(transaction["fee"])
-                        if transaction["fee"] is not None
-                        else "UGX 0"
-                    ),
-                    "Counterparty": (
-                        transaction["counterparty"] or "Unknown"
-                    ),
-                    "Category": category_name,
-                }
-            )
-
+        st.subheader("Transaction Records")
         st.dataframe(
             pd.DataFrame(display_data),
             use_container_width=True,
             hide_index=True,
         )
-
         st.caption(
-            f"Page {result.get('page', page)} of "
-            f"{result.get('pages', 1)}"
+            f"Page {result.get('page', page)} of {result.get('pages', 1)}"
         )
 
-        st.divider()
+        with st.expander("View original SMS messages"):
+            for transaction in transactions:
+                st.markdown(
+                    f"**Transaction #{transaction.get('id')}** · "
+                    f"{format_datetime(transaction.get('timestamp'))}"
+                )
+                st.text(transaction.get("raw_message") or "No original message.")
+                st.divider()
 
-        # Category correction.
+        st.divider()
         st.subheader("Correct Transaction Category")
+        st.caption(
+            "If MoneyLens assigned the wrong category, select the transaction "
+            "and choose the category that best describes it."
+        )
 
         if not categories:
             st.warning("No categories are available.")
             return
 
         category_options = {
-            category["name"]: category["id"]
-            for category in categories
+            category["name"]: category["id"] for category in categories
         }
-
-        transaction_options = {
-            (
-                f"Transaction #{transaction['id']} — "
-                f"{transaction['provider']} — "
-                f"{format_currency(transaction['amount'])}"
-            ): transaction["id"]
-            for transaction in transactions
-        }
+        transaction_by_label = {}
+        for transaction in transactions:
+            current_category_id = transaction.get("category_id")
+            current_category = (
+                category_names.get(current_category_id, "Unknown Category")
+                if current_category_id is not None else "Uncategorized"
+            )
+            label = (
+                f"#{transaction.get('id')} · "
+                f"{format_datetime(transaction.get('timestamp'))} · "
+                f"{format_currency(transaction.get('amount'))} · "
+                f"{current_category}"
+            )
+            transaction_by_label[label] = transaction
 
         with st.form("category_correction_form"):
-            selected_transaction = st.selectbox(
-                "Select transaction",
-                list(transaction_options.keys()),
+            selected_label = st.selectbox(
+                "Select transaction", list(transaction_by_label.keys())
             )
+            selected_transaction = transaction_by_label[selected_label]
+            current_category_id = selected_transaction.get("category_id")
+            current_category_name = (
+                category_names.get(current_category_id, "Unknown Category")
+                if current_category_id is not None else "Uncategorized"
+            )
+            st.info(f"Current category: **{current_category_name}**")
 
+            category_names_list = list(category_options.keys())
+            default_index = 0
+            if current_category_name in category_names_list:
+                default_index = category_names_list.index(current_category_name)
             selected_category = st.selectbox(
-                "Select correct category",
-                list(category_options.keys()),
+                "New category",
+                category_names_list,
+                index=default_index,
             )
-
             submitted = st.form_submit_button(
-                "Save Category Correction",
-                type="primary",
+                "Save Category Correction", type="primary",
             )
-
             if submitted:
-                transaction_id = transaction_options[
-                    selected_transaction
-                ]
-
-                category_id = category_options[
-                    selected_category
-                ]
-
+                category_id = category_options[selected_category]
                 try:
                     client.update_transaction_category(
-                        transaction_id=transaction_id,
+                        transaction_id=selected_transaction["id"],
                         category_id=category_id,
                     )
-
                     st.success(
                         "Transaction category updated successfully."
                     )
                     st.rerun()
-
                 except APIError as exc:
                     show_error(exc)
 
@@ -937,52 +809,33 @@ def transactions_page(client: APIClient) -> None:
 
 def upload_history_page(client: APIClient) -> None:
     """Display previous upload records."""
-
     st.title("Upload History")
-
-    st.caption(
-        "Review your previous mobile money imports."
-    )
-
+    st.caption("Review your previous mobile money imports.")
     try:
-        result = client.get_uploads(
-            page=1,
-            page_size=50,
-        )
-
+        result = client.get_uploads(page=1, page_size=50)
         uploads = result.get("items", [])
-
         if not uploads:
             st.info("You have not uploaded any transactions yet.")
             return
 
         upload_data = []
-
         for upload in uploads:
-            upload_data.append(
-                {
-                    "Upload ID": upload["id"],
-                    "Source": upload["source_type"],
-                    "Filename": upload["filename"] or "Pasted Messages",
-                    "Total": upload["total_messages"],
-                    "Parsed": upload["parsed_count"],
-                    "Duplicates": upload["duplicate_count"],
-                    "Unparsed": upload["unparsed_count"],
-                    "Status": upload["status"],
-                    "Date": upload["created_at"],
-                }
-            )
-
+            upload_data.append({
+                "Upload ID": upload["id"],
+                "Source": format_label(upload["source_type"]),
+                "Filename": upload["filename"] or "Pasted Messages",
+                "Total": upload["total_messages"],
+                "Parsed": upload["parsed_count"],
+                "Duplicates": upload["duplicate_count"],
+                "Unparsed": upload["unparsed_count"],
+                "Status": format_label(upload["status"]),
+                "Date": format_datetime(upload["created_at"]),
+            })
         st.dataframe(
-            pd.DataFrame(upload_data),
-            use_container_width=True,
+            pd.DataFrame(upload_data), use_container_width=True,
             hide_index=True,
         )
-
-        st.caption(
-            f"Total upload records: {result.get('total', 0):,}"
-        )
-
+        st.caption(f"Total upload records: {result.get('total', 0):,}")
     except APIError as exc:
         show_error(exc)
 
@@ -993,51 +846,26 @@ def upload_history_page(client: APIClient) -> None:
 
 def model_page(client: APIClient) -> None:
     """Allow users to retrain their personalized category model."""
-
     st.title("Personalized Categorization")
-
     st.write(
         "MoneyLens can use your category corrections to improve "
         "personalized transaction categorization."
     )
-
     st.info(
         "Correct transaction categories first. Then retrain your "
         "personalized model using those corrections."
     )
-
-    if st.button(
-        "Retrain My Category Model",
-        type="primary",
-    ):
+    if st.button("Retrain My Category Model", type="primary"):
         with st.spinner("Training your personalized model..."):
             try:
                 result = client.retrain_category_model()
-
                 st.success(
-                    result.get(
-                        "message",
-                        "Model trained successfully.",
-                    )
+                    result.get("message", "Model trained successfully.")
                 )
-
                 col1, col2, col3 = st.columns(3)
-
-                col1.metric(
-                    "Model Version",
-                    result.get("model_version", "N/A"),
-                )
-
-                col2.metric(
-                    "Corrections Used",
-                    result.get("corrections_used", 0),
-                )
-
-                col3.metric(
-                    "Training Examples",
-                    result.get("training_examples", 0),
-                )
-
+                col1.metric("Model Version", result.get("model_version", "N/A"))
+                col2.metric("Corrections Used", result.get("corrections_used", 0))
+                col3.metric("Training Examples", result.get("training_examples", 0))
             except APIError as exc:
                 show_error(exc)
 
@@ -1048,24 +876,16 @@ def model_page(client: APIClient) -> None:
 
 def main() -> None:
     """Run the MoneyLens UG application."""
-
     if not st.session_state.access_token:
         authentication_page()
         return
 
     client = get_api_client()
-
     with st.sidebar:
         st.title("MoneyLens UG")
-
         st.caption("Personal Finance Insights")
-
         st.divider()
-
-        st.write(
-            f"Logged in as: {st.session_state.user_email}"
-        )
-
+        st.write(f"Logged in as: {st.session_state.user_email}")
         selected_page = st.radio(
             "Navigation",
             [
@@ -1076,27 +896,18 @@ def main() -> None:
                 "Personalized Model",
             ],
         )
-
         st.divider()
-
-        if st.button(
-            "Logout",
-            use_container_width=True,
-        ):
+        if st.button("Logout", use_container_width=True):
             logout()
 
     if selected_page == "Dashboard":
         dashboard_page(client)
-
     elif selected_page == "Upload Transactions":
         upload_page(client)
-
     elif selected_page == "Transactions":
         transactions_page(client)
-
     elif selected_page == "Upload History":
         upload_history_page(client)
-
     elif selected_page == "Personalized Model":
         model_page(client)
 

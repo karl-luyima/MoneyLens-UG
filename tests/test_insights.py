@@ -356,3 +356,95 @@ def test_insights_summary_only_includes_authenticated_users_transactions(
     assert summary.transaction_count == 1
     assert summary.total_income == Decimal("0.00")
     assert summary.total_expenses == Decimal("10000")
+
+def test_insights_summary_filters_inclusive_date_range(
+    db_session: Session,
+    test_user: User,
+):
+    """Both boundary dates should be included in the selected date range."""
+
+    for day, amount in [
+        (1, "1000"),
+        (2, "2000"),
+        (3, "3000"),
+        (4, "4000"),
+        (5, "5000"),
+    ]:
+        create_transaction(
+            db_session,
+            test_user,
+            None,
+            amount,
+            "send_money",
+            day,
+        )
+
+    summary = generate_insights_summary(
+        db=db_session,
+        user_id=test_user.id,
+        start_date=datetime(2026, 11, 2).date(),
+        end_date=datetime(2026, 11, 4).date(),
+    )
+
+    assert summary.transaction_count == 3
+    assert summary.total_expenses == Decimal("9000")
+
+
+def test_insights_summary_filters_from_start_date(
+    db_session: Session,
+    test_user: User,
+):
+    """Transactions before the start date should be excluded."""
+
+    for day, amount in [
+        (1, "1000"),
+        (2, "2000"),
+        (3, "3000"),
+    ]:
+        create_transaction(
+            db_session,
+            test_user,
+            None,
+            amount,
+            "send_money",
+            day,
+        )
+
+    summary = generate_insights_summary(
+        db=db_session,
+        user_id=test_user.id,
+        start_date=datetime(2026, 11, 2).date(),
+    )
+
+    assert summary.transaction_count == 2
+    assert summary.total_expenses == Decimal("5000")
+
+
+def test_insights_summary_filters_until_end_date(
+    db_session: Session,
+    test_user: User,
+):
+    """Transactions after the end date should be excluded."""
+
+    for day, amount in [
+        (1, "1000"),
+        (2, "2000"),
+        (3, "3000"),
+    ]:
+        create_transaction(
+            db_session,
+            test_user,
+            None,
+            amount,
+            "send_money",
+            day,
+        )
+
+    summary = generate_insights_summary(
+        db=db_session,
+        user_id=test_user.id,
+        end_date=datetime(2026, 11, 2).date(),
+    )
+
+    assert summary.transaction_count == 2
+    assert summary.total_expenses == Decimal("3000")
